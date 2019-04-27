@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Open Sans';
+  src        : url("../fonts/OpenSans-Regular.woff2") format('woff2'), url("../fonts/OpenSans-Regular.woff") format('woff');
+  font-weight: normal;
+  font-style : normal;
+}
+
+.font26 {
+  font-size: 26px;
+}
+
+.font24 {
+  font-size: 24px;
+}
+
+.font20 {
+  font-size: 20px;
+}
+
+.font18 {
+  font-size: 18px;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.font12 {
+  font-size: 12px;
+}
+/*文字省略号*/
+.text-hidden {
+  display      : block;
+  white-space  : nowrap;
+  overflow     : hidden;
+  text-overflow: ellipsis;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

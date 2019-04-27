@@ -1,0 +1,68 @@
+$height: 140px;
+$width: 220px;
+
+.news-pic-item {
+  overflow: hidden;
+
+  a {
+    position  : relative;
+    display   : block;
+    min-height: $height;
+
+    .pic {
+      width              : $width;
+      height             : $height;
+      position           : absolute;
+      left               : 0;
+      top                : 0;
+      background-position: center;
+      background-size    : cover;
+      background-repeat  : no-repeat;
+    }
+
+    .inner {
+      padding-left: $width + 15;
+      overflow    : hidden;
+
+      .title {}
+
+      .des {
+        line-height: 1.5em;
+        height     : 1.5 * 4em;
+        overflow   : hidden;
+      }
+    }
+    @include max-screen(480px) {
+      .pic {
+        position      : relative;
+        width         : 100%;
+        height        : 0;
+        padding-bottom: 50%;
+      }
+
+      .inner {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.news-item {
+  a {
+    display : block;
+    position: relative;
+
+    span {
+      &.title {
+        display      : block;
+        padding-right: 6em;
+      }
+
+      &.time {
+        position: absolute;
+        right   : 0;
+        top     : 0;
+      }
+    }
+  }
+}

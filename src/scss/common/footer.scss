@@ -1,0 +1,13 @@
+footer {
+  background-color: #007FFF;
+  height          : 60px;
+  line-height     : 60px;
+  color           : #fff;
+  transition      : $tr4;
+  position        : relative;
+  z-index         : 1;
+
+  a {
+    color: #fff;
+  }
+}

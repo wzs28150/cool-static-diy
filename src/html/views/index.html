@@ -1,0 +1,17 @@
+<% var data = {
+  title: "cool web"
+}; %>
+<%= _.template(require('../includes/header.html'))(data) %>
+<main class="main page-animate">
+  <article class="index" data-controller="index">
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        console.log('我是index页面上的js,我发誓我能被加载!')
+      });
+
+    </script>
+  </article>
+</main>
+
+<%= _.template(require('../includes/footer.html'))(data) %>
