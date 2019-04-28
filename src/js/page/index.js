@@ -11,13 +11,22 @@
 import debug from '../components/debug/debug'; // 控制台调试
 
 export default class Index {
-  constructor(setNavActive) {
+  constructor(setNavActive, setData) {
     // 设置导航第几个选中
     setNavActive(0);
     // 控制台输出信息 方便调试页面是否加载
     debug('index controller is load');
-    pajax.get(promiseHost + '/index').then(res => res.auto()).then(body => {
-      console.log(body);
+    let that = this;
+    pajax.get(promiseHost + '/index', {
+      headers: {
+        token: token
+      }
+    }).then(res => res.auto()).then(res => {
+      if (res.code == 200) {
+        let data = res.data;
+        that.serialized_data = data.serialized_data;
+        setData(data.serialized_data, data.diy);
+      }
     });
   }
 

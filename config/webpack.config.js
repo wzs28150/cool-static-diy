@@ -139,10 +139,13 @@ module.exports = {
       {
         from: './src/scss/lib',
         to: './css/lib'
+    }, {
+        from: './src/scss/lib',
+        to: './css/lib'
     },
       {
-        from: './src/favicon',
-        to: './favicon'
+        from: './src/html/tpl',
+        to: './tpl'
     },
       {
         from: './src/img',

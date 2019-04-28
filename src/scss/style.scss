@@ -1,11 +1,11 @@
 // @import '~normalize.css';
-// @import './includes/swiper';
-// @import 'flexboxgrid/dist/flexboxgrid.min.css';
+// @import './core/swiper'; // @import 'flexboxgrid/dist/flexboxgrid.min.css';
 // @import 'loaders.css/loaders.min.css';
 // @import 'aos/dist/aos.css';
-// @import '/common/nprogress';
-// @import './includes/base';
-// @import './includes/mp';
+// @import './core/nprogress';
+// @import './core/base';
+// @import './core/mp';
+// @import './core/gridstack';
 @import './includes/vars';
 @import './includes/mixins';
 @import './includes/fonts';

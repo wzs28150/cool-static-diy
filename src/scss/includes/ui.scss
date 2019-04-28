@@ -17,7 +17,6 @@ strong {
   font-weight: bold;
 }
 /*表格*/
-
 table {
   border-top     : 1pt solid #ebebeb;
   border-left    : 1pt solid #ebebeb;
@@ -39,6 +38,7 @@ table {
   }
 }
 /*水平垂直居中*/
+
 .wh-center {
   display            : -webkit-box;
   display            : -ms-flexbox;
@@ -53,6 +53,7 @@ table {
   align-items        : center;
 }
 /*垂直居中*/
+
 .h-center {
   display            : -webkit-box;
   display            : -ms-flexbox;
@@ -64,6 +65,7 @@ table {
   align-items        : center;
 }
 /*分组父级*/
+
 .felx-box {
   display              : -webkit-box;
   -webkit-box-orient   : horizontal;
@@ -75,6 +77,7 @@ table {
   align-items          : left;
 }
 /*分组子级*/
+
 .felx-item {
   -webkit-box-flex: 1;
   flex-basis      : 1;
@@ -83,7 +86,6 @@ table {
   flex            : 1 1 1;
 }
 /*pc*/
-
 .pc {
   display: block!important;
   @media screen and (max-width: 768px) {
@@ -91,6 +93,7 @@ table {
   }
 }
 /*手机*/
+
 .wap {
   display: none!important;
   @media screen and (max-width: 768px) {
@@ -98,7 +101,6 @@ table {
   }
 }
 /*容器*/
-
 .container {
   @include css-set($container-width);
   margin  : 0 auto;
@@ -123,6 +125,7 @@ table {
   margin: 0 auto;
 }
 /*浮动*/
+
 .fl {
   float: left;
 }
@@ -238,7 +241,6 @@ main {
   }
 }
 /*上一篇下一篇*/
-
 .page_up_down {
   height     : 46px;
   line-height: 46px;
@@ -268,7 +270,6 @@ main {
   }
 }
 /*分页*/
-
 .pagination {
   text-align: center;
   margin-top: 25px;
@@ -311,5 +312,52 @@ main {
 
   .code {
     overflow-x: scroll;
+  }
+}
+
+.diy {
+  .grid-stack-item {
+    &:hover {
+      // box-shadow: 0 0 1px #ccc;
+      .ui-resizable-w {
+        display: block;
+      }
+    }
+
+    .ui-resizable-w {
+      position               : absolute;
+      width                  : 40px;
+      height                 : 20px;
+      right                  : 15px;
+      left                   : auto;
+      top                    : 5px;
+      color                  : gray;
+      text-align             : right;
+      font                   : normal normal normal 10px/1 FontAwesome;
+      font-size              : inherit;
+      text-rendering         : auto;
+      -webkit-font-smoothing : antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display                : none;
+
+      .fa {
+        width  : 20px;
+        display: inline-block;
+        cursor : pointer;
+      }
+    }
+
+    .ui-resizable-se {
+      right : 15px;
+      bottom: 5px;
+    }
+
+    .grid-stack-item-content {
+      border: 1px dashed #007fff;
+    }
+  }
+
+  .grid-stack-item-content {
+    // background-color: #007fff;
   }
 }

@@ -251,9 +251,22 @@ export default class Cool {
       const controllerjs = require(`../page/${controller}`);
       const index = new controllerjs.default((a) => {
         this.navActive(a);
-      }, (data = [],diy = 0) => {
-        let grid = new Grid(data,diy);
-        grid.index();
+        pajax.get(promiseHost + '/index', {
+          headers: {
+            token: token
+          }
+        }).then(res => res.auto()).then(res => {
+          if (res.code == 200) {
+            let data = res.data;
+            let grid = new Grid(data.serialized_data, data.diy);
+            grid.index();
+          }
+        });
+
+      }, (data = [], diy = 0) => {
+
+      }, function () {
+
       });
       const str1 = `index.${action}();`;
       eval(str1);

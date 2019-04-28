@@ -9,12 +9,20 @@
   <link href="css/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/lib/common.css">
   <link rel="stylesheet" href="css/coolstyle.css">
-  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/jquery.1.11.1.min.js"></script>
+  <script src="js/lib/jquery-ui.min.js"></script>
   <script src="js/lib/swiper.min.js"></script>
   <script src="js/lib/jquery.nicescroll.js"></script>
+  <script src="js/lib/lodash.min.js"></script>
+  <script src="js/lib/knockout-min.js"></script>
+  <script src="js/lib/gridstack.min.js"></script>
+  <script src="js/lib/jsrender.min.js"></script>
   <title>
     <%=title%>
   </title>
+  <script type="text/javascript">
+    let token = 'qeqweqweqweqwe';
+  </script>
 </head>
 
 <body>
@@ -28,7 +36,19 @@
   </div>
   <!-- 弹窗 -->
   <input type="checkbox" id="navshow">
-
+  <div class="diy-bar">
+    <div class="inner">
+      <div class="title fl">编辑页面</div>
+      <div class="add-bar fl">
+        <a href=""><i class="fa fa-plus"></i>添加模块</a>
+      </div>
+      <div class="ctrl fr">
+        <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
+        <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
+        <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
+      </div>
+    </div>
+  </div>
   <header>
     <div class="container">
       <div class="logo">
@@ -40,7 +60,6 @@
         <a href="components.html">组件</a>
         <a href="pages.html">页面</a>
         <a data-ajax="no" href="javascript:void(0);">案例</a>
-        <iframe src="https://ghbtns.com/github-btn.html?user=wzs28150&repo=cool-static-cli&type=star&count=false&size=large" frameborder="0" scrolling="0" width="75px" height="30px" style="margin-top:15px; float:right;"></iframe>
       </nav>
       <label for="navshow" class="navbar wap">
         <div class="menu">
