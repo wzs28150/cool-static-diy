@@ -1,82 +1,101 @@
 <!doctype html>
 <html lang="zh-CN">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="icon" type="image/png" href="favicon/favicon.png">
-  <link href="css/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/lib/common.css">
-  <link rel="stylesheet" href="css/coolstyle.css">
-  <script src="js/lib/jquery.1.11.1.min.js"></script>
-  <script src="js/lib/jquery-ui.min.js"></script>
-  <script src="js/lib/swiper.min.js"></script>
-  <script src="js/lib/jquery.nicescroll.js"></script>
-  <script src="js/lib/lodash.min.js"></script>
-  <script src="js/lib/knockout-min.js"></script>
-  <script src="js/lib/gridstack.min.js"></script>
-  <script src="js/lib/jsrender.min.js"></script>
-  <title>
-    <%=title%>
-  </title>
-  <script type="text/javascript">
-    let token = 'qeqweqweqweqwe';
-  </script>
-</head>
+    <link rel="icon" type="image/png" href="favicon/favicon.png">
+    <link href="css/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/lib/common.css">
+    <link rel="stylesheet" href="css/coolstyle.css">
+    <script src="js/lib/jquery.1.11.1.min.js"></script>
+    <script src="js/lib/jquery-ui.min.js"></script>
+    <script src="js/lib/swiper.min.js"></script>
+    <script src="js/lib/jquery.nicescroll.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/knockout-min.js"></script>
+    <script src="js/lib/gridstack.min.js"></script>
+    <script src="js/lib/jsrender.min.js"></script>
+    <title>
+      <%=title%>
+    </title>
+    <script type="text/javascript">
+      let token = 'qeqweqweqweqwe';
 
-<body>
-  <!-- 弹窗 -->
-  <div class="alert_player" style="display:none;">
-    <div class="bg"></div>
-    <div class="layer">
-      <div class="info"></div>
-      <a class="queren_btn" data-ajax="no">确认</a>
-    </div>
-  </div>
-  <!-- 弹窗 -->
-  <input type="checkbox" id="navshow">
-  <div class="diy-bar">
-    <div class="inner">
-      <div class="title fl">编辑页面</div>
-      <div class="add-bar fl">
-        <a href=""><i class="fa fa-plus"></i>添加模块</a>
-      </div>
-      <div class="ctrl fr">
-        <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
-        <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
-        <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
+    </script>
+  </head>
+
+  <body>
+    <!-- 弹窗 -->
+    <div class="alert_player" style="display:none;">
+      <div class="bg"></div>
+      <div class="layer">
+        <div class="info"></div>
+        <a class="queren_btn" data-ajax="no">确认</a>
       </div>
     </div>
-  </div>
-  <header>
-    <div class="container">
-      <div class="logo">
-        <h2>cool web</h2>
-      </div>
-      <nav>
-        <a href="index.html">首页</a>
-        <a href="start.html">起步</a>
-        <a href="components.html">组件</a>
-        <a href="pages.html">页面</a>
-        <a data-ajax="no" href="javascript:void(0);">案例</a>
-      </nav>
-      <label for="navshow" class="navbar wap">
-        <div class="menu">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"> </div>
+    <!-- 弹窗 -->
+    <input type="checkbox" id="navshow">
+    <div class="diy-bar">
+      <div class="inner">
+        <div class="title fl">编辑页面</div>
+        <div class="add-bar fl">
+          <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-plus"></i>添加模块</a>
+          <div class="grid-list">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+                <div class="swiper-slide">Slide 10</div>
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
         </div>
-      </label>
-      <div class="shadow wap"></div>
-    </div>
-  </header>
-
-  <div class="loaders">
-    <div class="loader">
-      <div class="ball-clip-rotate-multiple">
-        <div></div>
-        <div></div>
+        <div class="ctrl fr">
+          <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
+          <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
+          <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
+        </div>
       </div>
     </div>
-  </div>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h2>cool web</h2>
+        </div>
+        <nav>
+          <a href="index.html">首页</a>
+          <a href="start.html">起步</a>
+          <a href="components.html">组件</a>
+          <a href="pages.html">页面</a>
+          <a data-ajax="no" href="javascript:void(0);">案例</a>
+        </nav>
+        <label for="navshow" class="navbar wap">
+          <div class="menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"> </div>
+          </div>
+        </label>
+        <div class="shadow wap"></div>
+      </div>
+    </header>
+
+    <div class="loaders">
+      <div class="loader">
+        <div class="ball-clip-rotate-multiple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>

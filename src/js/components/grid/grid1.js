@@ -40,43 +40,23 @@ export default class Grid {
     $('body').off('click', '#clear-grid').on('click', '#clear-grid', function() {
       that.clear_grid();
     })
-
-    $('body').off('click', '#add-grid').on('click', '#add-grid', function() {
-      that.add_new_widget();
-    })
-
     that.delete_widget();
   }
-
-  grid_list() {
-    var swiper = new Swiper('.grid-list .swiper-container', {
-      pagination: '.grid-list .swiper-pagination',
-      slidesPerView: 3,
-      paginationClickable: true,
-      spaceBetween: 30
-    });
-  }
-
-
   load_grid() {
     var that = this;
     this.grid.remove_all();
     var items = GridStackUI.Utils.sort(this.serialized_data);
     _.each(items, function(node) {
+      console.log(node.template);
       var str = '';
       $.get("./tpl/" + node.template + ".html", function(e) {
         var t = $.templates(e);
-        $.get(promiseHost + "/get_widget_datalist?catid=" + node.catid, function(res) {
-          if (res.code == 200) {
-            if (that.type == 1) {
-              str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
-            } else {
-              str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
-            }
-            that.grid.add_widget($(str), node.x, node.y, node.width, node.height, false, node.template, node.template_id, node.catid);
-          }
-        }, 'json')
-
+        if (that.type == 1) {
+          str = '<div><div class="grid-stack-item-content"  />' + t.render(node.data) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
+        } else {
+          str = '<div><div data-gs-no-move="1" data-gs-no-resize="1"><div class="grid-stack-item-content"  >' + t.render(node.data) + '</div>'
+        }
+        that.grid.add_widget($(str), node.x, node.y, node.width, node.height);
       });
 
     }, that);
@@ -86,15 +66,11 @@ export default class Grid {
     this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function(el) {
       el = $(el);
       var node = el.data('_gridstack_node');
-      console.log(node);
       return {
         x: node.x,
         y: node.y,
         width: node.width,
-        height: node.height,
-        template: node.template,
-        template_id: node.template_id,
-        catid: node.catid
+        height: node.height
       };
     }, this);
     console.log(JSON.stringify(this.serialized_data));
@@ -105,11 +81,13 @@ export default class Grid {
   }
 
   add_new_widget() {
-    $('.grid-list').fadeToggle();
-    this.grid_list()
-    // this.grid.add_widget(
-    //
-    // )
+    this.widgets.push({
+      x: 0,
+      y: 0,
+      width: Math.floor(1 + 3 * Math.random()),
+      height: Math.floor(1 + 3 * Math.random()),
+      auto_position: true
+    });
   }
 
   delete_widget() {

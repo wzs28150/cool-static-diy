@@ -30,6 +30,8 @@ export default class Cool {
     this.pageAnimate();
     // 加载当前路由
     this.router($('main').children().data('controller'), $('main').children().data('action') ? $('main').children().data('action') : 'index', false);
+
+    // this.grid_list();
     // 无刷新设置
     this.no_refresh('main', (controller, action) => {
       // 新页面路由
@@ -38,7 +40,11 @@ export default class Cool {
       AOS.refresh();
       // 滚动动画调用
       AOS.init();
+
+      // this.grid_list();
     });
+
+
   }
   // 版权
   copyright() {
@@ -68,7 +74,7 @@ export default class Cool {
           icon: 'copyright'
         },
       },
-      callback: function (res) {
+      callback: function(res) {
         if (res.data == 'refresh') {
           window.location.reload();
         } else if (res.data == 'back') {
@@ -129,6 +135,15 @@ export default class Cool {
     $('nav a').removeClass('on');
     $('nav a').eq(i).addClass('on');
   }
+
+  grid_list() {
+    var swiper = new Swiper('.grid-list .swiper-container', {
+      pagination: '.grid-list .swiper-pagination',
+      slidesPerView: 3,
+      paginationClickable: true,
+      spaceBetween: 30
+    });
+  }
   /**
    * 无刷新控制开始
    *  a 标签 设置 :
@@ -144,7 +159,7 @@ export default class Cool {
     let scrollTo = 0;
     let jump = 'yes';
     const that = this;
-    $(document).off('click', 'a[data-nopjax!=no]').on('click', 'a[data-nopjax!=no]', function (event) {
+    $(document).off('click', 'a[data-nopjax!=no]').on('click', 'a[data-nopjax!=no]', function(event) {
       const href = window.location.href;
       event.preventDefault();
       url = $(this).attr('href');
@@ -251,8 +266,8 @@ export default class Cool {
       const controllerjs = require(`../page/${controller}`);
       const index = new controllerjs.default((a) => {
         this.navActive(a);
-      }, (data = [],diy = 0) => {
-        let grid = new Grid(data,diy);
+      }, (data = [], diy = 0) => {
+        let grid = new Grid(data, diy);
         grid.index();
       });
       const str1 = `index.${action}();`;
