@@ -1,3 +1,7 @@
+* {
+  touch-action: pan-y;
+}
+
 html {
   height                : 100%;
   overflow              : hidden;
@@ -374,7 +378,12 @@ main {
     }
 
     .grid-stack-item-content {
-      border: 1px dashed #007fff;
+      // border  : 1px dashed #007fff;
+      overflow: hidden;
+
+      &:hover {
+        box-shadow: 0 0 2px #007fff inset;
+      }
     }
   }
 

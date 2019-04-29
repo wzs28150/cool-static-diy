@@ -1,0 +1,12 @@
+{
+  "list":[
+    {
+      "template_id":1,
+      "template": "news1",
+    },
+    {
+      "template_id":2,
+      "template": "ad_pic"
+    }
+  ]
+}

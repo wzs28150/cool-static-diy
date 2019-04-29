@@ -20,8 +20,8 @@ export default class Cool {
   constructor() {
     // 调用版权
     this.copyright();
-    // 设置右键菜单 防止被查看源代码 (防君子难防小人)
-    // this.rightMenu();
+    // 设置右键菜单 防止被查看源;\代码 (防君子难防小人)
+    this.rightMenu();
     // 设置滚动条
     this.scroller();
     // 滚动动画调用
@@ -112,7 +112,7 @@ export default class Cool {
   // 滚动条
   scroller() {
     $('html').niceScroll({
-      cursorcolor: '#065fe3',
+      cursorcolor: '#1479d7',
       zindex: 10
     });
     $('html').getNiceScroll(0).resize();
