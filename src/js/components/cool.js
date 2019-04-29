@@ -21,7 +21,7 @@ export default class Cool {
     // 调用版权
     this.copyright();
     // 设置右键菜单 防止被查看源代码 (防君子难防小人)
-    this.rightMenu();
+    // this.rightMenu();
     // 设置滚动条
     this.scroller();
     // 滚动动画调用

@@ -10,6 +10,7 @@ body {
   font-family           : $font-stack;
   -webkit-font-smoothing: antialiased;
   scroll-behavior       : smooth;
+  background-color      : #fff;
 }
 
 a {
@@ -125,6 +126,24 @@ table {
   @include css-set($container-width);
   margin: 0 auto;
 }
+
+article {
+  & > .container {
+    @include css-set($container-width2);
+  }
+
+  & > .container-without-overflow {
+    @include css-set($container-width2);
+  }
+
+  & > .container-without-position {
+    @include css-set($container-width2);
+  }
+
+  & > .container-without-all {
+    @include css-set($container-width2);
+  }
+}
 /*浮动*/
 .fl {
   float: left;
@@ -150,7 +169,7 @@ table {
 }
 
 main {
-  background-color: #efefef;
+  background-color: #fff;
   position        : relative;
   z-index         : 1;
   overflow        : hidden;

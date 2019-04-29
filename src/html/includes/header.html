@@ -14,7 +14,7 @@
     <script src="js/lib/swiper.min.js"></script>
     <script src="js/lib/jquery.nicescroll.js"></script>
     <script src="js/lib/lodash.min.js"></script>
-    <script src="js/lib/knockout-min.js"></script>
+    <script src="js/lib/jquery.zxxPageRuler.1.1.js"></script>
     <script src="js/lib/gridstack.min.js"></script>
     <script src="js/lib/jsrender.min.js"></script>
     <title>
@@ -22,7 +22,6 @@
     </title>
     <script type="text/javascript">
       let token = 'qeqweqweqweqwe';
-
     </script>
   </head>
 
@@ -36,12 +35,11 @@
       </div>
     </div>
     <!-- 弹窗 -->
-    <input type="checkbox" id="navshow">
     <div class="diy-bar">
       <div class="inner">
         <div class="title fl">编辑页面</div>
         <div class="add-bar fl">
-          <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-plus"></i>添加模块</a>
+          <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-angle-down"></i>添加模块</a>
           <div class="grid-list">
             <div class="swiper-container">
               <div class="swiper-wrapper">
@@ -68,28 +66,15 @@
         </div>
       </div>
     </div>
-    <header>
+    <div class="header-bar">
       <div class="container">
-        <div class="logo">
-          <h2>cool web</h2>
+        <div class="fl">欢迎来到黑龙江消费网！</div>
+        <div class="fr">
+          <a href="">设置首页</a><span>|</span>
+          <a href=""><i class="fa fa-star-o"></i>收藏本站</a>
         </div>
-        <nav>
-          <a href="index.html">首页</a>
-          <a href="start.html">起步</a>
-          <a href="components.html">组件</a>
-          <a href="pages.html">页面</a>
-          <a data-ajax="no" href="javascript:void(0);">案例</a>
-        </nav>
-        <label for="navshow" class="navbar wap">
-          <div class="menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"> </div>
-          </div>
-        </label>
-        <div class="shadow wap"></div>
       </div>
-    </header>
+    </div>
 
     <div class="loaders">
       <div class="loader">

@@ -20,6 +20,9 @@ export default class Grid {
     this.type = type;
     if (this.type == 1) {
       $('body').addClass('diy');
+      $.pageRuler({
+            v: ["360px", "960px", "1560px"]			
+        });
     }
     this.grid = $('.grid-stack').data('gridstack');
   }
@@ -29,19 +32,19 @@ export default class Grid {
     // 加载板块
     this.load_grid();
     // 点击保存
-    $('body').off('click', '#save-grid').on('click', '#save-grid', function() {
+    $('body').off('click', '#save-grid').on('click', '#save-grid', function () {
       that.save_grid();
     })
     // 重做
-    $('body').off('click', '#load-grid').on('click', '#load-grid', function() {
+    $('body').off('click', '#load-grid').on('click', '#load-grid', function () {
       that.load_grid();
     })
     // 清空
-    $('body').off('click', '#clear-grid').on('click', '#clear-grid', function() {
+    $('body').off('click', '#clear-grid').on('click', '#clear-grid', function () {
       that.clear_grid();
     })
 
-    $('body').off('click', '#add-grid').on('click', '#add-grid', function() {
+    $('body').off('click', '#add-grid').on('click', '#add-grid', function () {
       that.add_new_widget();
     })
 
@@ -62,11 +65,11 @@ export default class Grid {
     var that = this;
     this.grid.remove_all();
     var items = GridStackUI.Utils.sort(this.serialized_data);
-    _.each(items, function(node) {
+    _.each(items, function (node) {
       var str = '';
-      $.get("./tpl/" + node.template + ".html", function(e) {
+      $.get("./tpl/" + node.template + ".html", function (e) {
         var t = $.templates(e);
-        $.get(promiseHost + "/get_widget_datalist?catid=" + node.catid, function(res) {
+        $.get(promiseHost + "/get_widget_datalist?catid=" + node.catid, function (res) {
           if (res.code == 200) {
             if (that.type == 1) {
               str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
@@ -83,7 +86,7 @@ export default class Grid {
   }
 
   save_grid() {
-    this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function(el) {
+    this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
       el = $(el);
       var node = el.data('_gridstack_node');
       console.log(node);
@@ -106,6 +109,8 @@ export default class Grid {
 
   add_new_widget() {
     $('.grid-list').fadeToggle();
+    $('#add-grid i').toggleClass('fa-angle-down').toggleClass('fa-angle-up')
+
     this.grid_list()
     // this.grid.add_widget(
     //
@@ -114,7 +119,7 @@ export default class Grid {
 
   delete_widget() {
     var that = this;
-    $('body').off('click', '.grid-stack-item  .fa-trash').on('click', '.grid-stack-item  .fa-trash', function() {
+    $('body').off('click', '.grid-stack-item  .fa-trash').on('click', '.grid-stack-item  .fa-trash', function () {
       that.grid.remove_widget($(this).parent().parent())
     })
   }
