@@ -13,13 +13,14 @@
 export default class Grid {
   constructor(data, type) {
     let options = {
-      vertical_margin:0,
-      cell_height:1
+      vertical_margin: 0,
+      cell_height: 1
     };
     $('.grid-stack').gridstack(options);
     this.serialized_data = data;
     this.type = type;
     if (this.type == 1) {
+      // 开启编辑模式
       $('body').addClass('diy').addClass('hasRuler');
       $.pageRuler({
         v: ["360px", "960px", "1560px"],
@@ -64,12 +65,30 @@ export default class Grid {
   }
 
   grid_list() {
-    var swiper = new Swiper('.grid-list .swiper-container', {
-      pagination: '.grid-list .swiper-pagination',
-      slidesPerView: 3,
-      paginationClickable: true,
-      spaceBetween: 30
+    console.log(host + "/tpl/tpl.json");
+    let str = "";
+    $.getJSON(tplpath + '/tpl.json', function(result) {
+      $.each(result.list, function(i, field) {
+        str += '<div class="swiper-slide">';
+        str += '  <div class="slide-inner" style="background-image:url(' + host + '/tpl/' + field.template + '/ico.jpg)">'
+        str += '    <div class="bg wh-center">'
+        str += '      <div>'
+        str += '        <h2>' + field.title + '</h2>'
+        str += '        <button type="button" name="button" data-template="' + field.template + '"><i class="fa fa-plus"></i>添加</button>'
+        str += '      </div>'
+        str += '    </div>'
+        str += '  </div>'
+        str += '</div>'
+      });
+      $('.grid-list .swiper-wrapper').html(str);
+      var swiper = new Swiper('.grid-list .swiper-container', {
+        pagination: '.grid-list .swiper-pagination',
+        slidesPerView: 6,
+        paginationClickable: true,
+        spaceBetween: 20
+      });
     });
+
   }
 
 
@@ -79,8 +98,8 @@ export default class Grid {
     var items = GridStackUI.Utils.sort(this.serialized_data);
     _.each(items, function(node) {
       var str = '';
-      $.get("./tpl/" + node.template + ".html", function(e) {
-        var t = $.templates(e);
+      $.get(tplpath + "/" + node.template + "/index.html", function(e) {
+        let t = $.templates(e);
         $.get(promiseHost + "/get_widget_datalist?catid=" + node.catid, function(res) {
           if (res.code == 200) {
             if (that.type == 1) {
@@ -119,11 +138,43 @@ export default class Grid {
     this.grid.remove_all();
   }
 
-  add_new_widget() {
+  grid_list_toggle(){
     $('.grid-list').fadeToggle();
     $('#add-grid i').toggleClass('fa-angle-down').toggleClass('fa-angle-up')
+  }
 
-    this.grid_list()
+  add_new_widget() {
+    let that = this;
+    that.grid_list_toggle();
+    that.grid_list()
+    $('body').off('click', '.diy-bar .grid-list .swiper-container .swiper-slide  button').on('click', '.diy-bar .grid-list .swiper-container .swiper-slide  button', function() {
+      let template = $(this).data('template');
+      let str = '';
+      $.get(tplpath + "/" + template + "/form.html", function(e) {
+        let t = $.templates(e);
+        $.get(promiseHost + "/get_catid", function(res) {
+          if(!$('.add-widget-form').length){
+            str += '<div class="add-widget-bg"></div>';
+            str += '<div class="add-widget-form">';
+            str += '  <div class="add-widget-form-close fa fa-close"></div>';
+            str += '  <div class="inner">' + t.render(res) + '</div>';
+            str += '</div>';
+            $('body').append(str);
+            that.grid_list_toggle();
+          }
+        });
+
+      })
+    });
+
+    $('body').off('click', '.add-widget-form .add-widget-form-close,.add-widget-bg').on('click', '.add-widget-form .add-widget-form-close,.add-widget-bg', function() {
+      $('.add-widget-form').fadeOut('slow', function() {
+        $('.add-widget-form').remove()
+      })
+      $('.add-widget-bg').fadeOut('slow', function() {
+        $('.add-widget-bg').remove()
+      })
+    })
     // this.grid.add_widget(
     //
     // )

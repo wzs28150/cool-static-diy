@@ -14,7 +14,7 @@
   <script src="js/lib/swiper.min.js"></script>
   <script src="js/lib/jquery.nicescroll.js"></script>
   <script src="js/lib/lodash.min.js"></script>
-  <script src="js/lib/knockout-min.js"></script>
+  <script src="js/lib/jquery.zxxPageRuler.1.1.js"></script>
   <script src="js/lib/gridstack.min.js"></script>
   <script src="js/lib/jsrender.min.js"></script>
   <title>
@@ -25,7 +25,7 @@
   </script>
 </head>
 
-<body>
+<body id="zxxScaleBox">
   <!-- 弹窗 -->
   <div class="alert_player" style="display:none;">
     <div class="bg"></div>
@@ -35,42 +35,39 @@
     </div>
   </div>
   <!-- 弹窗 -->
-  <input type="checkbox" id="navshow">
   <div class="diy-bar">
     <div class="inner">
       <div class="title fl">编辑页面</div>
       <div class="add-bar fl">
-        <a href=""><i class="fa fa-plus"></i>添加模块</a>
+        <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-angle-down"></i>添加模块</a>
+        <div class="grid-list">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-black"></div>
+          </div>
+        </div>
       </div>
       <div class="ctrl fr">
+        <a id="show-ruler" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-ruler"></i>标尺</a>
+        <a id="show-line" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-bars"></i>辅助线</a>
         <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
         <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
         <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
       </div>
     </div>
   </div>
-  <header>
+  <div class="header-bar">
     <div class="container">
-      <div class="logo">
-        <h2>cool web</h2>
+      <div class="fl">欢迎来到黑龙江消费网！</div>
+      <div class="fr">
+        <a href="">设置首页</a><span>|</span>
+        <a href=""><i class="fa fa-star-o"></i>收藏本站</a>
       </div>
-      <nav>
-        <a href="index.html">首页</a>
-        <a href="start.html">起步</a>
-        <a href="components.html">组件</a>
-        <a href="pages.html">页面</a>
-        <a data-ajax="no" href="javascript:void(0);">案例</a>
-      </nav>
-      <label for="navshow" class="navbar wap">
-        <div class="menu">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"> </div>
-        </div>
-      </label>
-      <div class="shadow wap"></div>
     </div>
-  </header>
+  </div>
 
   <div class="loaders">
     <div class="loader">
@@ -466,9 +463,93 @@ bgParallax: true
   </main>
 
   <footer>
-    <div class="container">
-      <span class="fl">技术支持:<a data-ajax="no" href="http://www.hrbkcwl.com/">酷创网络</a></span>
-      <span class="fr">© 2019 cool Ltd. all right</span>
+    <div class="link p_T20 p_B10">
+      <div class="container">
+        <div class="item p_B10">
+          <div class="tit">权威链接:</div>
+          <div class="inner">
+            <a href="">国家工商总局</a>
+            <a href="">中国消费者协会</a>
+            <a href="">全国打假网</a>
+            <a href="">国家统计局</a>
+            <a href="">国家发展改革委员会</a>
+            <a href="">国家旅游局</a>
+            <a href="">国家安全部</a>
+            <a href="">国家质检总局</a>
+            <a href="">黑龙江省工商局</a>
+            <a href="">黑龙江省卫生厅</a>
+            <a href="">省食品药品监督管理局</a>
+            <a href="">黑龙江省统计局</a>
+            <a href="">黑龙江省物价局</a>
+            <a href="">省质量技术监督局</a>
+            <a href="">黑龙江省旅游局</a>
+            <a href="">国家卫生部</a>
+            <a href="">哈尔滨市工商局</a>
+            <a href="">哈尔滨市公安局</a>
+            <a href="">哈尔滨市物价局</a>
+            <a href="">哈尔滨市统计局</a>
+            <a href="">市政府法制信息网</a>
+            <a href="">市食品药品监督管理局</a>
+            <a href="">哈尔滨市商务局</a>
+            <a href="">哈尔滨市卫生局</a>
+          </div>
+        </div>
+        <div class="item p_B10">
+          <div class="tit">合作网站：</div>
+          <div class="inner">
+            <a href="">上海市消费者协会</a>
+            <a href="">浙江省消费者协会</a>
+            <a href="">山东省消费者协会</a>
+            <a href="">海南省消费者委员会</a>
+            <a href="">吉林省消费者协会</a>
+            <a href="">安徽省消费者协会</a>
+            <a href="">云南省消费者协会</a>
+            <a href="">辽宁省消费者协会</a>
+            <a href="">成都市消费者协会</a>
+            <a href="">河北省消费者歇会</a>
+            <a href="">贵州省消费者协会</a>
+            <a href="">甘肃省消费者协会</a>
+            <a href="">黑龙江省消费者协会</a>
+            <a href="">江西省消费者协会</a>
+            <a href="">重庆省消费者协会</a>
+            <a href="">北京市消费者协会</a>
+          </div>
+        </div>
+        <div class="item p_B10">
+          <div class="tit">友情链接：</div>
+          <div class="inner">
+            <a href="">人民网</a>
+            <a href="">重庆消费网</a>
+            <a href="">新浪网</a>
+            <a href="">河南消费网</a>
+            <a href="">中国质检网</a>
+            <a href="">哈尔滨新闻网</a>
+            <a href="">黑龙江消协</a>
+            <a href="">中国消费网</a>
+            <a href="">中国新闻网</a>
+            <a href="">四川消费网</a>
+            <a href="">央视网</a>
+            <a href="">新华网</a>
+            <a href="">中国市场秩序网</a>
+            <a href="">东北网</a>
+            <a href="">上东消费网</a>
+            <a href="">福建消费网</a>
+            <a href="">江西消费网</a>
+            <a href="">安徽消费网</a>
+            <a href="">广东消费网</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-info text-center p_T10 p_B10">
+      <div class="container">
+        <p><a href="">关于我们</a> - <a href="">关于记者站</a> - <a href="">关于中消报</a></p>
+        <p>新闻热线：0451-82619315 投诉热线：0451-82607315 邮箱：hljxiaofeiwang@163.com QQ:1462969852</p>
+        <p>地址：黑龙江省哈尔滨市南岗区七政街79号 邮编：150080 互联网新闻信息服务许可证：1012006031 黑ICP备16004269号</p>
+        <p>Copyright © 2001 - 2018 黑龙江消费网 版权所有</p>
+        <p>&nbsp;</p>
+        <img src="img/footer_ico.png" alt="">
+      </div>
     </div>
   </footer>
 
