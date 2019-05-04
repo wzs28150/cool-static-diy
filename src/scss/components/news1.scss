@@ -1,0 +1,28 @@
+.news1 {
+  ul {
+    li {
+      line-height: 30px;
+      font-size  : 14px;
+
+      a {
+        display    : block;
+        line-height: inherit;
+        font-size  : inherit;
+        position   : relative;
+
+        i {
+          color        : #e5e5e5;
+          padding-right: 5px;
+        }
+
+        span {
+          color   : #666;
+          position: absolute;
+          top     : 0;
+          right   : 0;
+          display : block;
+        }
+      }
+    }
+  }
+}

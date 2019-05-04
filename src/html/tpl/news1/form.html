@@ -1,30 +1,38 @@
+
 <div class="form-item">
   <label for="">
     栏目
   </label>
-  <select class="" name="catid">
+  <select class="beautify_input" name="catid">
     {{for data}}
     <option value="{{:id}}">{{:catname}}</option>
     {{/for}}
   </select>
 </div>
 <div class="form-item">
-  <label for="">
+  <label for="num">
     显示个数:
   </label>
-  <input type="text">
+  <input type="number" id="num" name="num" value="7">
 </div>
 <div class="row">
   <div class="form-item">
-    <label for="">
+    <input type="checkbox" name="dragable" value="1" id="dragable">
+    <label class="radio" for="dragable">
       是否拖拽:
+      <span></span>
     </label>
-    <input type="radio">
   </div>
   <div class="form-item">
-    <label for="">
+    <input type="checkbox" name="resizeable" value="1" id="resizeable">
+    <label class="radio" for="resizeable">
       是否拉伸:
+      <span></span>
     </label>
-    <input type="radio">
   </div>
+</div>
+<div class="form-item">
+  <input type="hidden" name="height" value="275" >
+  <input type="hidden" name="width" value="3" >
+  <button type="button" name="button">添&nbsp;加</button>
 </div>

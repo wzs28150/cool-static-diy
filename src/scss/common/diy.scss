@@ -98,6 +98,18 @@
         line-height: 0;
         padding    : 6px 0;
       }
+
+      .swiper-button-prev {
+        left           : 0;
+        width          : 20px;
+        background-size: 17px 34px;
+      }
+
+      .swiper-button-next {
+        right          : 0;
+        width          : 20px;
+        background-size: 17px 34px;
+      }
     }
   }
 
@@ -172,8 +184,9 @@
 
   .form-item {
     line-height: 3em;
+    height     : 3em;
     position   : relative;
-    margin     : 5px 0;
+    margin     : 10px 0;
 
     label {
       width   : 6em;
@@ -184,6 +197,7 @@
     }
 
     input {
+      &[type=number],
       &[type=text] {
         width        : calc(100% - 7em);
         margin-left  : 6em;
@@ -197,31 +211,72 @@
       }
     }
 
-    select {
-      width             : calc(100% - 6.5em - 14px);
-      margin-left       : 6em;
-      border            : solid 1px #ccc;
-      padding           : 0 .5em;
-      appearance        : none;
-      -moz-appearance   : none;
-      -webkit-appearance: none;
-      background        : url("https://raw.githubusercontent.com/ourjs/static/gh-pages/2015/arrow.png") no-repeat scroll right center transparent;
-      padding-right     : 14px;
-      line-height       : 3em;
-      outline           : none;
-      border-radius     : 5px;
+    .cssSelect {
+      width      : calc(100% - 6em);
+      margin-left: 6em;
+      float      : none;
 
-      &::-ms-expand {
-        display: none;
+      .selectBox {
+        border-radius: 5px;
       }
 
-      option {
-        appearance        : none;
-        -moz-appearance   : none;
-        -webkit-appearance: none;
-        padding-top       : 1em;
-        padding-bottom    : 1em;
-        line-height       : 3em;
+      .optionsBox {
+        width        : calc(100% - 4px);
+        border-radius: 0 0 5px 5px;
+      }
+    }
+
+    .radio {
+      width: 100%;
+
+      span {
+        display       : inline-block;
+        width         : 1.5em;
+        height        : 1.5em;
+        border        : 1px solid #ccc;
+        border-radius : 100%;
+        margin-left   : 1em;
+        vertical-align: middle;
+        position      : relative;
+
+        &::before {
+          content         : "";
+          width           : 8px;
+          height          : 8px;
+          background-color: #ccc;
+          display         : inline-block;
+          border-radius   : 100%;
+          position        : absolute;
+          left            : 50%;
+          top             : 50%;
+          transform       : translateX(-50%) translateY(-50%);
+          visibility      : hidden;
+          opacity         : 0;
+          transition      : $tr4;
+        }
+      }
+    }
+
+    input[type="checkbox"]:checked + label > span {
+      &::before {
+        visibility: visible;
+        opacity   : 1;
+        transition: $tr4;
+      }
+    }
+
+    button {
+      width           : 100%;
+      line-height     : 3em;
+      border-radius   : 5px;
+      border          : 1px solid #ccc;
+      background-color: #ccc;
+      transition      : $tr4;
+      outline         : none;
+
+      &:hover {
+        background-color: #aaa;
+        transition      : $tr4;
       }
     }
     // .styled-select {
@@ -240,5 +295,29 @@
     //     /*for chrome*/
     //   }
     // }
+  }
+
+  .row {
+    box-sizing            : border-box;
+    display               : -ms-flexbox;
+    display               : -webkit-flex;
+    display               : flex;
+    -ms-flex              : 0 1 auto;
+    -webkit-flex          : 0 1 auto;
+    flex                  : 0 1 auto;
+    -ms-flex-direction    : row;
+    -webkit-flex-direction: row;
+    flex-direction        : row;
+    -ms-flex-wrap         : wrap;
+    -webkit-flex-wrap     : wrap;
+    flex-wrap             : wrap;
+
+    .form-item {
+      width        : 49%;
+      box-sizing   : border-box;
+      flex         : 0 0 auto;
+      padding-right: .5rem;
+      padding-left : .5rem;
+    }
   }
 }

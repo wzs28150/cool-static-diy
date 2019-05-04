@@ -1,0 +1,107 @@
+.cssSelect {
+  white-space: nowrap;
+  float      : left;
+  width      : 100%;
+  position   : relative;
+}
+
+.cssSelect * {
+  display: block;
+}
+
+.cssSelect a {
+  color          : #666;
+  outline-width  : 0;
+  text-decoration: none;
+}
+
+.cssSelect .selectBox {
+  cursor: pointer;
+  border: solid 1px #d6d6d6;
+  width : 100%;
+  float : left;
+}
+
+.cssSelect .selectLt {
+  cursor    : pointer;
+  float     : left;
+  text-align: left;
+}
+
+.cssSelect .selectRt {
+  cursor    : pointer;
+  background: url("../img/skin_icons.png") -49px -158px no-repeat;
+  float     : right;
+}
+
+.cssSelect .selectBox {}
+
+.cssSelect .selectLt {
+  overflow   : hidden;
+  height     : 35px;
+  line-height: 35px;
+  padding    : 0 10px;
+  font-size  : 14px;
+  background : none transparent scroll repeat 0 0;
+  color      : #333;
+}
+
+.cssSelect .selectRt {
+  height : 35px;
+  padding: 0 28px 0 0;
+}
+
+.cssSelect .sNormal {
+  background-position: 0 0;
+}
+
+.cssSelect .sHover {
+  background-position: 0 -50px;
+}
+
+.cssSelect .sHover .selectRt {
+  background: url("../img/skin_icons.png") -49px -158px no-repeat;
+}
+
+.cssSelect .sPressDown {}
+
+.cssSelect .sPressDown .selectRt {
+  background: url("../img/skin_icons.png") -49px -158px no-repeat;
+}
+
+.cssSelect .optionsBox {
+  position  : absolute;
+  width     : 100%;
+  border    : 1px solid #dbdbdb;
+  padding   : 2px;
+  margin    : 0;
+  background: #fff;
+  z-index   : 100;
+  overflow  : hidden !important;
+}
+
+.cssSelect .optionsInnerBox {}
+
+.cssSelect .optionBox {
+  cursor     : pointer;
+  padding    : 2px 30px 2px 18px;
+  margin     : 0;
+  height     : 37px;
+  line-height: 37px;
+}
+
+.cssSelect .optionBox span {
+  cursor   : pointer;
+  font-size: 12px;
+}
+
+.cssSelect .oNormal {}
+
+.cssSelect .oHover {
+  background: #eee;
+}
+
+.cssSelect .selected {
+  background: #ccc;
+  color     : #fff;
+}

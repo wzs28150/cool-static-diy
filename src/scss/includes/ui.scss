@@ -340,6 +340,22 @@ main {
   }
 }
 
+.grid-stack {
+  .grid-stack-item {
+    // box-shadow: 0 0 1px #ccc;
+    .ui-resizable-w {
+      display: none;
+    }
+
+    .grid-stack-item-content {
+      // border  : 1px dashed #007fff;
+      overflow: hidden; // box-shadow: 0 0 2px #007fff inset;
+
+      .grid-stack-item-inner {}
+    }
+  }
+}
+
 .diy {
   .grid-stack-item {
     &:hover {
@@ -379,10 +395,20 @@ main {
 
     .grid-stack-item-content {
       // border  : 1px dashed #007fff;
-      overflow: hidden;
+      overflow: hidden; // box-shadow: 0 0 2px #007fff inset;
+
+      .grid-stack-item-inner {
+        border     : 1px dashed #ccc;
+        width      : calc(100% - 1px);
+        height     : 100%;
+        box-sizing : border-box;
+        margin-left: 1px;
+      }
 
       &:hover {
-        box-shadow: 0 0 2px #007fff inset;
+        .grid-stack-item-inner {
+          border: 1px dashed #007fff;
+        }
       }
     }
   }

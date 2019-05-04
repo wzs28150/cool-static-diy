@@ -11,34 +11,15 @@
       "title": "广告位模块"
 		},
     {
-			"template_id": 1,
-			"template": "news1",
-      "title": "新闻模块1"
+			"template_id": 3,
+			"template": "search_bar",
+      "title": "logo+搜索条"
 		},
 		{
-			"template_id": 2,
-			"template": "ad_pic",
-      "title": "广告位模块"
-		},
-    {
-			"template_id": 1,
-			"template": "news1",
-      "title": "新闻模块1"
-		},
-		{
-			"template_id": 2,
-			"template": "ad_pic",
-      "title": "广告位模块"
-		},
-    {
-			"template_id": 1,
-			"template": "news1",
-      "title": "新闻模块1"
-		},
-		{
-			"template_id": 2,
-			"template": "ad_pic",
-      "title": "广告位模块"
+			"template_id": 4,
+			"template": "nav",
+      "title": "导航模块"
 		}
+
 	]
 }
