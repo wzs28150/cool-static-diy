@@ -169,4 +169,76 @@
       transition: $tr4;
     }
   }
+
+  .form-item {
+    line-height: 3em;
+    position   : relative;
+    margin     : 5px 0;
+
+    label {
+      width   : 6em;
+      display : block;
+      position: absolute;
+      left    : 0;
+      top     : 0;
+    }
+
+    input {
+      &[type=text] {
+        width        : calc(100% - 7em);
+        margin-left  : 6em;
+        padding      : 0 .5em;
+        border       : 0;
+        line-height  : 3em;
+        height       : 3em;
+        outline      : none;
+        border       : 1px solid #ccc;
+        border-radius: 5px;
+      }
+    }
+
+    select {
+      width             : calc(100% - 6.5em - 14px);
+      margin-left       : 6em;
+      border            : solid 1px #ccc;
+      padding           : 0 .5em;
+      appearance        : none;
+      -moz-appearance   : none;
+      -webkit-appearance: none;
+      background        : url("https://raw.githubusercontent.com/ourjs/static/gh-pages/2015/arrow.png") no-repeat scroll right center transparent;
+      padding-right     : 14px;
+      line-height       : 3em;
+      outline           : none;
+      border-radius     : 5px;
+
+      &::-ms-expand {
+        display: none;
+      }
+
+      option {
+        appearance        : none;
+        -moz-appearance   : none;
+        -webkit-appearance: none;
+        padding-top       : 1em;
+        padding-bottom    : 1em;
+        line-height       : 3em;
+      }
+    }
+    // .styled-select {
+    //   width      : calc(100% - 6em);
+    //   margin-left: 6em;
+    //   overflow   : hidden;
+    //   background : url("new_arrow.png") no-repeat right #ddd;
+    //
+    //   select {
+    //     background        : transparent;
+    //     width             : 100%;
+    //     padding           : 0 5px;
+    //     border            : 1px solid #ccc;
+    //     height            : 3em;
+    //     -webkit-appearance: none;
+    //     /*for chrome*/
+    //   }
+    // }
+  }
 }
