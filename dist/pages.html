@@ -17,11 +17,15 @@
   <script src="js/lib/jquery.zxxPageRuler.1.1.js"></script>
   <script src="js/lib/gridstack.min.js"></script>
   <script src="js/lib/jsrender.min.js"></script>
+  <script src="js/lib/gridstack.jQueryUI.min.js"></script>
+
   <title>
     起步-cool web
   </title>
   <script type="text/javascript">
-    let token = 'qeqweqweqweqwe';
+    var token = '';
+    window.host = "http://" + window.location.host;
+    var tplpath = host + "/tpl";
   </script>
 </head>
 
@@ -47,6 +51,8 @@
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+            <div class="swiper-button-next swiper-button-black"></div>
           </div>
         </div>
       </div>
@@ -203,6 +209,7 @@
 
 
   <script src="js/cooljs.js"></script>
+
 </body>
 
 </html>

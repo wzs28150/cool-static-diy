@@ -1,9 +1,15 @@
-<div class="grid-stack-item-content">
-  <ul>
-    {{for data}}
-    <li>{{:title}}</li>
-    {{/for}}
-  </ul>
+<div class="grid-stack-item-content news1">
+  <div class="grid-stack-item-inner">
+    <div class="i-tit">
+      <div class="tit">消费警示</div>
+      <a href="">更多<i class="fa fa-angle-double-right"></i></a>
+    </div>
+    <ul>
+      {{for data}}
+      <li><a href=""><i>&bull;</i>{{:title}} <span>[4/22]</span></a></li>
+      {{/for}}
+    </ul>
+  </div>
 </div>
 <script type="text/javascript">
 
