@@ -105,6 +105,10 @@ export default class Grid {
 
   }
 
+  grid_list_toggle() {
+    $('.grid-list').fadeToggle();
+    $('#add-grid i').toggleClass('fa-angle-down').toggleClass('fa-angle-up')
+  }
 
   load_grid() {
     var that = this;
@@ -142,7 +146,6 @@ export default class Grid {
     this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
       el = $(el);
       var node = el.data('_gridstack_node');
-      // console.log(node);
       return {
         x: node.x,
         y: node.y,
@@ -154,16 +157,28 @@ export default class Grid {
         modulname: node.modulname
       };
     }, this);
-    console.log(JSON.stringify(this.serialized_data));
+    // console.log(JSON.stringify(this.serialized_data));
+    let pagename = '';
+    if(window.location.pathname == '/'){
+      pagename = 'index'
+    }else{
+      pagename = window.location.pathname.split('/');
+      pagename = pagename[1].split('.');
+      pagename = pagename[0];
+    }
+    pajax.post(promiseHost + '/save_page?page=' + pagename, JSON.stringify(this.serialized_data), {
+      headers: {
+        token: token
+      }
+    }).then(res => res.auto()).then(res => {
+      if (res.code == 200) {
+        console.log(res);
+      }
+    });
   }
 
   clear_grid() {
     this.grid.remove_all();
-  }
-
-  grid_list_toggle() {
-    $('.grid-list').fadeToggle();
-    $('#add-grid i').toggleClass('fa-angle-down').toggleClass('fa-angle-up')
   }
 
   add_form_close() {
@@ -203,7 +218,6 @@ export default class Grid {
     });
 
     $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function () {
-      that.add_form_close();
       let data = $('.add-widget-form form').serializeJson();
       // {template: "news1", catid: "1", num: "7", dragable: "1"}
       let str = '';
@@ -228,6 +242,7 @@ export default class Grid {
           }
           that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.modulname, 0, 0, data.width, data.height, true);
         }
+        that.add_form_close();
       });
 
     });
@@ -270,10 +285,14 @@ export default class Grid {
           $('body').append(str);
         }
       })
+
+      $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function () {
+        let data = $('.add-widget-form form').serializeJson();
+        that.grid._updateElement(parent);
+        that.add_form_close();
+      });
     })
-    $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function () {
-      that.add_form_close();
-    });
+
 
     $('body').off('click', '.add-widget-form .add-widget-form-close,.add-widget-bg').on('click', '.add-widget-form .add-widget-form-close,.add-widget-bg', function () {
       that.add_form_close();
