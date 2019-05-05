@@ -5,7 +5,37 @@
   }
 
   .search {
-    height     : 36px;
-    line-height: 36px;
+    height          : 36px;
+    line-height     : 36px;
+    background-color: #f6f6f6;
+    position        : relative;
+    margin          : 28px 0;
+
+    input {
+      width      : 360px;
+      border     : 1px solid #ebebeb;
+      padding    : 0 1em;
+      height     : 36px;
+      line-height: 36px;
+      background : none;
+      outline    : none;
+      color      : #8590a6;
+      font-size  : 12px;
+    }
+
+    a {
+      background-color   : $blue;
+      color              : #fff;
+      display            : block;
+      width              : 80px;
+      height             : 36px;
+      text-align         : center;
+      position           : absolute;
+      right              : 0;
+      top                : 0;
+      background-position: 13px center;
+      background-repeat  : no-repeat;
+      text-indent        : 1.5em;
+    }
   }
 }

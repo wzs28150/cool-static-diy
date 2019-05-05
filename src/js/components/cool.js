@@ -132,8 +132,8 @@ export default class Cool {
   }
   // 设置导航选中状态
   navActive(i) {
-    $('nav a').removeClass('on');
-    $('nav a').eq(i).addClass('on');
+    $('.nav a').removeClass('on');
+    $('.nav a').eq(i).addClass('on');
   }
 
   grid_list() {
@@ -265,8 +265,11 @@ export default class Cool {
     if (controller) {
       const controllerjs = require(`../page/${controller}`);
       const index = new controllerjs.default((a) => {
-        this.navActive(a);
-      }, (data = [], diy = 0) => {
+        setTimeout(() => {
+          this.navActive(a);
+        }, 1000);
+
+      }, (data = [], diy = 0,setnav) => {
         let grid = new Grid(data, diy);
         grid.index();
       });

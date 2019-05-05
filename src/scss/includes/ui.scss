@@ -367,11 +367,13 @@ main {
 
     .ui-resizable-w {
       position               : absolute;
-      width                  : 40px;
+      width                  : 55px;
       height                 : 20px;
-      right                  : 15px;
+      right                  : 2px;
       left                   : auto;
-      top                    : 5px;
+      padding-top            : 4px;
+      padding-right          : 15px;
+      top                    : 1px;
       color                  : gray;
       text-align             : right;
       font                   : normal normal normal 10px/1 FontAwesome;
@@ -380,7 +382,10 @@ main {
       -webkit-font-smoothing : antialiased;
       -moz-osx-font-smoothing: grayscale;
       display                : none;
-
+      background-color       : rgba(255, 255, 255, 1);
+      cursor                 : default;
+      box-sizing             : border-box;
+      // box-shadow             : 0 0 10px #fff;
       .fa {
         width  : 20px;
         display: inline-block;
@@ -389,8 +394,19 @@ main {
     }
 
     .ui-resizable-se {
-      right : 15px;
-      bottom: 5px;
+      bottom          : 1px;
+      right           : 11px;
+      background-color: #fff;
+      line-height     : 20px;
+      box-sizing      : border-box;
+      padding         : 0;
+      // box-shadow      : 0 0 10px #fff;
+      &:before {
+        position : absolute;
+        left     : 50%;
+        top      : 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
     }
 
     .grid-stack-item-content {

@@ -1,25 +1,27 @@
 {
-	"list": [
-    {
-			"template_id": 1,
-			"template": "news1",
+  "list": [{
+      "template_id": 1,
+      "template": "news1",
+      "type": "content",
       "title": "新闻模块1"
-		},
-		{
-			"template_id": 2,
-			"template": "ad_pic",
-      "title": "广告位模块"
-		},
+    },
     {
-			"template_id": 3,
-			"template": "search_bar",
+      "template_id": 2,
+      "template": "ad_pic",
+			"type": "ad",
+      "title": "广告位模块"
+    },
+    {
+      "template_id": 3,
+      "template": "search_bar",
+			"type": "",
       "title": "logo+搜索条"
-		},
-		{
-			"template_id": 4,
-			"template": "nav",
+    },
+    {
+      "template_id": 4,
+      "template": "nav",
+			"type": "content",
       "title": "导航模块"
-		}
-
-	]
+    }
+  ]
 }
