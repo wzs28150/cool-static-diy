@@ -26,15 +26,6 @@ export default class Grid {
         v: [($(window).width() - 1200) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1200) / 2) + "px"],
         h: ["98px"]
       });
-      console.log(window);
-      window.onbeforeunload = function () {
-        alert("===onbeforeunload===");
-        if (event.clientX > document.body.clientWidth && event.clientY < 0 || event.altKey) {
-          alert("你关闭了浏览器");
-        } else {
-          alert("你正在刷新页面");
-        }
-      }
 
       $(window).resize(function () {
         $('.zxxRefLine_v,.zxxRefLine_h').remove();
