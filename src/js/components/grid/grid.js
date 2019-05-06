@@ -157,7 +157,7 @@ export default class Grid {
         modulname: node.modulname
       };
     }, this);
-    // console.log(JSON.stringify(this.serialized_data));
+    console.log(JSON.stringify(this.serialized_data));
     let pagename = '';
     if(window.location.pathname == '/'){
       pagename = 'index'
