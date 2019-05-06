@@ -126,7 +126,7 @@ export default class Grid {
               } else {
                 str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
               }
-              that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.modulname, node.x, node.y, node.width, node.height, false);
+              that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
             }
           }, 'json')
         } else {
@@ -135,7 +135,7 @@ export default class Grid {
           } else {
             str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
           }
-          that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.modulname, node.x, node.y, node.width, node.height, false);
+          that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
         }
       });
 
@@ -154,6 +154,7 @@ export default class Grid {
         template: node.template,
         template_id: node.template_id,
         catid: node.catid,
+        num: node.num,
         modulname: node.modulname
       };
     }, this);
@@ -231,7 +232,7 @@ export default class Grid {
               } else {
                 str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
               }
-              that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.modulname, 0, 0, data.width, data.height, true);
+              that.grid.addWidget($(str), data.template, data.template_id, data.catid, node.num, data.modulname, 0, 0, data.width, data.height, true);
             }
           }, 'json')
         } else {
@@ -240,7 +241,7 @@ export default class Grid {
           } else {
             str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
           }
-          that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.modulname, 0, 0, data.width, data.height, true);
+          that.grid.addWidget($(str), data.template, data.template_id, data.catid, node.num, data.modulname, 0, 0, data.width, data.height, true);
         }
         that.add_form_close();
       });
