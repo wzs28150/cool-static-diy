@@ -26,6 +26,15 @@ export default class Grid {
         v: [($(window).width() - 1200) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1200) / 2) + "px"],
         h: ["98px"]
       });
+      console.log(window);
+      window.onbeforeunload = function () {
+        alert("===onbeforeunload===");
+        if (event.clientX > document.body.clientWidth && event.clientY < 0 || event.altKey) {
+          alert("你关闭了浏览器");
+        } else {
+          alert("你正在刷新页面");
+        }
+      }
 
       $(window).resize(function () {
         $('.zxxRefLine_v,.zxxRefLine_h').remove();
@@ -143,26 +152,27 @@ export default class Grid {
   }
 
   save_grid() {
+    let that = this;
     this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
       el = $(el);
-      var node = el.data('_gridstack_node');
+      // var node = el.data('_gridstack_node');
       return {
-        x: node.x,
-        y: node.y,
-        width: node.width,
-        height: node.height,
-        template: node.template,
-        template_id: node.template_id,
-        catid: node.catid,
-        num: node.num,
-        modulname: node.modulname
+        x: $(el).data('gs-x'),
+        y: $(el).data('gs-y'),
+        width: $(el).data('gs-width'),
+        height: $(el).data('gs-height'),
+        template: $(el).data('gs-template'),
+        template_id: $(el).data('gs-template_id'),
+        catid: $(el).data('gs-catid'),
+        num: $(el).data('gs-num'),
+        modulname: $(el).data('gs-modulname')
       };
     }, this);
     console.log(JSON.stringify(this.serialized_data));
     let pagename = '';
-    if(window.location.pathname == '/'){
+    if (window.location.pathname == '/') {
       pagename = 'index'
-    }else{
+    } else {
       pagename = window.location.pathname.split('/');
       pagename = pagename[1].split('.');
       pagename = pagename[0];
@@ -173,7 +183,8 @@ export default class Grid {
       }
     }).then(res => res.auto()).then(res => {
       if (res.code == 200) {
-        console.log(res);
+        alertinfo('保存成功!')
+        that.load_grid();
       }
     });
   }
@@ -269,6 +280,7 @@ export default class Grid {
       let catid = parent.data('gs-catid');
       let modulname = parent.data('gs-modulname');
       let height = parent.data('gs-height');
+      let num = parent.data('gs-num');
       let str = '';
       let data = {
         catid: catid,
@@ -289,7 +301,14 @@ export default class Grid {
 
       $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function () {
         let data = $('.add-widget-form form').serializeJson();
-        that.grid._updateElement(parent);
+        parent.data('gs-catid', data.catid);
+        parent.data('gs-modulname', data.modulname);
+        parent.data('gs-height', data.height);
+        parent.data('gs-num', data.num);
+        that.grid._updateElement(parent, function () {
+
+        })
+        that.save_grid();
         that.add_form_close();
       });
     })
