@@ -2,7 +2,14 @@
   <label for="">
     广告位
   </label>
-  <select class="beautify_input" name="catid" >
+  <select class="beautify_input" id="catid" name="catid">
+  </select>
+</div>
+<div class="form-item" style="display:none" id="aiditem">
+  <label for="height">
+    广告
+  </label>
+  <select class="beautify_input" id="aid" name="id">
   </select>
 </div>
 <div class="form-item">
@@ -35,26 +42,50 @@
 </div>
 <div class="form-item">
   <input type="hidden" name="modulname" value="ad">
-  <input type="hidden" name="width" value="12" >
-  <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}" >
+  <input type="hidden" name="width" value="12">
+  <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}">
+  <input type="hidden" name="aidpre" id="aidpre" value="{{:id}}">
+  {{if catid}}
+  <button type="button" name="button">修&nbsp;改</button>
+  {{else}}
   <button type="button" name="button">添&nbsp;加</button>
+  {{/if}}
 </div>
 <script type="text/javascript">
-
-  $.get(promiseHost + "/get_ad_type", function (res) {
-    if(res.code == 200){
+  $.get(promiseHost + "/get_ad_type", function(res) {
+    if (res.code == 200) {
       var data = res.data;
       var string = '';
       var catidpre = $('#catidpre').val();
-      $.each(data, function (i, field) {
-        if(catidpre){
-          string += '<option value="'+field.id+'" selected>'+field.catname+'</option>';
-        }else{
-          string += '<option value="'+field.id+'">'+field.catname+'</option>';
+      $.each(data, function(i, field) {
+        if (catidpre) {
+          string += '<option value="' + field.id + '" selected>' + field.catname + '</option>';
+        } else {
+          string += '<option value="' + field.id + '">' + field.catname + '</option>';
         }
       })
-      $('.beautify_input').html(string);
-      $('.beautify_input').cssSelect();
+      $('#catid').html(string);
+      $('#catid').cssSelect();
     }
   });
+  $('body').off('change', '#catid').on('change', '#catid', function() {
+    var v = $(this).val();
+    $.get(promiseHost + "/get_ad?type=" + v, function(res) {
+      var data = res.data;
+      var string = '';
+      var aidpre = $('#aidpre').val();
+      $.each(data, function(i, field) {
+        if (aidpre) {
+          string += '<option value="' + field.id + '" selected>' + field.title + '</option>';
+        } else {
+          string += '<option value="' + field.id + '">' + field.title + '</option>';
+        }
+      })
+      $('#aid').html(string);
+      $('#aiditem').show('fast', function() {
+        $('#aid').cssSelect();
+      })
+    });
+
+  })
 </script>

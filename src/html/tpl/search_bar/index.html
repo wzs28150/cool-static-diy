@@ -1,11 +1,51 @@
 <div class="grid-stack-item-content search_bar">
   <div class="grid-stack-item-inner">
-    <div class="logo fl" >
+    <div class="logo fl">
       <img src="/tpl/search_bar/img/logo.jpg" alt="">
     </div>
-    <div class="search fr">
-      <input type="text" name="keywords" placeholder="请输入关键词或者作者搜索">
-      <a href="" style="background-image:url(/tpl/search_bar/img/search_icon.png)">搜索</a>
+    <div class="fr">
+      <div class="data">2019年5月8日 星期三 农历 四月初四</div>
+      <div class="search ">
+        <input type="text" name="keywords" placeholder="请输入关键词" autocomplete="off">
+        <span data-id="">关键字<i class="fa fa-caret-down"></i></span>
+        <ul>
+          <li><a data-id="1" data-nopjax="no" href="javascript:void(0)">关键字1</a></li>
+          <li><a data-id="2" data-nopjax="no" href="javascript:void(0)">关键字2</a></li>
+          <li><a data-id="3" data-nopjax="no" href="javascript:void(0)">关键字3</a></li>
+          <li><a data-id="4" data-nopjax="no" href="javascript:void(0)">关键字4</a></li>
+        </ul>
+        <a href="javascript:void(0)" target="_blank" data-url="/search" data-nopjax="no" style="background-image:url(/tpl/search_bar/img/search_icon.png)">搜索</a>
+      </div>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var param = {
+        type: 0,
+        key: ""
+      },
+      changeUrl;
+    $('body').off('click', '.search_bar .search span').on('click', '.search_bar .search span', function() {
+      $('.search_bar .search ul').toggleClass('on');
+    })
+    $('body').off('click', '.search_bar .search ul a').on('click', '.search_bar .search ul a', function() {
+      var id = $(this).data('id'),
+        text = $(this).html();
+      $('.search_bar .search ul').removeClass('on');
+      $('.search_bar .search span').html(text + '<i class="fa fa-caret-down"></i>');
+      $('.search_bar .search span').data('id', id);
+      param.type = id;
+      changeUrl()
+    })
+    $('body').off('input propertychange', '.search_bar .search input').on('input propertychange', '.search_bar .search input', function() {
+      var e = $(this).val();
+      param.key = e;
+      changeUrl()
+    })
+    changeUrl = function() {
+      var url = $('.search_bar .search>a').data('url');
+      $('.search_bar .search>a').attr('href', url + '?type=' + param.type + '&key=' + param.key);
+    }
+  })
+</script>

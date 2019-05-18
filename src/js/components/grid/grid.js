@@ -23,14 +23,14 @@ export default class Grid {
       // 开启编辑模式
       $('body').addClass('diy').addClass('hasRuler');
       $.pageRuler({
-        v: [($(window).width() - 1200) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1200) / 2) + "px"],
+        v: [($(window).width() - 1000) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1000) / 2) + "px"],
         h: ["98px"]
       });
 
       $(window).resize(function () {
         $('.zxxRefLine_v,.zxxRefLine_h').remove();
         $.pageRuler({
-          v: [($(window).width() - 1200) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1200) / 2) + "px"],
+          v: [($(window).width() - 1000) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1000) / 2) + "px"],
           h: ["98px"]
         });
       });
@@ -119,14 +119,14 @@ export default class Grid {
       $.get(tplpath + "/" + node.template + "/index.html", function (e) {
         let t = $.templates(e);
         if (node.modulname) {
-          $.get(promiseHost + "/get_widget_datalist?modulname=" + node.modulname + "&catid=" + node.catid, function (res) {
+          $.get(promiseHost + "/get_widget_datalist?modulname=" + node.modulname + "&catid=" + node.catid + "&num=" + node.num + "&id=" + node.aid, function (res) {
             if (res.code == 200) {
               if (that.type == 1 && token) {
                 str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
               } else {
                 str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
               }
-              that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+              that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
             }
           }, 'json')
         } else {
@@ -135,7 +135,7 @@ export default class Grid {
           } else {
             str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
           }
-          that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+          that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
         }
       });
 
@@ -227,14 +227,14 @@ export default class Grid {
       $.get(tplpath + "/" + data.template + "/index.html", function (e) {
         let t = $.templates(e);
         if (data.modulname) {
-          $.get(promiseHost + "/get_widget_datalist?modulname=" + data.modulname + "&catid=" + data.catid, function (res) {
+          $.get(promiseHost + "/get_widget_datalist?modulname=" + data.modulname + "&catid=" + data.catid + "&num=" + data.num + "&id=" + data.id, function (res) {
             if (res.code == 200) {
               if (that.type == 1 && token) {
                 str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
               } else {
                 str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
               }
-              that.grid.addWidget($(str), data.template, data.template_id, data.catid, node.num, data.modulname, 0, 0, data.width, data.height, true);
+              that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
             }
           }, 'json')
         } else {
@@ -243,7 +243,7 @@ export default class Grid {
           } else {
             str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
           }
-          that.grid.addWidget($(str), data.template, data.template_id, data.catid, node.num, data.modulname, 0, 0, data.width, data.height, true);
+          that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.aid, node.num, data.modulname, 0, 0, data.width, data.height, true);
         }
         that.add_form_close();
       });

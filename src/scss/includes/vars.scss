@@ -13,13 +13,11 @@ $breakpoints: (
 ); /*响应式断点*/
 $container-width: (
   m320 : (width: auto, margin: 0 15px),
-  m1200: (width: 1100px, margin: 0 auto),
-  m1440: (width: 1200px),
+  m1200: (width: 1000px, margin: 0 auto)
 );
 $container-width2: (
   m320 : (width: auto, margin: 0 5px),
-  m1200: (width: 1120px, margin: 0 auto),
-  m1440: (width: 1220px),
+  m1200: (width: 1020px, margin: 0 auto)
 );
 $h1: (
   m320 : (font-size: 3.4em),

@@ -1,7 +1,9 @@
 <div class="grid-stack-item-content">
   <div class="grid-stack-item-inner">
     <div class="ad-pic">
-      <img src="img/top_ad.jpg" alt="">
+      {{for data}}
+      <img src="{{:url}}" alt="">
+      {{/for}}
     </div>
   </div>
 </div>

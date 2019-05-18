@@ -6,14 +6,14 @@ import alertinfo from './components/debug/alertinfo';
 import Pajax from 'pajax';
 $(document).ready(() => {
   if(token){
-    document.body.onbeforeunload = function(event) {
-      var c = event || window.event;
-      if (/webkit/.test(navigator.userAgent.toLowerCase())) {
-        return "离开页面将导致数据丢失！";
-      } else {
-        c.returnValue = "离开页面将导致数据丢失！";
-      }
-    }
+    // document.body.onbeforeunload = function(event) {
+    //   var c = event || window.event;
+    //   if (/webkit/.test(navigator.userAgent.toLowerCase())) {
+    //     return "离开页面将导致数据丢失！";
+    //   } else {
+    //     c.returnValue = "离开页面将导致数据丢失！";
+    //   }
+    // }
   }
 
   window.promiseHost = "http://47.95.228.57:9091/mock/24";

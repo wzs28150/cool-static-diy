@@ -9,7 +9,7 @@
       "template_id": 2,
       "template": "ad_pic",
 			"type": "ad",
-      "title": "广告位模块"
+      "title": "单图片广告模块"
     },
     {
       "template_id": 3,
@@ -22,6 +22,12 @@
       "template": "nav",
 			"type": "content",
       "title": "导航模块"
+    },
+    {
+      "template_id": 5,
+      "template": "notice",
+			"type": "content",
+      "title": "网站公告"
     }
   ]
 }
