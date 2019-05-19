@@ -1,0 +1,44 @@
+.headlines {
+  .inner {
+    border          : 1px solid #ddd;
+    height          : 98px;
+    background-color: #f8f8f8;
+    position        : relative;
+    padding-left    : 115px;
+    margin-top      : 10px;
+
+    .tit {
+      color       : #d33333;
+      font-weight : bold;
+      font-size   : 33px;
+      width       : 2em;
+      padding     : 12px 24px;
+      border-right: 1px solid #ddd;
+      box-sizing  : content-box;
+      position    : absolute;
+      left        : 0;
+      top         : 0;
+    }
+
+    .right {
+      h2 {
+        a {
+          color      : #1d71b7;
+          font-size  : 28px;
+          line-height: 66px;
+        }
+      }
+
+      .list {
+        a {
+          font-size: 14px;
+          color    : #305798;
+
+          &:hover {
+            color: #b11e17;
+          }
+        }
+      }
+    }
+  }
+}

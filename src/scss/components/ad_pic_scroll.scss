@@ -1,0 +1,11 @@
+.ad_pic_scroll {
+  .swiper-pagination-bullet {
+    background-color: #444444;
+    opacity         : 1;
+    color           : #fff;
+
+    &.swiper-pagination-bullet-active {
+      background-color: #d20000;
+    }
+  }
+}

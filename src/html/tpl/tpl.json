@@ -28,6 +28,18 @@
       "template": "notice",
 			"type": "content",
       "title": "网站公告"
+    },
+    {
+      "template_id": 6,
+      "template": "headlines",
+			"type": "content",
+      "title": "今日头条"
+    },
+    {
+      "template_id": 7,
+      "template": "ad_pic_scroll",
+			"type": "content",
+      "title": "滚动图片广告"
     }
   ]
 }

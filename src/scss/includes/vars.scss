@@ -1,7 +1,7 @@
 $baseFontSize: 12px;
-$font-stack: 'simsun','Microsoft YaHei', 'Helvetica Neue', -apple-system, BlinkMacSystemFont;
+$font-stack: 'Microsoft YaHei', 'Helvetica Neue', -apple-system, BlinkMacSystemFont;
 $font: 12px, 14px, 16px, 18px, 20px, 22px, 24px, 26px, 28px, 32px, 36px;
-$tr4: all 0.4s, transform 0.4s; /*动画时间*/
+$tr4: all .4s, transform .4s; /*动画时间*/
 $breakpoints: (
   m320 : 320px,
   m360 : 360px,

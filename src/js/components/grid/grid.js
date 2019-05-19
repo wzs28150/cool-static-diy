@@ -156,6 +156,7 @@ export default class Grid {
         template_id: $(el).data('gs-template_id'),
         catid: $(el).data('gs-catid'),
         num: $(el).data('gs-num'),
+        aid: $(el).data('gs-aid'),
         modulname: $(el).data('gs-modulname')
       };
     }, this);

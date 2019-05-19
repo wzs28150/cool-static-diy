@@ -1,0 +1,29 @@
+<div class="grid-stack-item-content ad_pic_scroll ">
+  <div class="grid-stack-item-inner ">
+    <div class="swiper-container m_T10">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var swiper = new Swiper('.ad_pic_scroll .swiper-container', {
+    speed: 2000,
+    autoplay: 2000,
+    loop: true,
+    pagination: '.ad_pic_scroll .swiper-pagination',
+    paginationClickable: true,
+    paginationBulletRender: function(swiper, index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+    }
+  });
+
+</script>

@@ -3,17 +3,27 @@
     border     : 1px solid #c7d4dc;
     height     : 28px;
     line-height: 28px;
-    margin     : 10px 0;
+    margin     : 10px 0 0;
     font-size  : 14px;
 
     .tit {
       float      : left;
       font-weight: bold;
+      color      : #305798;
+      padding    : 0 12px;
     }
 
     .swiper-slide {
       display: inline-block;
       width  : auto;
+
+      a {
+        color: #454343;
+
+        &:hover {
+          color: #bd1917;
+        }
+      }
     }
   }
 }
