@@ -103,12 +103,14 @@
         left           : 0;
         width          : 20px;
         background-size: 17px 34px;
+        z-index        : 2;
       }
 
       .swiper-button-next {
         right          : 0;
         width          : 20px;
         background-size: 17px 34px;
+        z-index        : 2;
       }
     }
   }

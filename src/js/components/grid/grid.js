@@ -27,7 +27,7 @@ export default class Grid {
         h: ["98px"]
       });
 
-      $(window).resize(function () {
+      $(window).resize(function() {
         $('.zxxRefLine_v,.zxxRefLine_h').remove();
         $.pageRuler({
           v: [($(window).width() - 1000) / 2 + "px", $(window).width() / 2 + "px", ($(window).width() - ($(window).width() - 1000) / 2) + "px"],
@@ -43,31 +43,31 @@ export default class Grid {
     // 加载板块
     this.load_grid();
     // 显示隐藏标尺
-    $('body').off('click', '#show-ruler').on('click', '#show-ruler', function () {
+    $('body').off('click', '#show-ruler').on('click', '#show-ruler', function() {
       $.pageRulerToggle();
       $('body').toggleClass('hasRuler');
     })
     // 显示隐藏辅助线
-    $('body').off('click', '#show-line').on('click', '#show-line', function () {
+    $('body').off('click', '#show-line').on('click', '#show-line', function() {
       $.lineToggle();
     })
     // 点击保存
-    $('body').off('click', '#save-grid').on('click', '#save-grid', function () {
+    $('body').off('click', '#save-grid').on('click', '#save-grid', function() {
       that.save_grid();
     })
     // 重做
-    $('body').off('click', '#load-grid').on('click', '#load-grid', function () {
+    $('body').off('click', '#load-grid').on('click', '#load-grid', function() {
       that.load_grid();
     })
     // 清空
-    $('body').off('click', '#clear-grid').on('click', '#clear-grid', function () {
+    $('body').off('click', '#clear-grid').on('click', '#clear-grid', function() {
       that.clear_grid();
     })
 
-    $('body').off('click', '#add-grid').on('click', '#add-grid', function (e) {
+    $('body').off('click', '#add-grid').on('click', '#add-grid', function(e) {
       that.add_new_widget();
     })
-    $('body').off('click', '.grid-list').on('click', '.grid-list', function (e) {
+    $('body').off('click', '.grid-list').on('click', '.grid-list', function(e) {
       if (e.target.className == 'grid-list') {
         that.grid_list_toggle();
       }
@@ -81,8 +81,8 @@ export default class Grid {
   grid_list() {
     // console.log(host + "/tpl/tpl.json");
     let str = "";
-    $.getJSON(tplpath + '/tpl.json', function (result) {
-      $.each(result.list, function (i, field) {
+    $.getJSON(tplpath + '/tpl.json', function(result) {
+      $.each(result.list, function(i, field) {
         str += '<div class="swiper-slide">';
         str += '  <div class="slide-inner" style="background-image:url(' + host + '/tpl/' + field.template + '/ico@303x160.jpg)">'
         str += '    <div class="bg wh-center">'
@@ -99,6 +99,8 @@ export default class Grid {
         pagination: '.grid-list .swiper-pagination',
         slidesPerView: 6,
         paginationClickable: true,
+        nextButton: '.grid-list .swiper-button-next',
+        prevButton: '.grid-list .swiper-button-prev',
         spaceBetween: 20
       });
     });
@@ -114,12 +116,12 @@ export default class Grid {
     var that = this;
     this.grid.removeAll();
     var items = GridStackUI.Utils.sort(this.serialized_data);
-    _.each(items, function (node) {
+    _.each(items, function(node) {
       let str = '';
-      $.get(tplpath + "/" + node.template + "/index.html", function (e) {
+      $.get(tplpath + "/" + node.template + "/index.html", function(e) {
         let t = $.templates(e);
         if (node.modulname) {
-          $.get(promiseHost + "/get_widget_datalist?modulname=" + node.modulname + "&catid=" + node.catid + "&num=" + node.num + "&id=" + node.aid, function (res) {
+          $.get(promiseHost + "/get_widget_datalist?modulname=" + node.modulname + "&catid=" + node.catid + "&num=" + node.num + "&id=" + node.aid, function(res) {
             if (res.code == 200) {
               if (that.type == 1 && token) {
                 str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
@@ -144,7 +146,7 @@ export default class Grid {
 
   save_grid() {
     let that = this;
-    this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
+    this.serialized_data = _.map($('.grid-stack > .grid-stack-item:visible'), function(el) {
       el = $(el);
       // var node = el.data('_gridstack_node');
       return {
@@ -186,10 +188,10 @@ export default class Grid {
   }
 
   add_form_close() {
-    $('.add-widget-form').fadeOut('slow', function () {
+    $('.add-widget-form').fadeOut('slow', function() {
       $('.add-widget-form').remove()
     })
-    $('.add-widget-bg').fadeOut('slow', function () {
+    $('.add-widget-bg').fadeOut('slow', function() {
       $('.add-widget-bg').remove()
     })
   }
@@ -198,12 +200,12 @@ export default class Grid {
     let that = this;
     that.grid_list_toggle();
     that.grid_list()
-    $('body').off('click', '.diy-bar .grid-list .swiper-container .swiper-slide  button').on('click', '.diy-bar .grid-list .swiper-container .swiper-slide  button', function () {
+    $('body').off('click', '.diy-bar .grid-list .swiper-container .swiper-slide  button').on('click', '.diy-bar .grid-list .swiper-container .swiper-slide  button', function() {
       let template = $(this).data('template');
       let template_id = $(this).data('template_id');
       let type = $(this).data('type');
       let str = '';
-      $.get(tplpath + "/" + template + "/form.html", function (e) {
+      $.get(tplpath + "/" + template + "/form.html", function(e) {
         let t = $.templates(e);
         if (!$('.add-widget-form').length) {
           str += '<div class="add-widget-bg"></div>';
@@ -217,18 +219,18 @@ export default class Grid {
       })
     });
 
-    $('body').off('click', '.add-widget-form .add-widget-form-close,.add-widget-bg').on('click', '.add-widget-form .add-widget-form-close,.add-widget-bg', function () {
+    $('body').off('click', '.add-widget-form .add-widget-form-close,.add-widget-bg').on('click', '.add-widget-form .add-widget-form-close,.add-widget-bg', function() {
       that.add_form_close();
     });
 
-    $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function () {
+    $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function() {
       let data = $('.add-widget-form form').serializeJson();
       // {template: "news1", catid: "1", num: "7", dragable: "1"}
       let str = '';
-      $.get(tplpath + "/" + data.template + "/index.html", function (e) {
+      $.get(tplpath + "/" + data.template + "/index.html", function(e) {
         let t = $.templates(e);
         if (data.modulname) {
-          $.get(promiseHost + "/get_widget_datalist?modulname=" + data.modulname + "&catid=" + data.catid + "&num=" + data.num + "&id=" + data.id, function (res) {
+          $.get(promiseHost + "/get_widget_datalist?modulname=" + data.modulname + "&catid=" + data.catid + "&num=" + data.num + "&id=" + data.id, function(res) {
             if (res.code == 200) {
               if (that.type == 1 && token) {
                 str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
@@ -257,14 +259,14 @@ export default class Grid {
 
   delete_widget() {
     var that = this;
-    $('body').off('click', '.grid-stack-item  .fa-trash').on('click', '.grid-stack-item  .fa-trash', function () {
+    $('body').off('click', '.grid-stack-item  .fa-trash').on('click', '.grid-stack-item  .fa-trash', function() {
       that.grid.remove_widget($(this).parent().parent())
     })
   }
 
   edit_widget() {
     var that = this;
-    $('body').off('click', '.grid-stack-item  .fa-edit').on('click', '.grid-stack-item  .fa-edit', function () {
+    $('body').off('click', '.grid-stack-item  .fa-edit').on('click', '.grid-stack-item  .fa-edit', function() {
       let parent = $(this).parent().parent();
       // data.template, data.template_id, data.catid, data.modulname, 0, 0, data.width, data.height, true
       let template = parent.data('gs-template');
@@ -279,7 +281,7 @@ export default class Grid {
         modulname: modulname,
         height: height
       };
-      $.get(tplpath + "/" + template + "/form.html", function (e) {
+      $.get(tplpath + "/" + template + "/form.html", function(e) {
         let t = $.templates(e);
         if (!$('.add-widget-form').length) {
           str += '<div class="add-widget-bg"></div>';
@@ -291,13 +293,13 @@ export default class Grid {
         }
       })
 
-      $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function () {
+      $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function() {
         let data = $('.add-widget-form form').serializeJson();
         parent.data('gs-catid', data.catid);
         parent.data('gs-modulname', data.modulname);
         parent.data('gs-height', data.height);
         parent.data('gs-num', data.num);
-        that.grid._updateElement(parent, function () {
+        that.grid._updateElement(parent, function() {
 
         })
         that.save_grid();
@@ -306,7 +308,7 @@ export default class Grid {
     })
 
 
-    $('body').off('click', '.add-widget-form .add-widget-form-close,.add-widget-bg').on('click', '.add-widget-form .add-widget-form-close,.add-widget-bg', function () {
+    $('body').off('click', '.add-widget-form .add-widget-form-close,.add-widget-bg').on('click', '.add-widget-form .add-widget-form-close,.add-widget-bg', function() {
       that.add_form_close();
     });
 

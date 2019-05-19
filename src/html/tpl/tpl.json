@@ -8,38 +8,68 @@
     {
       "template_id": 2,
       "template": "ad_pic",
-			"type": "ad",
+      "type": "ad",
       "title": "单图片广告模块"
     },
     {
       "template_id": 3,
       "template": "search_bar",
-			"type": "",
+      "type": "",
       "title": "logo+搜索条"
     },
     {
       "template_id": 4,
       "template": "nav",
-			"type": "content",
+      "type": "content",
       "title": "导航模块"
     },
     {
       "template_id": 5,
       "template": "notice",
-			"type": "content",
+      "type": "content",
       "title": "网站公告"
     },
     {
       "template_id": 6,
       "template": "headlines",
-			"type": "content",
+      "type": "content",
       "title": "今日头条"
     },
     {
       "template_id": 7,
       "template": "ad_pic_scroll",
-			"type": "content",
+      "type": "content",
       "title": "滚动图片广告"
+    },
+    {
+      "template_id": 8,
+      "template": "news_pic",
+      "type": "content",
+      "title": "图片滚动新闻"
+    },
+    {
+      "template_id": 9,
+      "template": "news2",
+      "type": "content",
+      "title": "新闻模块1"
+    },
+    {
+      "template_id": 10,
+      "template": "news3",
+      "type": "content",
+      "title": "新闻模块1"
+    },
+    {
+      "template_id": 11,
+      "template": "news4",
+      "type": "content",
+      "title": "新闻模块1"
+    },
+    {
+      "template_id": 12,
+      "template": "news5",
+      "type": "content",
+      "title": "新闻模块1"
     }
   ]
 }

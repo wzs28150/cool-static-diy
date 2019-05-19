@@ -1,11 +1,28 @@
 .ad_pic_scroll {
-  .swiper-pagination-bullet {
-    background-color: #444444;
-    opacity         : 1;
-    color           : #fff;
+  .swiper-container {
+    height: 90px;
 
-    &.swiper-pagination-bullet-active {
-      background-color: #d20000;
+    .swiper-pagination {
+      width : auto;
+      right : 0;
+      left  : auto;
+      bottom: 5px;
+
+      .swiper-pagination-bullet {
+        background-color: #444444;
+        opacity         : 1;
+        color           : #fff;
+        border-radius   : 0;
+        width           : 20px;
+        height          : 20px;
+        line-height     : 20px;
+        transition      : $tr4;
+
+        &.swiper-pagination-bullet-active {
+          background-color: #d20000;
+          transition      : $tr4;
+        }
+      }
     }
   }
 }
