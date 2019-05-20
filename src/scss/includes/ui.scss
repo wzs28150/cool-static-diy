@@ -25,6 +25,7 @@ strong {
   font-weight: bold;
 }
 /*表格*/
+
 table {
   border-top     : 1pt solid #ebebeb;
   border-left    : 1pt solid #ebebeb;
@@ -46,7 +47,6 @@ table {
   }
 }
 /*水平垂直居中*/
-
 .wh-center {
   display            : -webkit-box;
   display            : -ms-flexbox;
@@ -61,7 +61,6 @@ table {
   align-items        : center;
 }
 /*垂直居中*/
-
 .h-center {
   display            : -webkit-box;
   display            : -ms-flexbox;
@@ -73,7 +72,6 @@ table {
   align-items        : center;
 }
 /*分组父级*/
-
 .felx-box {
   display              : -webkit-box;
   -webkit-box-orient   : horizontal;
@@ -85,7 +83,6 @@ table {
   align-items          : left;
 }
 /*分组子级*/
-
 .felx-item {
   -webkit-box-flex: 1;
   flex-basis      : 1;
@@ -94,6 +91,7 @@ table {
   flex            : 1 1 1;
 }
 /*pc*/
+
 .pc {
   display: block!important;
   @media screen and (max-width: 768px) {
@@ -101,7 +99,6 @@ table {
   }
 }
 /*手机*/
-
 .wap {
   display: none!important;
   @media screen and (max-width: 768px) {
@@ -109,6 +106,7 @@ table {
   }
 }
 /*容器*/
+
 .container {
   @include css-set($container-width);
   margin  : 0 auto;
@@ -151,7 +149,6 @@ article {
   }
 }
 /*浮动*/
-
 .fl {
   float: left;
 }
@@ -267,6 +264,7 @@ main {
   }
 }
 /*上一篇下一篇*/
+
 .page_up_down {
   height     : 46px;
   line-height: 46px;
@@ -296,6 +294,7 @@ main {
   }
 }
 /*分页*/
+
 .pagination {
   text-align: center;
   margin-top: 25px;
@@ -351,6 +350,8 @@ main {
     .grid-stack-item-content {
       // border  : 1px dashed #007fff;
       overflow: hidden; // box-shadow: 0 0 2px #007fff inset;
+      left    : 7.5px;
+      right   : 7.5px;
 
       .grid-stack-item-inner {}
     }

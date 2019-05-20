@@ -1,17 +1,4 @@
 <div class="form-item">
-  <label for="">
-    栏目
-  </label>
-  <select class="beautify_input" name="catid">
-  </select>
-</div>
-<div class="form-item">
-  <label for="num">
-    显示个数:
-  </label>
-  <input type="number" id="num" name="num" value="7">
-</div>
-<div class="form-item">
   <label for="height">
     高度
   </label>
@@ -21,7 +8,32 @@
   <label for="width">
     宽度
   </label>
-  <input type="number" id="width" name="width" value="{{:width?width:4}}">
+  <input type="number" id="width" name="width" value="4">
+</div>
+<div class="form-item">
+  <input type="checkbox" name="isSwitch" value="1" id="isSwitch">
+  <label class="radio" for="isSwitch">
+    是否切换:
+    <span></span>
+    <button type="button" class="add_catid"><i class="fa fa-plus"></i>添加栏目</button>
+  </label>
+</div>
+<div class="content">
+  <div class="item">
+    <div class="form-item">
+      <label for="">
+        栏目
+      </label>
+      <select class="beautify_input" id="catid" name="catid[]">
+      </select>
+    </div>
+    <div class="form-item">
+      <label for="num">
+        显示个数:
+      </label>
+      <input type="number" id="num" name="num[]" value="1">
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="form-item">
@@ -42,22 +54,52 @@
 <div class="form-item">
   <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}">
   <input type="hidden" name="modulname" value="news">
-  <button type="button" name="button">添&nbsp;加</button>
+  <button type="button" class="submit" name="button">添&nbsp;加</button>
 </div>
 <script type="text/javascript">
-  $.get(promiseHost + "/get_catid", function (res) {
-    if(res.code == 200){
-      var data = res.data;
-      var str = '';
-      $.each(data, function (i, field) {
-        if(catidpre){
-          str += '<option value="'+field.id+'" selected>'+field.catname+'</option>';
-        }else{
-          str += '<option value="'+field.id+'">'+field.catname+'</option>';
-        }
-      })
-      $('.beautify_input').html(str);
-      $('.beautify_input').cssSelect();
-    }
-  });
+  $('body').off('change', '#isSwitch').on('change', '#isSwitch', function() {
+    $(this).parent().next().toggleClass('list')
+  })
+  $('body').off('click', '.add_catid').on('click', '.add_catid', function() {
+    var list = $(this).parent().parent().next();
+    var item = list.find('.item');
+    var l = item.length;
+    var itemstr = '';
+    itemstr += '<div class="item">'
+    itemstr += '  <div class="form-item">'
+    itemstr += '    <label for="catid' + (l + 1) + '">'
+    itemstr += '      栏目'
+    itemstr += '    </label>'
+    itemstr += '    <select class="beautify_input" id="catid' + (l + 1) + '" name="catid[]">'
+    itemstr += '    </select>'
+    itemstr += '  </div>'
+    itemstr += '  <div class="form-item">'
+    itemstr += '    <label for="num' + (l + 1) + '">'
+    itemstr += '      显示个数:'
+    itemstr += '    </label>'
+    itemstr += '    <input type="number" id="num' + (l + 1) + '" name="num[]" value="1">'
+    itemstr += '  </div>'
+    itemstr += '</div>'
+    list.append(itemstr);
+    load_catid()
+  })
+  load_catid()
+
+  function load_catid() {
+    $.get(promiseHost + "/get_catid", function(res) {
+      if (res.code == 200) {
+        var data = res.data;
+        var str = '';
+        $.each(data, function(i, field) {
+          if (catidpre) {
+            str += '<option value="' + field.id + '" selected>' + field.catname + '</option>';
+          } else {
+            str += '<option value="' + field.id + '">' + field.catname + '</option>';
+          }
+        })
+        $('.beautify_input').html(str);
+        $('.beautify_input').cssSelect();
+      }
+    });
+  }
 </script>

@@ -99,6 +99,8 @@ export default class Grid {
         pagination: '.grid-list .swiper-pagination',
         slidesPerView: 6,
         paginationClickable: true,
+        nextButton: '.grid-list .swiper-button-next',
+        prevButton: '.grid-list .swiper-button-prev',
         spaceBetween: 20
       });
     });
@@ -119,48 +121,23 @@ export default class Grid {
       $.get(tplpath + "/" + node.template + "/index.html", function(e) {
         let t = $.templates(e);
         if (node.modulname) {
-          console.log(node.content);
-          if(node.content){
-            $.post(promiseHost + "/get_widget_datalist",{data:node.content},function (res) {
-                let data = {
-                  res:res.data,
-                  node:node
-                }
-                if (res.code == 200) {
-                  if (that.type == 1 && token) {
-                    str = '<div>' + t.render(data) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
-                  } else {
-                    str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data) + '</div>'
-                  }
-                  that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.style, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
-                }
-            }, 'json')
-          }
-
-          // $.get(promiseHost + "/get_widget_datalist?modulname=" + node.modulname + "&catid=" + node.catid + "&num=" + node.num + "&id=" + node.aid, function(res) {
-          //   let data = {
-          //     res:res.data,
-          //     node:node
-          //   }
-          //   if (res.code == 200) {
-          //     if (that.type == 1 && token) {
-          //       str = '<div>' + t.render(data) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
-          //     } else {
-          //       str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data) + '</div>'
-          //     }
-          //     that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.style, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
-          //   }
-          // }, 'json')
+          $.get(promiseHost + "/get_widget_datalist?modulname=" + node.modulname + "&catid=" + node.catid + "&num=" + node.num + "&id=" + node.aid, function(res) {
+            if (res.code == 200) {
+              if (that.type == 1 && token) {
+                str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
+              } else {
+                str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
+              }
+              that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+            }
+          }, 'json')
         } else {
           if (that.type == 1 && token) {
-            let data = {
-              node:node
-            }
-            str = '<div>' + t.render(data) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
+            str = '<div>' + t.render() + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
           } else {
-            str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data) + '</div>'
+            str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
           }
-          that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.style, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+          that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
         }
       });
 
@@ -182,8 +159,6 @@ export default class Grid {
         catid: $(el).data('gs-catid'),
         num: $(el).data('gs-num'),
         aid: $(el).data('gs-aid'),
-        content: $(el).data('gs-content'),
-        style: $(el).data('gs-style'),
         modulname: $(el).data('gs-modulname')
       };
     }, this);
@@ -248,23 +223,9 @@ export default class Grid {
       that.add_form_close();
     });
 
-    $('body').off('click', '.add-widget-form .form-item button.submit').on('click', '.add-widget-form .form-item button.submit', function() {
+    $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function() {
       let data = $('.add-widget-form form').serializeJson();
       // {template: "news1", catid: "1", num: "7", dragable: "1"}
-      data.style = '',data.content = '';
-      let arr = [],obj= {};
-      if(data.isSwitch){
-        obj.isSwitch = data.isSwitch;
-      }
-      data.style = JSON.stringify(obj);
-      if($('.add-widget-form form select[name="catid[]"]')){
-        $('.add-widget-form form select[name="catid[]"]').each(function(i) {
-          arr.push({catid:$('.add-widget-form form select[name="catid[]"]').eq(i).val(),num:$('.add-widget-form form input[name="num[]"]').eq(i).val()})
-        });
-      }
-      data.content = JSON.stringify(arr);
-      console.log(data);
-      // return false;
       let str = '';
       $.get(tplpath + "/" + data.template + "/index.html", function(e) {
         let t = $.templates(e);
@@ -276,7 +237,7 @@ export default class Grid {
               } else {
                 str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
               }
-              that.grid.addWidget($(str), data.template, data.template_id, data.content, data.style, data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
+              that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
             }
           }, 'json')
         } else {
@@ -285,7 +246,7 @@ export default class Grid {
           } else {
             str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
           }
-          that.grid.addWidget($(str), data.template, data.template_id, data.content, data.style, data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
+          that.grid.addWidget($(str), data.template, data.template_id, data.catid, data.aid, node.num, data.modulname, 0, 0, data.width, data.height, true);
         }
         that.add_form_close();
       });
@@ -332,7 +293,7 @@ export default class Grid {
         }
       })
 
-      $('body').off('click', '.add-widget-form .form-item button.submit').on('click', '.add-widget-form .form-item button.submit', function() {
+      $('body').off('click', '.add-widget-form .form-item button').on('click', '.add-widget-form .form-item button', function() {
         let data = $('.add-widget-form form').serializeJson();
         parent.data('gs-catid', data.catid);
         parent.data('gs-modulname', data.modulname);

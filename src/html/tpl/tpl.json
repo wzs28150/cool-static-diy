@@ -46,30 +46,6 @@
       "template": "news_pic",
       "type": "content",
       "title": "图片滚动新闻"
-    },
-    {
-      "template_id": 9,
-      "template": "news2",
-      "type": "content",
-      "title": "新闻模块1"
-    },
-    {
-      "template_id": 10,
-      "template": "news3",
-      "type": "content",
-      "title": "新闻模块1"
-    },
-    {
-      "template_id": 11,
-      "template": "news4",
-      "type": "content",
-      "title": "新闻模块1"
-    },
-    {
-      "template_id": 12,
-      "template": "news5",
-      "type": "content",
-      "title": "新闻模块1"
     }
   ]
 }
