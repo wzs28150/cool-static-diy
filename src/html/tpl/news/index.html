@@ -1,0 +1,35 @@
+<div class="grid-stack-item-content news-module {{if node.style.isSwitch}}isSwitch{{/if}}">
+  <div class="grid-stack-item-inner">
+    <div class="switch-tit m_T10 tittType{{:node.style.tittType}}">
+      {{for res}}
+      <a {{if #index == 0}} class="on" {{/if}} href="javascript:void(0)" data-nopjax="no">{{:catname}}</a>
+      {{/for}}
+    </div>
+    {{for res}}
+    <ul {{if #index == 0}} class="on" {{/if}}>
+      {{for list}}
+      {{if #index == 0}}
+      {{else}}
+      <li><a class="text-hidden" href=""><i>&bull;</i>{{:title}}</a></li>
+      {{/if}}
+      {{/for}}
+    </ul>
+    {{/for}}
+  </div>
+</div>
+{{if node.style.isSwitch}}
+<script type="text/javascript">
+  $('document').ready(function() {
+    $('body').off('click','.isSwitch .switch-tit a').on('click','.isSwitch .switch-tit a',function () {
+      var that = $(this);
+      var i = that.index();
+      var tit = $(this).parent();
+      tit.find('a').removeClass('on');
+      that.addClass('on')
+      var ul = tit.parent().find('ul');
+      ul.removeClass('on');
+      ul.eq(i).addClass('on');
+    })
+  })
+</script>
+{{/if}}

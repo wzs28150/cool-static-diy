@@ -1,67 +1,55 @@
-$height: 140px;
-$width: 220px;
+.news-module {
+  &.isSwitch {
+    .switch-tit {
+      font-size  : 0;
+      line-height: 0;
+      height     : 40px;
 
-.news-pic-item {
-  overflow: hidden;
+      &.tittType3 {
+        border-bottom: 1px solid #ddd;
 
-  a {
-    position  : relative;
-    display   : block;
-    min-height: $height;
+        a {
+          display     : inline-block;
+          height      : 40px;
+          border-top  : 2px solid #fff;
+          border-right: 1px solid #fff;
+          font-size   : 16px;
+          line-height : 38px;
+          color       : #1d71b7;
+          padding     : 0 1em;
 
-    .pic {
-      width              : $width;
-      height             : $height;
-      position           : absolute;
-      left               : 0;
-      top                : 0;
-      background-position: center;
-      background-size    : cover;
-      background-repeat  : no-repeat;
-    }
+          &.on {
+            border-top   : 2px solid #1d71b7;
+            border-right : 1px solid #eee;
+            border-bottom: 1px solid #fff;
+          }
 
-    .inner {
-      padding-left: $width + 15;
-      overflow    : hidden;
-
-      .title {}
-
-      .des {
-        line-height: 1.5em;
-        height     : 1.5 * 4em;
-        overflow   : hidden;
+          &:first-child {
+            border-right: 1px solid #eee;
+          }
+        }
       }
     }
-    @include max-screen(480px) {
-      .pic {
-        position      : relative;
-        width         : 100%;
-        height        : 0;
-        padding-bottom: 50%;
+
+    ul {
+      display: none;
+
+      &.on {
+        display: block;
       }
 
-      .inner {
-        padding-left: 0;
-      }
-    }
-  }
-}
+      li {
+        a {
+          line-height: 30px;
+          display    : block;
+          font-size  : 14px;
+          color      : #252525;
 
-.news-item {
-  a {
-    display : block;
-    position: relative;
-
-    span {
-      &.title {
-        display      : block;
-        padding-right: 6em;
-      }
-
-      &.time {
-        position: absolute;
-        right   : 0;
-        top     : 0;
+          i {
+            font-style   : normal;
+            padding-right: 0.5em;
+          }
+        }
       }
     }
   }

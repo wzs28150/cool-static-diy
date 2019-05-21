@@ -1,7 +1,7 @@
 {
   "list": [{
       "template_id": 1,
-      "template": "news1",
+      "template": "news",
       "type": "content",
       "title": "新闻模块1"
     },

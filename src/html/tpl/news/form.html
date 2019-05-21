@@ -35,6 +35,37 @@
     </div>
   </div>
 </div>
+<div class="radio-group">
+  <label class="radio" for="">
+    题头样式:
+  </label>
+  <div class="list">
+    <div class="form-item">
+      <input type="radio" id="tittType1" name="tittType" checked value="1">
+      <label class="radio" for="tittType1">
+        <span class="fl m_T10 m_R10 mLn"></span><img src="/tpl/news/img/news_tit_type1.jpg" height="40" alt="">
+      </label>
+    </div>
+    <div class="form-item">
+      <input type="radio" id="tittType2" name="tittType" value="2">
+      <label class="radio" for="tittType2">
+        <span class="fl m_T10 m_R10 mLn"></span><img src="/tpl/news/img/news_tit_type2.jpg" height="40" alt="">
+      </label>
+    </div>
+    <div class="form-item isSwitch">
+      <input type="radio" id="tittType3" name="tittType" value="3">
+      <label class="radio" for="tittType3">
+        <span class="fl m_T10 m_R10 mLn"></span><img src="/tpl/news/img/news_tit_type3.jpg" height="40" alt="">
+      </label>
+    </div>
+    <div class="form-item isSwitch">
+      <input type="radio" id="tittType4" name="tittType" value="4">
+      <label class="radio" for="tittTypee4">
+        <span class="fl m_T10 m_R10 mLn"></span><img src="/tpl/news/img/news_tit_type4.jpg" height="40" alt="">
+      </label>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="form-item">
     <input type="checkbox" name="dragable" value="1" id="dragable">
@@ -59,6 +90,7 @@
 <script type="text/javascript">
   $('body').off('change', '#isSwitch').on('change', '#isSwitch', function() {
     $(this).parent().next().toggleClass('list')
+    $('.radio-group .list .form-item').toggleClass('isSwitch')
   })
   $('body').off('click', '.add_catid').on('click', '.add_catid', function() {
     var list = $(this).parent().parent().next();
@@ -81,6 +113,7 @@
     itemstr += '  </div>'
     itemstr += '</div>'
     list.append(itemstr);
+    $('.add-widget-form .inner').getNiceScroll(0).resize();
     load_catid()
   })
   load_catid()
