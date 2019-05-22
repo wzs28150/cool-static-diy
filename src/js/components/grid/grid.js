@@ -125,7 +125,8 @@ export default class Grid {
             }, function (res) {
               let data = {
                 res: res.data,
-                node: node
+                node: node,
+                tplpath: tplpath
               }
               if (res.code == 200) {
                 if (that.type == 1 && token) {
@@ -155,7 +156,8 @@ export default class Grid {
         } else {
           if (that.type == 1 && token) {
             let data = {
-              node: node
+              node: node,
+              tplpath: tplpath
             }
             str = '<div>' + t.render(data) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
           } else {
@@ -237,7 +239,7 @@ export default class Grid {
           str += '<div class="add-widget-bg"></div>';
           str += '<div class="add-widget-form">';
           str += '  <div class="add-widget-form-close fa fa-close"></div>';
-          str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render('') + '</form></div>';
+          str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render({tplpath:tplpath}) + '</form></div>';
           str += '</div>';
           $('body').append(str);
           $('.add-widget-form .inner').niceScroll({
@@ -256,6 +258,8 @@ export default class Grid {
 
     $('body').off('click', '.add-widget-form .form-item button.submit').on('click', '.add-widget-form .form-item button.submit', function () {
       let data = $('.add-widget-form form').serializeJson();
+
+      // console.log(data);
       // {template: "news1", catid: "1", num: "7", dragable: "1"}
       data.style = '', data.content = '';
       let arr = [],
@@ -279,7 +283,9 @@ export default class Grid {
       $.get(tplpath + "/" + data.template + "/index.html", function (e) {
         let t = $.templates(e);
         if (data.modulname) {
-          $.get(promiseHost + "/get_widget_datalist?modulname=" + data.modulname + "&catid=" + data.catid + "&num=" + data.num + "&id=" + data.id, function (res) {
+          $.post(promiseHost + "/get_widget_datalist?modulname=" + data.modulname, {
+            data: data.content
+          }, function (res) {
             if (res.code == 200) {
               if (that.type == 1 && token) {
                 str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'

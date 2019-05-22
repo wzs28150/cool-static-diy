@@ -28,6 +28,18 @@
       "template": "news_pic",
       "type": "content",
       "title": "图片滚动新闻"
+    },
+    {
+      "template_id": 9,
+      "template": "tousu",
+      "type": "other",
+      "title": "投诉信息"
+    },
+    {
+      "template_id": 10,
+      "template": "tousu_list",
+      "type": "content",
+      "title": "投诉列表"
     }
   ]
 }

@@ -50,4 +50,32 @@
       }
     }
   }
+
+  .news_pic_left {
+    background-position: center;
+    background-size    : cover;
+    display            : block;
+    position           : absolute;
+    width              : 22px;
+    height             : 40px;
+    left               : 0;
+    top                : 50%;
+    margin-top         : -20px;
+    z-index            : 2;
+    cursor             : pointer;
+  }
+
+  .news_pic_right {
+    background-position: center;
+    background-size    : cover;
+    display            : block;
+    position           : absolute;
+    width              : 22px;
+    height             : 40px;
+    right              : 0;
+    top                : 50%;
+    margin-top         : -20px;
+    z-index            : 2;
+    cursor             : pointer;
+  }
 }
