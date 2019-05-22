@@ -33,12 +33,19 @@
   </div>
 </div>
 <script type="text/javascript">
-  var swiper = new Swiper('.news_pic .swiper-container', {
-    speed: 2000,
-    // autoplay: 2000,
-    loop: false,
-    pagination: '.news_pic .swiper-pagination',
-    paginationClickable: true
-  });
+  $(document).ready(function() {
+    function load() {
+      // $('.news_pic .swiper-container').width($('.news_pic').width())
+      var news_pic_swiper = new Swiper('.news_pic .swiper-container', {
+        speed: 2000,
+        slidesPerView: 1,
+        autoplay: 2000,
+        loop: false,
+        pagination: '.news_pic .swiper-pagination',
+        paginationClickable: true
+      });
+    }
+    setTimeout(load, 500);
 
+  });
 </script>

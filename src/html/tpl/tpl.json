@@ -12,24 +12,6 @@
       "title": "单图片广告模块"
     },
     {
-      "template_id": 3,
-      "template": "search_bar",
-      "type": "",
-      "title": "logo+搜索条"
-    },
-    {
-      "template_id": 4,
-      "template": "nav",
-      "type": "content",
-      "title": "导航模块"
-    },
-    {
-      "template_id": 5,
-      "template": "notice",
-      "type": "content",
-      "title": "网站公告"
-    },
-    {
       "template_id": 6,
       "template": "headlines",
       "type": "content",

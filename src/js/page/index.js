@@ -26,12 +26,34 @@ export default class Index {
         let data = res.data;
         that.serialized_data = data.serialized_data;
         setData(data.serialized_data, data.diy);
+          this.news_pic();
       }
     });
   }
 
   index() {
+    this.notice();
 
   }
+  notice() {
+    var swiper = new Swiper('.notice .swiper-container', {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      speed: 2000,
+      autoplay: 2000,
+      loop: true
+    });
+  }
+  news_pic(){
+    if($('.news_pic').length>0){
+      var swiper = new Swiper('.news_pic .swiper-container', {
+        speed: 2000,
+        // autoplay: 2000,
+        // loop: false,
+        pagination: '.news_pic .swiper-pagination',
+        paginationClickable: true
+      });
+    }
 
+  }
 }

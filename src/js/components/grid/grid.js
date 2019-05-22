@@ -119,7 +119,6 @@ export default class Grid {
       $.get(tplpath + "/" + node.template + "/index.html", function (e) {
         let t = $.templates(e);
         if (node.modulname) {
-          console.log(node.modulname);
           if (node.content) {
             $.post(promiseHost + "/get_widget_datalist?modulname=" + node.modulname, {
               data: node.content
@@ -134,7 +133,7 @@ export default class Grid {
                 } else {
                   str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data) + '</div>'
                 }
-                that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.style, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+                that.grid.addWidget($(str), node.template, node.template_id, JSON.stringify(node.content), JSON.stringify(node.style), node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
               }
             }, 'json')
           }
@@ -189,7 +188,7 @@ export default class Grid {
         modulname: $(el).data('gs-modulname')
       };
     }, this);
-    // console.log(JSON.stringify(this.serialized_data));
+    console.log(JSON.stringify(this.serialized_data));
     let pagename = '';
     if (window.location.pathname == '/') {
       pagename = 'index'
@@ -242,6 +241,7 @@ export default class Grid {
           str += '</div>';
           $('body').append(str);
           $('.add-widget-form .inner').niceScroll({
+            horizrailenabled: false,
             cursorcolor: '#1479d7',
             zindex: 10
           });

@@ -1,10 +1,14 @@
 .news_pic {
+  .grid-stack-item-inner {
+    width : 100%;
+    height: 100%;
+  }
+
   .swiper-container {
     height: calc(100% - 10px);
     width : 100%;
 
     .swiper-slide {
-      width              : 100% !important;
       background-position: center;
       background-repeat  : no-repeat;
       background-size    : cover;

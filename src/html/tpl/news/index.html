@@ -1,17 +1,61 @@
-<div class="grid-stack-item-content news-module {{if node.style.isSwitch}}isSwitch{{/if}}">
+<div class="grid-stack-item-content news-module {{if node.style.isSwitch}}isSwitch{{else}}notSwitch{{/if}}">
   <div class="grid-stack-item-inner">
-    <div class="switch-tit m_T10 tittType{{:node.style.tittType}}">
+    <div class="switch-tit {{if ~root.node.style.tittType != 1}}m_T10{{else}}m_B10{{/if}} tittType{{:node.style.tittType}}">
       {{for res}}
       <a {{if #index == 0}} class="on" {{/if}} href="javascript:void(0)" data-nopjax="no">{{:catname}}</a>
       {{/for}}
+      <a class="more" href=""></a>
     </div>
     {{for res}}
-    <ul {{if #index == 0}} class="on" {{/if}}>
+    <ul class="{{if #index == 0}}on{{/if}} {{if ~root.node.width == 8}}col2{{/if}}"  >
       {{for list}}
-      {{if #index == 0}}
-      <li><a class="text-hidden" href=""><i>&bull;</i>{{:title}}</a></li>
+      {{if #index == 0 && ~root.node.style.tittType != 1 && ~root.node.width != 8}}
+      <li class="first tittType{{: ~root.node.style.tittType}}">
+        <a class="" href="">
+          <span class="title text-hidden">{{:title}}</span>
+          <span class="inner">
+            <span class="pic" style="background-image: url('{{:thumb}}');"></span>
+            {{:content}}{{if ~root.node.style.tittType == 3}}{{/if}}
+          </span>
+        </a>
+      </li>
+      {{else #index == 0 && ~root.node.style.tittType == 4 && ~root.node.width == 8}}
+      <li class="first tittType{{: ~root.node.style.tittType}}">
+        <a class="" href="">
+          <span class="title text-hidden">{{:title}}</span>
+          <span class="inner">
+            <span class="pic" style="background-image: url('{{:thumb}}');"></span>
+            {{:content}}{{if ~root.node.style.tittType == 3}}{{/if}}
+          </span>
+        </a>
+      {{else #index == 0 && ~root.node.style.tittType == 1}}
+      <li class="first fl tittType{{: ~root.node.style.tittType}}">
+        <a class="" href="">
+          <span class="pic" style="background-image: url('{{:thumb}}');"></span>
+          <span class="title text-hidden">{{:title}}</span>
+        </a>
+      </li>
+      {{else #index == 1 && ~root.node.style.tittType == 1}}
+      <li class="first fr tittType{{: ~root.node.style.tittType}}">
+        <a class="" href="">
+          <span class="pic" style="background-image: url('{{:thumb}}');"></span>
+          <span class="title text-hidden">{{:title}}</span>
+        </a>
+      </li>
+      <li class="clearfix"></li>
+      {{else #index == 1 && ~root.node.style.tittType == 4 && ~root.node.width == 8}}
+        <a class="" href="">
+          <span class="title text-hidden">{{:title}}</span>
+          <span class="inner">
+            <span class="pic" style="background-image: url('{{:thumb}}');"></span>
+            {{:content}}{{if ~root.node.style.tittType == 3}}{{/if}}
+          </span>
+        </a>
+      </li>
+      {{else #index == 2 && ~root.node.style.tittType == 4 && ~root.node.width == 8}}
+        <li><a class="text-hidden m_T5" href=""><i class="tittType{{: ~root.node.style.tittType}}">&bull;</i>{{:title}}</a></li>
       {{else}}
-      <li><a class="text-hidden" href=""><i>&bull;</i>{{:title}}</a></li>
+        <li><a class="text-hidden" href=""><i class="tittType{{: ~root.node.style.tittType}}">&bull;</i>{{:title}}</a></li>
       {{/if}}
       {{/for}}
     </ul>
@@ -21,7 +65,7 @@
 {{if node.style.isSwitch}}
 <script type="text/javascript">
   $('document').ready(function() {
-    $('body').off('click','.isSwitch .switch-tit a').on('click','.isSwitch .switch-tit a',function () {
+    $('body').off('click', '.isSwitch .switch-tit a').on('click', '.isSwitch .switch-tit a', function() {
       var that = $(this);
       var i = that.index();
       var tit = $(this).parent();

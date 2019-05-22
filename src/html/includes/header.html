@@ -1,85 +1,173 @@
 <!doctype html>
 <html lang="zh-CN">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/png" href="favicon/favicon.png">
-    <link href="css/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/lib/common.css">
-    <link rel="stylesheet" href="css/coolstyle.css">
-    <script src="js/lib/jquery.1.11.1.min.js"></script>
-    <script src="js/lib/jquery-ui.min.js"></script>
-    <script src="js/lib/swiper.min.js"></script>
-    <script src="js/lib/jquery.nicescroll.js"></script>
-    <script src="js/lib/lodash.min.js"></script>
-    <script src="js/lib/jquery.zxxPageRuler.1.1.js"></script>
-    <script src="js/lib/gridstack.min.js"></script>
-    <script src="js/lib/jsrender.min.js"></script>
-    <script src="js/lib/gridstack.jQueryUI.min.js"></script>
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+  <link href="css/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/lib/common.css">
+  <link rel="stylesheet" href="css/coolstyle.css">
+  <script src="js/lib/jquery.1.11.1.min.js"></script>
+  <script src="js/lib/jquery-ui.min.js"></script>
+  <script src="js/lib/swiper.min.js"></script>
+  <script src="js/lib/jquery.nicescroll.js"></script>
+  <script src="js/lib/lodash.min.js"></script>
+  <script src="js/lib/jquery.zxxPageRuler.1.1.js"></script>
+  <script src="js/lib/gridstack.min.js"></script>
+  <script src="js/lib/jsrender.min.js"></script>
+  <script src="js/lib/gridstack.jQueryUI.min.js"></script>
 
-    <title>
-      <%=title%>
-    </title>
-    <script type="text/javascript">
-      var token = 'adadasd';
-      window.host = "http://" + window.location.host;
-      var tplpath = host + "/tpl";
-    </script>
-  </head>
+  <title>
+    <%=title%>
+  </title>
+  <script type="text/javascript">
+    var token = 'asdasd';
+    window.host = "http://" + window.location.host;
+    var tplpath = host + "/tpl";
+  </script>
+</head>
 
-  <body id="zxxScaleBox">
-    <!-- 弹窗 -->
-    <div class="alert_player" style="display:none;">
-      <div class="bg"></div>
-      <div class="layer">
-        <div class="info"></div>
-        <a class="queren_btn" data-nopjax="no">确认</a>
-      </div>
+<body id="zxxScaleBox">
+  <!-- 弹窗 -->
+  <div class="alert_player" style="display:none;">
+    <div class="bg"></div>
+    <div class="layer">
+      <div class="info"></div>
+      <a class="queren_btn" data-nopjax="no">确认</a>
     </div>
-    <!-- 弹窗 -->
-    <div class="diy-bar">
-      <div class="inner">
-        <div class="title fl">编辑页面</div>
-        <div class="add-bar fl">
-          <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-angle-down"></i>添加模块</a>
-          <div class="grid-list">
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
+  </div>
+  <!-- 弹窗 -->
+  <div class="diy-bar">
+    <div class="inner">
+      <div class="title fl">编辑页面</div>
+      <div class="add-bar fl">
+        <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-angle-down"></i>添加模块</a>
+        <div class="grid-list">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
 
-              </div>
-              <!-- Add Pagination -->
-              <div class="swiper-pagination swiper-pagination-black"></div>
-              <div class="swiper-button-prev swiper-button-black"></div>
-              <div class="swiper-button-next swiper-button-black"></div>
             </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+            <div class="swiper-button-next swiper-button-black"></div>
           </div>
         </div>
-        <div class="ctrl fr">
-          <a id="show-ruler" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-ruler"></i>标尺</a>
-          <a id="show-line" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-bars"></i>辅助线</a>
-          <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
-          <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
-          <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
-        </div>
+      </div>
+      <div class="ctrl fr">
+        <a id="show-ruler" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-ruler"></i>标尺</a>
+        <a id="show-line" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-bars"></i>辅助线</a>
+        <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
+        <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
+        <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
       </div>
     </div>
-    <div class="header-bar">
-      <div class="container">
-        <div class="fl">欢迎来到黑龙江消费网！</div>
-        <div class="fr">
-          <a href="">设置首页</a><span>|</span>
-          <a href=""><i class="fa fa-star-o"></i>收藏本站</a>
-        </div>
+  </div>
+  <div class="header-bar">
+    <div class="container">
+      <div class="fl">欢迎来到黑龙江消费网！</div>
+      <div class="fr">
+        <a href="">设置首页</a><span>|</span>
+        <a href=""><i class="fa fa-star-o"></i>收藏本站</a>
       </div>
     </div>
+  </div>
 
-    <div class="loaders">
-      <div class="loader">
-        <div class="ball-clip-rotate-multiple">
-          <div></div>
-          <div></div>
+
+  <div class="loaders">
+    <div class="loader">
+      <div class="ball-clip-rotate-multiple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class="container top-ad ">
+    <div class="m_T20">
+      <div class="ad-pic fl">
+        <a href="">
+          <img src="img/top_ad1.jpg" alt="">
+        </a>
+      </div>
+      <div class="ad-pic fl">
+        <a href="">
+          <img src="img/top_ad2.jpg" alt="">
+        </a>
+      </div>
+      <div class="ad-pic fl">
+        <a href="">
+          <img src="img/top_ad3.jpg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="search_bar container">
+    <div class="logo fl">
+      <img src="img/logo.jpg" alt="">
+    </div>
+    <div class="fr">
+      <div class="data">2019年5月8日 星期三 农历 四月初四</div>
+      <div class="search ">
+        <input type="text" name="keywords" placeholder="请输入关键词" autocomplete="off">
+        <span data-id="">关键字<i class="fa fa-caret-down"></i></span>
+        <ul>
+          <li><a data-id="1" data-nopjax="no" href="javascript:void(0)">关键字1</a></li>
+          <li><a data-id="2" data-nopjax="no" href="javascript:void(0)">关键字2</a></li>
+          <li><a data-id="3" data-nopjax="no" href="javascript:void(0)">关键字3</a></li>
+          <li><a data-id="4" data-nopjax="no" href="javascript:void(0)">关键字4</a></li>
+        </ul>
+        <a href="javascript:void(0)" target="_blank" data-url="/search" data-nopjax="no" style="background-image:url(img/search_icon.png)">搜索</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav container">
+    <a href="index.html" class="on">本站首页</a>
+    <a href="index.html">主站首页</a>
+    <a href="news_1.html">新闻中心</a>
+    <a href="news_2.html">315曝光</a>
+    <a href="news_3.html">维权人物</a>
+    <a href="news_4.html">消费警示</a>
+    <a href="news_5.html">食品安全</a>
+    <a href="news_6.html">法制在线</a>
+    <a href="news_7.html">通讯网络</a>
+    <a href="news_8.html">医疗健康</a>
+    <a href="news_9.html">工商消协</a>
+    <a href="news_10.html">在线投诉</a>
+    <a href="news_11.html">教育频道</a>
+    <a href="news_12.html">旅游频道</a>
+    <a href="news_13.html">直销频道</a>
+    <a href="news_14.html">家居频道</a>
+    <a href="news_15.html">文娱频道</a>
+    <a href="news_16.html">金融频道</a>
+    <a href="news_17.html">百姓生活</a>
+    <a href="news_18.html">保险频道</a>
+  </div>
+  <div class="notice container">
+    <div class="inner">
+      <div class="tit">网站公告</div>
+      <div class="swiper-container ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
         </div>
       </div>
     </div>
+  </div>

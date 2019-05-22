@@ -1,16 +1,19 @@
 .header-bar {
   height          : 40px;
   background-color: #f6f6f6;
-  position        : absolute;
-  top             : 0;
-  left            : 0;
+  position        : relative;
   width           : 100%;
   z-index         : 5;
   line-height     : 40px;
-  box-shadow      : 0 0 1px #ebe8e8;
+  border-bottom :: 1px solid #e1e1e1;
   color           : #666;
   font-size       : 12px;
-
+  background      : white;
+  /*背景颜色*/
+  background-image: linear-gradient(90deg,#dddddd, transparent 0),linear-gradient(#dddddd 50%, transparent 0);
+  /*背景图片：线性渐变（90度），色彩模式，背景透明*/
+  background-size : 2px 2px;
+  /*背景大小*/
   a {
     color     : #666;
     transition: $tr4;
@@ -42,33 +45,37 @@
 }
 
 main {
-  padding-top: 40px;
-  transition : $tr4;
-  min-height : calc(100vh - 50px);
+  transition: $tr4;
+  min-height: calc(100vh - 50px);
+}
+
+.top-ad {
+  .ad-pic {
+    width       : 323px;
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .diy {
+  padding-top: 40px;
+
   .diy-bar {
     display: block;
   }
 
-  .header-bar {
-    top: 40px;
-  }
-
   main {
-    padding-top: 80px;
-    min-height : calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
   }
 
   &.hasRuler {
-    .header-bar {
-      top: 58px;
-    }
+    padding-top: 58px;
 
     main {
-      padding-top: 98px;
-      min-height : calc(100vh - 108px);
+      min-height: calc(100vh - 108px);
     }
   }
 }

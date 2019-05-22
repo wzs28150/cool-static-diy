@@ -3,7 +3,8 @@ div[data-gs-template="search_bar"] {
 }
 
 .search_bar {
-  z-index: 1;
+  z-index         : 1;
+  background-color: #fff;
 
   .logo {
     padding: 19px 0;
