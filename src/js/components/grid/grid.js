@@ -99,7 +99,9 @@ export default class Grid {
         pagination: '.grid-list .swiper-pagination',
         slidesPerView: 6,
         paginationClickable: true,
-        spaceBetween: 20
+        spaceBetween: 20,
+        prevButton: '.grid-list .swiper-button-prev',
+        nextButton: '.grid-list .swiper-button-next'
       });
     });
 
@@ -135,6 +137,7 @@ export default class Grid {
                   str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data) + '</div>'
                 }
                 that.grid.addWidget($(str), node.template, node.template_id, JSON.stringify(node.content), JSON.stringify(node.style), node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+                $('html').getNiceScroll(0).resize();
               }
             }, 'json')
           }
@@ -154,16 +157,17 @@ export default class Grid {
           //   }
           // }, 'json')
         } else {
+          let data = {
+            node: node,
+            tplpath: tplpath
+          }
           if (that.type == 1 && token) {
-            let data = {
-              node: node,
-              tplpath: tplpath
-            }
             str = '<div>' + t.render(data) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
           } else {
             str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data) + '</div>'
           }
           that.grid.addWidget($(str), node.template, node.template_id, node.catid, node.style, node.aid, node.num, node.modulname, node.x, node.y, node.width, node.height, false);
+          $('html').getNiceScroll(0).resize();
         }
       });
 
@@ -239,7 +243,9 @@ export default class Grid {
           str += '<div class="add-widget-bg"></div>';
           str += '<div class="add-widget-form">';
           str += '  <div class="add-widget-form-close fa fa-close"></div>';
-          str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render({tplpath:tplpath}) + '</form></div>';
+          str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render({
+            tplpath: tplpath
+          }) + '</form></div>';
           str += '</div>';
           $('body').append(str);
           $('.add-widget-form .inner').niceScroll({
@@ -268,10 +274,10 @@ export default class Grid {
         obj.isSwitch = data.isSwitch;
       }
       data.style = JSON.stringify(obj);
-      if ($('.add-widget-form form select[name="catid[]"]')) {
-        $('.add-widget-form form select[name="catid[]"]').each(function (i) {
+      if ($('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]')) {
+        $('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]').each(function (i) {
           arr.push({
-            catid: $('.add-widget-form form select[name="catid[]"]').eq(i).val(),
+            catid: $('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]').eq(i).val(),
             num: $('.add-widget-form form input[name="num[]"]').eq(i).val()
           })
         });

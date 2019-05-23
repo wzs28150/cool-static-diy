@@ -47,6 +47,7 @@
 main {
   transition: $tr4;
   min-height: calc(100vh - 50px);
+  box-sizing: border-box;
 }
 
 .top-ad {

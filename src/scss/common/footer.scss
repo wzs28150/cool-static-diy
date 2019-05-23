@@ -1,39 +1,45 @@
 footer {
-  background-color: #fff;
+  background-color: #f6f6f6;
   position        : relative;
   z-index         : 5;
 
+  .footer-about {
+    font-size    : 16px;
+    border-bottom: 2px solid #666;
+  }
+
   .link {
-    background-color: #f6f6f6;
-    position        : relative;
-    line-height     : 26px;
+    position   : relative;
+    line-height: 26px;
 
     .item {
-      .tit {
-        position    : absolute;
-        left        : 0;
-        padding-left: 10px;
+      border-bottom: 1px solid #e3e3e3;
 
-        &::before {
-          content         : "";
-          display         : block;
-          position        : absolute;
-          width           : 2px;
-          height          : 1em;
-          background-color: #1479d7;
-          top             : 50%;
-          left            : 0;
-          margin-top      : -.5em;
-        }
+      .tit {
+        position   : absolute;
+        left       : 0;
+        font-size  : 16px;
+        color      : #555;
+        font-weight: bold;
       }
 
       .inner {
-        padding-left: 75px;
+        padding-left: 100px;
+        color       : #666;
+        font-size   : 0;
+        line-height : 0;
 
         a {
-          color        : #666;
-          padding-right: 18px;
-          display      : inline-block;
+          color      : #666;
+          display    : inline-block;
+          line-height: 26px;
+          font-size  : 12px;
+        }
+
+        span {
+          line-height: 26px;
+          font-size  : 12px;
+          display    : inline-block;
         }
       }
     }
@@ -41,6 +47,7 @@ footer {
 
   .footer-info {
     line-height: 24px;
+    color      : #666;
 
     a {
       transition: $tr4;

@@ -1,0 +1,105 @@
+.name-list {
+  .tit {
+    height: 44px;
+
+    .inner {
+      height          : 40px;
+      background-color: #f5f5f5;
+      line-height     : 0;
+      font-size       : 0;
+      position        : relative;
+
+      a:not(.more) {
+        line-height: 40px;
+        font-size  : 16px;
+        width      : 90px;
+        display    : inline-block;
+        text-align : center;
+        position   : relative;
+
+        &::after {
+          content     : "";
+          display     : inline-block;
+          position    : absolute;
+          width       : 0;
+          height      : 0;
+          border-left : 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-top  : 5px solid #fff;
+          bottom      : -5px;
+          left        : 50%;
+          margin-left : -4px;
+        }
+
+        &.on {
+          background-color: #c90101;
+          color           : #fff;
+
+          &::after {
+            border-top: 5px solid #c90101;
+          }
+        }
+      }
+
+      .more {
+        display            : block;
+        height             : 38px;
+        font-size          : 18px;
+        line-height        : 38px;
+        padding            : 0 5px;
+        color              : #999;
+        position           : absolute;
+        right              : 0;
+        top                : 0;
+        width              : 22px;
+        background-image   : url("../img/more.png");
+        background-repeat  : no-repeat;
+        background-position: center;
+      }
+    }
+  }
+
+  ul {
+    display: none;
+
+    &.on {
+      display: block;
+    }
+
+    li {
+      a {
+        line-height : 36px;
+        display     : block;
+        position    : relative;
+        padding-left: 30px;
+        font-size   : 14px;
+
+        span {
+          width           : 20px;
+          height          : 20px;
+          background-color: #ccc;
+          color           : #fff;
+          position        : absolute;
+          display         : block;
+          line-height     : 20px;
+          left            : 0;
+          top             : 50%;
+          transform       : translateY(-50%);
+          text-align      : center;
+
+          &.c-1 {
+            background-color: #ff0000;
+          }
+
+          &.c-2 {
+            background-color: #fc7a23;
+          }
+
+          &.c-3 {
+            background-color: #ffcc72;
+          }
+        }
+      }
+    }
+  }
+}

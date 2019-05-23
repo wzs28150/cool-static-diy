@@ -40,6 +40,12 @@
       "template": "tousu_list",
       "type": "content",
       "title": "投诉列表"
+    },
+    {
+      "template_id": 11,
+      "template": "name_list",
+      "type": "content",
+      "title": "名单列表"
     }
   ]
 }

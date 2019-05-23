@@ -25,6 +25,7 @@ strong {
   font-weight: bold;
 }
 /*表格*/
+
 table {
   border-top     : 1pt solid #ebebeb;
   border-left    : 1pt solid #ebebeb;
@@ -46,7 +47,6 @@ table {
   }
 }
 /*水平垂直居中*/
-
 .wh-center {
   display            : -webkit-box;
   display            : -ms-flexbox;
@@ -61,7 +61,6 @@ table {
   align-items        : center;
 }
 /*垂直居中*/
-
 .h-center {
   display            : -webkit-box;
   display            : -ms-flexbox;
@@ -73,7 +72,6 @@ table {
   align-items        : center;
 }
 /*分组父级*/
-
 .felx-box {
   display              : -webkit-box;
   -webkit-box-orient   : horizontal;
@@ -85,7 +83,6 @@ table {
   align-items          : left;
 }
 /*分组子级*/
-
 .felx-item {
   -webkit-box-flex: 1;
   flex-basis      : 1;
@@ -94,6 +91,7 @@ table {
   flex            : 1 1 1;
 }
 /*pc*/
+
 .pc {
   display: block!important;
   @media screen and (max-width: 768px) {
@@ -101,7 +99,6 @@ table {
   }
 }
 /*手机*/
-
 .wap {
   display: none!important;
   @media screen and (max-width: 768px) {
@@ -109,6 +106,7 @@ table {
   }
 }
 /*容器*/
+
 .container {
   @include css-set($container-width);
   margin  : 0 auto;
@@ -151,7 +149,6 @@ article {
   }
 }
 /*浮动*/
-
 .fl {
   float: left;
 }
@@ -267,6 +264,7 @@ main {
   }
 }
 /*上一篇下一篇*/
+
 .page_up_down {
   height     : 46px;
   line-height: 46px;
@@ -296,12 +294,12 @@ main {
   }
 }
 /*分页*/
+
 .pagination {
   text-align: center;
   margin-top: 25px;
 
   ul {
-    border       : 1px solid #e2e9ec;
     display      : inline-block;
     border-radius: 4px;
     font-size    : 0;
@@ -309,24 +307,24 @@ main {
     overflow     : hidden;
 
     a {
-      display    : inline-block;
-      width      : 28px;
-      line-height: 28px;
-      font-size  : 14px;
-      border     : 1px solid #e2e9ec;
-      transition : $tr4;
+      display         : inline-block;
+      width           : 40px;
+      line-height     : 30px;
+      font-size       : 14px;
+      transition      : $tr4;
+      margin          : 0 3px;
+      background-color: #f3f3f3;
 
       &:first-child,
       &:last-child {
-        width      : 58px;
-        line-height: 28px;
+        width      : 66px;
+        line-height: 30px;
       }
 
       &.on,
       &:hover {
-        background-color: #00a5e3;
+        background-color: #1479d7;
         color           : #fff;
-        border-color    : #00a5e3;
         transition      : $tr4;
       }
     }
@@ -439,4 +437,18 @@ main {
 
 .loaders {
   background-color: #fff;
+}
+
+.breadcrumbs {
+  line-height        : 36px;
+  color              : #333333;
+  font-size          : 14px;
+  background-image   : url("../img/position.png");
+  background-repeat  : no-repeat;
+  background-position: left center;
+  padding-left       : 20px;
+
+  a {
+    color: #666666;
+  }
 }

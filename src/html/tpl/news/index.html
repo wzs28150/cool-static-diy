@@ -4,7 +4,7 @@
       {{for res}}
       <a {{if #index == 0}} class="on" {{/if}} href="javascript:void(0)" data-nopjax="no">{{:catname}}</a>
       {{/for}}
-      <a class="more" href=""></a>
+      <a class="more" href="/news_{{:~root.node.content[0].catid}}.html"></a>
     </div>
     {{for res}}
     <ul class="{{if #index == 0}}on{{/if}} {{if ~root.node.width == 8}}col2{{/if}}"  >

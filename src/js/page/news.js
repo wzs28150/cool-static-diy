@@ -15,11 +15,13 @@ export default class Index {
     // 设置导航第几个选中
     setNavActive(0);
     // 控制台输出信息 方便调试页面是否加载
-    debug('index controller is load');
+    debug('news controller is load');
   }
 
   index() {
     this.notice();
+    this.ad_pic_scroll();
+    this.name_list();
   }
   notice() {
     var swiper = new Swiper('.notice .swiper-container', {
@@ -28,6 +30,18 @@ export default class Index {
       speed: 2000,
       autoplay: 2000,
       loop: true
+    });
+  }
+  ad_pic_scroll(){
+    var ad_pic_scrollswiper = new Swiper('.ad_pic_scroll .swiper-container', {
+      speed: 2000,
+      autoplay: 2000,
+      loop: true,
+      pagination: '.ad_pic_scroll .swiper-pagination',
+      paginationClickable: true,
+      paginationBulletRender: function(swiper, index, className) {
+        return '<span class="' + className + '">' + (index + 1) + '</span>';
+      }
     });
   }
   news_pic(){
@@ -41,5 +55,15 @@ export default class Index {
       });
     }
 
+  }
+
+  name_list(){
+    $('body').off('click','.name-list .tit .inner a:not(.more)').on('click','.name-list .tit .inner a:not(.more)',function () {
+      var i = $(this).index();
+      $('.name-list .tit .inner a:not(.more)').removeClass('on');
+      $(this).addClass('on');
+      $('.name-list ul').removeClass('on');
+      $('.name-list ul').eq(i).addClass('on');
+    })
   }
 }

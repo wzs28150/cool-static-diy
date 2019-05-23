@@ -1,6 +1,11 @@
 .ad_pic_scroll {
   .swiper-container {
-    height: 90px;
+    .swiper-slide {
+      img {
+        width  : 100%;
+        display: block;
+      }
+    }
 
     .swiper-pagination {
       width : auto;
