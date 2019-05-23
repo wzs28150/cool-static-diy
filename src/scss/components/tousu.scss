@@ -1,0 +1,94 @@
+.tousu {
+  .tit {
+    width  : 100%;
+    display: block;
+  }
+
+  .tousu-info {
+    height    : 269px;
+    border    : 1px solid #e5e5e5;
+    margin-top: 38px;
+    position  : relative;
+
+    .btn {
+      display         : block;
+      height          : 51px;
+      background-image: url("../img/tousu_btn.png");
+      background-size : cover;
+      position        : absolute;
+      width           : calc(100% + 2px);
+      top             : -26px;
+      left            : -1px;
+    }
+
+    .inner {
+      padding: 26px 20px 20px;
+
+      .btn-list {
+        display        : flex;
+        justify-content: space-between;
+
+        a {
+          display   : block;
+          float     : left;
+          width     : 5em;
+          text-align: center;
+          color     : #455569;
+          padding   : 16px 0;
+
+          img {
+            display: block;
+            margin : 0 auto 7px;
+          }
+        }
+      }
+
+      .tel-list {
+        border-top: 1px solid #e5e5e5;
+        position  : relative;
+
+        .flag {
+          position: absolute;
+          left    : 0;
+          top     : -1px;
+        }
+
+        .item {
+          margin   : 0 20px;
+          font-size: 16px;
+          color    : #b11e01;
+          padding  : 9px 0;
+
+          &:last-child {
+            border-top: 1px dashed #e5e5e5;
+          }
+        }
+
+        table {
+          border: 0;
+          width : 100%;
+
+          tr {
+            background: none;
+            color     : #b11e01 !important;
+
+            &:first-child {
+              font-weight: normal;
+            }
+
+            td {
+              border     : 0;
+              padding    : 0;
+              line-height: 28px;
+
+              img {
+                display       : block;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
