@@ -120,6 +120,7 @@ export default class Grid {
       let str = '';
       $.get(tplpath + "/" + node.template + "/index.html", function (e) {
         let t = $.templates(e);
+        console.log(node);
         if (node.modulname) {
           if (node.content) {
             $.post(promiseHost + "/get_widget_datalist?modulname=" + node.modulname, {
@@ -264,16 +265,24 @@ export default class Grid {
 
     $('body').off('click', '.add-widget-form .form-item button.submit').on('click', '.add-widget-form .form-item button.submit', function () {
       let data = $('.add-widget-form form').serializeJson();
-
+      let node = data;
       // console.log(data);
       // {template: "news1", catid: "1", num: "7", dragable: "1"}
-      data.style = '', data.content = '';
+      data.style = {}, data.content = [];
       let arr = [],
         obj = {};
       if (data.isSwitch) {
         obj.isSwitch = data.isSwitch;
+      }else{
+        obj.isSwitch = 0;
       }
-      data.style = JSON.stringify(obj);
+
+      if (data.tittType) {
+        obj.tittType = data.tittType;
+      }
+
+      data.style = obj;
+      //node.style = JSON.stringify(obj);
       if ($('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]')) {
         $('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]').each(function (i) {
           arr.push({
@@ -282,8 +291,10 @@ export default class Grid {
           })
         });
       }
-      data.content = JSON.stringify(arr);
-      console.log(data);
+      data.content = arr;
+      node = data;
+      //node.content = JSON.stringify(arr);
+      console.log(node);
       // return false;
       let str = '';
       $.get(tplpath + "/" + data.template + "/index.html", function (e) {
@@ -293,21 +304,30 @@ export default class Grid {
             data: data.content
           }, function (res) {
             if (res.code == 200) {
-              if (that.type == 1 && token) {
-                str = '<div>' + t.render(res) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
-              } else {
-                str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(res) + '</div>'
+              let data1 = {
+                res: res.data,
+                node: data,
+                tplpath: tplpath
               }
-              that.grid.addWidget($(str), data.template, data.template_id, data.content, data.style, data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
+              if (that.type == 1 && token) {
+                str = '<div>' + t.render(data1) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
+              } else {
+                str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data1) + '</div>'
+              }
+              that.grid.addWidget($(str), data.template, data.template_id, JSON.stringify(data.content), JSON.stringify(data.style), data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
             }
           }, 'json')
         } else {
-          if (that.type == 1 && token) {
-            str = '<div>' + t.render() + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
-          } else {
-            str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render() + '</div>'
+          let data1 = {
+            node: data,
+            tplpath: tplpath
           }
-          that.grid.addWidget($(str), data.template, data.template_id, data.content, data.style, data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
+          if (that.type == 1 && token) {
+            str = '<div>' + t.render(data1) + '<div class="ui-resizable-w"><div class="fa fa-edit"></div><div class="fa fa-trash"></div></div><div/>'
+          } else {
+            str = '<div data-gs-no-move="1" data-gs-no-resize="1">' + t.render(data1) + '</div>'
+          }
+          that.grid.addWidget($(str), data.template, data.template_id, JSON.stringify(data.content), JSON.stringify(data.style), data.aid, data.num, data.modulname, 0, 0, data.width, data.height, true);
         }
         that.add_form_close();
       });
@@ -332,23 +352,30 @@ export default class Grid {
       // data.template, data.template_id, data.catid, data.modulname, 0, 0, data.width, data.height, true
       let template = parent.data('gs-template');
       let template_id = parent.data('gs-template_id');
-      let catid = parent.data('gs-catid');
+      let content = parent.data('gs-content');
       let modulname = parent.data('gs-modulname');
       let height = parent.data('gs-height');
-      let num = parent.data('gs-num');
+      let width = parent.data('gs-width');
+      let style = parent.data('gs-style');
       let str = '';
       let data = {
-        catid: catid,
+        content: content,
         modulname: modulname,
-        height: height
+        height: height,
+        width: width,
+        style: style
       };
+      let data1 = {
+        node: data,
+        tplpath: tplpath
+      }
       $.get(tplpath + "/" + template + "/form.html", function (e) {
         let t = $.templates(e);
         if (!$('.add-widget-form').length) {
           str += '<div class="add-widget-bg"></div>';
           str += '<div class="add-widget-form">';
           str += '  <div class="add-widget-form-close fa fa-close"></div>';
-          str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render(data) + '</form></div>';
+          str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render(data1) + '</form></div>';
           str += '</div>';
           $('body').append(str);
         }

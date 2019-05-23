@@ -11,14 +11,14 @@
   <input type="number" id="width" name="width" value="4">
 </div>
 <div class="form-item">
-  <input type="checkbox" name="isSwitch" value="1" id="isSwitch">
+  <input type="checkbox" name="isSwitch" value="1" id="isSwitch" {{if node && node.style.isSwitch == 1  }}checked{{/if}}>
   <label class="radio" for="isSwitch">
     是否切换:
     <span></span>
     <button type="button" class="add_catid"><i class="fa fa-plus"></i>添加栏目</button>
   </label>
 </div>
-<div class="content">
+<div class="content {{if node && node.style.isSwitch == 1  }}list{{/if}}">
   <div class="item">
     <div class="form-item">
       <label for="">
@@ -40,27 +40,28 @@
     题头样式:
   </label>
   <div class="list">
-    <div class="form-item">
+    <div class="form-item {{if node && node.style.isSwitch == 1  }}isSwitch{{/if}}">
       <input type="radio" id="tittType1" name="tittType" checked value="1">
       <label class="radio" for="tittType1">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type1.jpg" height="40" alt="">
       </label>
     </div>
-    <div class="form-item">
+    <div class="form-item {{if node && node.style.isSwitch == 1  }}isSwitch{{/if}}">
       <input type="radio" id="tittType2" name="tittType" value="2">
       <label class="radio" for="tittType2">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type2.jpg" height="40" alt="">
       </label>
     </div>
-    <div class="form-item isSwitch">
+    <!-- isSwitch -->
+    <div class="form-item {{if node && node.style.isSwitch == 1  }}{{else}}isSwitch{{/if}}">
       <input type="radio" id="tittType3" name="tittType" value="3">
       <label class="radio" for="tittType3">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type3.jpg" height="40" alt="">
       </label>
     </div>
-    <div class="form-item isSwitch">
+    <div class="form-item {{if node && node.style.isSwitch == 1  }}{{else}}isSwitch{{/if}}">
       <input type="radio" id="tittType4" name="tittType" value="4">
-      <label class="radio" for="tittTypee4">
+      <label class="radio" for="tittType4">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type4.jpg" height="40" alt="">
       </label>
     </div>
@@ -84,13 +85,15 @@
 </div>
 <div class="form-item">
   <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}">
-  <input type="hidden" name="modulname" value="news">
+  <input type="hidden" name="modulname" value="content">
   <button type="button" class="submit" name="button">添&nbsp;加</button>
 </div>
 <script type="text/javascript">
   $('body').off('change', '#isSwitch').on('change', '#isSwitch', function() {
     $(this).parent().next().toggleClass('list')
     $('.radio-group .list .form-item').toggleClass('isSwitch')
+    $('.radio-group .form-item').find('input').prop('checked',false);
+    $('.radio-group .form-item:not(.isSwitch)').eq(0).find('input').prop('checked',true);
   })
   $('body').off('click', '.add_catid').on('click', '.add_catid', function() {
     var list = $(this).parent().parent().next();

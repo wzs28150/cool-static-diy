@@ -1,21 +1,17 @@
-<div class="grid-stack-item-content ad_pic_scroll ">
+<div class="grid-stack-item-content ad_pic_scroll " id="ad_pic_scroll{{:res.catid}}">
   <div class="grid-stack-item-inner ">
-    <div class="swiper-container m_T10">
+    <div class="swiper-container  m_T10">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
-        <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+        {{for res.list}}
+        <div class="swiper-slide"><a href="{{:href}}"><img src="{{:url}}" alt=""></a></div>
+        {{/for}}
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </div>
 </div>
 <script type="text/javascript">
-  var ad_pic_scrollswiper = new Swiper('.ad_pic_scroll .swiper-container', {
+  var ad_pic_scrollswiper{{:res.catid}} = new Swiper('#ad_pic_scroll{{:res.catid}} .swiper-container', {
     speed: 2000,
     autoplay: 2000,
     loop: true,

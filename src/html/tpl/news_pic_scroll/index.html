@@ -1,0 +1,47 @@
+<div class="grid-stack-item-content news_pic news_pic_scroll">
+  <div class="grid-stack-item-inner ">
+    <div class="m_T10 news_pic_scroll_tit">
+      <a href="">消费视频</a>
+      <a class="more" href=""></a>
+    </div>
+    <div class="inner">
+      <div class="swiper-container m_T20">
+        <div class="swiper-wrapper">
+          {{for res}}
+            {{if #index<1}}
+              {{for list}}
+                {{if #index<5}}
+                  <div class="swiper-slide" style="background-image:url({{:thumb}})">
+                    <a href="/{{:catdir}}Info_{{:id}}_{{:catid}}.html">
+                      <span class="title text-hidden">{{:title}}</span>
+                    </a>
+                  </div>
+                {{/if}}
+              {{/for}}
+            {{/if}}
+          {{/for}}
+        </div>
+      </div>
+      <div class=" swiper-button-prev"  ></div>
+      <div class=" swiper-button-next"  ></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    function load() {
+      // $('.news_pic .swiper-container').width($('.news_pic').width())
+      var news_pic_swiper = new Swiper('.news_pic_scroll .swiper-container', {
+        speed: 2000,
+        slidesPerView: 4,
+        spaceBetween : 26,
+        // autoplay: 2000,
+        loop: true,
+        prevButton:'.news_pic_scroll .swiper-button-prev',
+        nextButton:'.news_pic_scroll .swiper-button-next'
+      });
+    }
+    setTimeout(load, 500);
+
+  });
+</script>
