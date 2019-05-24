@@ -1,0 +1,31 @@
+<div class="grid-stack-item-content headlines">
+  <div class="grid-stack-item-inner">
+    <div class="inner">
+      <div class="tit">
+        今日头条
+      </div>
+      <div class="right text-center">
+        {{for res}}
+        {{if #index<1}}
+          {{for list}}
+            {{if #index==0}}
+              <h2><a class="text-hidden" href="/{{:catdir}}Info_{{:id}}_{{:catid}}.html">{{:title}}</a></h2>
+            {{/if}}
+          {{/for}}
+        {{/if}}
+        {{/for}}
+        <div class="list">
+          {{for res}}
+          {{if #index<1}}
+            {{for list}}
+              {{if #index<4}}
+              <a class="text-hidden" href="/{{:catdir}}Info_{{:id}}_{{:catid}}.html">{{:title}}</a>
+              {{/if}}
+            {{/for}}
+          {{/if}}
+          {{/for}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

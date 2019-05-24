@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+  <link href="css/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/lib/common.css">
+  <link rel="stylesheet" href="css/coolstyle.css">
+  <script src="js/lib/jquery.1.11.1.min.js"></script>
+  <script src="js/lib/jquery-ui.min.js"></script>
+  <script src="js/lib/swiper.min.js"></script>
+  <script src="js/lib/jquery.nicescroll.js"></script>
+  <script src="js/lib/lodash.min.js"></script>
+  <script src="js/lib/jquery.zxxPageRuler.1.1.js"></script>
+  <script src="js/lib/gridstack.min.js"></script>
+  <script src="js/lib/jsrender.min.js"></script>
+  <script src="js/lib/gridstack.jQueryUI.min.js"></script>
+
+  <title>
+    cool web
+  </title>
+  <script type="text/javascript">
+    var token = 'asdasd';
+    window.host = "http://" + window.location.host;
+    var tplpath = host + "/tpl";
+  </script>
+</head>
+
+<body id="zxxScaleBox">
+  <!-- 弹窗 -->
+  <div class="alert_player" style="display:none;">
+    <div class="bg"></div>
+    <div class="layer">
+      <div class="info"></div>
+      <a class="queren_btn" data-nopjax="no">确认</a>
+    </div>
+  </div>
+  <!-- 弹窗 -->
+  <div class="diy-bar">
+    <div class="inner">
+      <div class="title fl">编辑页面</div>
+      <div class="add-bar fl">
+        <a id="add-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-angle-down"></i>添加模块</a>
+        <div class="grid-list">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+            <div class="swiper-button-next swiper-button-black"></div>
+          </div>
+        </div>
+      </div>
+      <div class="ctrl fr">
+        <a id="show-ruler" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-ruler"></i>标尺</a>
+        <a id="show-line" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-bars"></i>辅助线</a>
+        <a id="load-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-refresh"></i>重做</a>
+        <a id="clear-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-trash "></i>清空</a>
+        <a id="save-grid" data-nopjax="no" href="JavaScript:void(0);"><i class="fa fa-save  "></i>保存</a>
+      </div>
+    </div>
+  </div>
+  <div class="header-bar">
+    <div class="container">
+      <div class="fl">欢迎来到黑龙江消费网！</div>
+      <div class="fr">
+        <a href="">设置首页</a><span>|</span>
+        <a href=""><i class="fa fa-star-o"></i>收藏本站</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="loaders">
+    <div class="loader">
+      <div class="ball-clip-rotate-multiple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class="container top-ad ">
+    <div class="m_T20">
+      <div class="ad-pic fl">
+        <a href="">
+          <img src="img/top_ad1.jpg" alt="">
+        </a>
+      </div>
+      <div class="ad-pic fl">
+        <a href="">
+          <img src="img/top_ad2.jpg" alt="">
+        </a>
+      </div>
+      <div class="ad-pic fl">
+        <a href="">
+          <img src="img/top_ad3.jpg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="search_bar container">
+    <div class="logo fl">
+      <img src="img/logo.jpg" alt="">
+    </div>
+    <div class="fr">
+      <div class="data">2019年5月8日 星期三 农历 四月初四</div>
+      <div class="search ">
+        <input type="text" name="keywords" placeholder="请输入关键词" autocomplete="off">
+        <span data-id="">关键字<i class="fa fa-caret-down"></i></span>
+        <ul>
+          <li><a data-id="1" data-nopjax="no" href="javascript:void(0)">关键字1</a></li>
+          <li><a data-id="2" data-nopjax="no" href="javascript:void(0)">关键字2</a></li>
+          <li><a data-id="3" data-nopjax="no" href="javascript:void(0)">关键字3</a></li>
+          <li><a data-id="4" data-nopjax="no" href="javascript:void(0)">关键字4</a></li>
+        </ul>
+        <a href="javascript:void(0)" target="_blank" data-url="/search" data-nopjax="no" style="background-image:url(img/search_icon.png)">搜索</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav container">
+    <a href="index.html" class="on">本站首页</a>
+    <a href="index.html">主站首页</a>
+    <a href="news_1.html">新闻中心</a>
+    <a href="news_2.html">315曝光</a>
+    <a href="news_3.html">维权人物</a>
+    <a href="news_4.html">消费警示</a>
+    <a href="news_5.html">食品安全</a>
+    <a href="news_6.html">法制在线</a>
+    <a href="news_7.html">通讯网络</a>
+    <a href="news_8.html">医疗健康</a>
+    <a href="news_9.html">工商消协</a>
+    <a href="news_10.html">在线投诉</a>
+    <a href="news_11.html">教育频道</a>
+    <a href="news_12.html">旅游频道</a>
+    <a href="news_13.html">直销频道</a>
+    <a href="news_14.html">家居频道</a>
+    <a href="news_15.html">文娱频道</a>
+    <a href="news_16.html">金融频道</a>
+    <a href="news_17.html">百姓生活</a>
+    <a href="news_18.html">保险频道</a>
+  </div>
+  <div class="notice container">
+    <div class="inner">
+      <div class="tit">网站公告</div>
+      <div class="swiper-container ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+          <div class="swiper-slide"><a href="">· 中国经济：韧性十足 潜力巨大</a></div>
+          <div class="swiper-slide"><a href="">· 使用社保卡须谨防被盗取个人信息</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main page-animate">
+    <article class="news" data-controller="news">
+      <div class="container  m_B20">
+        <div class="news-inner">
+          <div class="news-left fl">
+            <div class="ad_pic_scroll">
+              <div class="swiper-container m_T10">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                  <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+            <div class="news-info">
+              <div class="breadcrumbs m_T10">
+                当前位置：<a href="">黑龙江消费网</a> &gt; <a href="">新闻中心</a> &gt; <a href="">新闻详细</a>
+              </div>
+              <div class="inner p_20">
+                <div class="headlinetit text-center m_T10">校园内持球拍制服入室行窃逃跑男</div>
+                <div class="title text-center m_T10">“紫衣女侠”脚踩小偷引热议</div>
+                <div class="subtitle text-center m_T10">律师说法：此举属合理支付行为，并不违法</div>
+                <div class="other text-center m_T20 p_B15">
+                  作者：佚名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文章来源：中国消费者报&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新时间：2017/4/27 10:05:00
+                </div>
+                <div class="content m_T10">
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为贯彻落实中央《关于推动传统媒体和新兴媒体融合发展的指导意见》，推动建立健全传统媒体和新兴媒体版权合作机制，规范网络转载版权秩序，根据国家版权局《关于规范网络转载版权秩序的通知》有关要求，t声明如下：</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 中国消费者报采访(拍摄)、编辑、制作、刊登(播出)的新闻作品，包括但不限于本单位首次公开发表的消息通讯、采访报道、调查评论、档案纪录等各类新闻作品，是中国消费者报重要的版权资产。中国消费者报作为前述新闻作品的版权人，依法对其享有完整的著作权。请各新闻媒体、网络服务商和个人严格遵守著作权相关法律法规。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.任何机构或个人，包括但不限于电视台、广播电台、报纸、期刊、互联网服务提供商以及网络用户，除著作权法规定的合理使用外，未经中国消费者报书面许可，不得转载、剪辑、修改、摘编、转贴或以其他方式复制并传播前述新闻作品。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.各新闻媒体、网络服务商和个人在获得授权转载中国消费者报作品时，应自觉为著作权人署名，不歪曲、篡改原文及标题。转载作品应注明来源，转载网站发表文章时还应注明来源网站的链接地址。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. 中国消费者报将针对前述新闻作品加大版权监控和维权力度，对于未经许可使用前述新闻作品的违法行为将严格依法追究侵权责任。各新闻媒体、网络服务商和个人在接到中国消费者报发出的维权通知后，应及时删除侵权内容否则将依法承担侵权责任。</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. 自本声明发布之日起，各新闻媒体、网站和个人应主动自查并删除涉嫌侵权的内容。如需继续使用相关内容请及时联系中国消费者报进行版权合作。</p>
+                </div>
+                <div class="share clearfix m_T20">
+                  <div class="fl bdsharebuttonbox" data-tag="share_1"><span class="fl">分享：</span><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_sqq" data-cmd="sqq" href="#"></a><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a></div>
+                  <div class="fr">(新闻录入:冬阳 责任编辑:冬阳)</div>
+                </div>
+                <div class="related-news m_T10">
+                  <div class="related-tit">
+                    相关新闻
+                  </div>
+                  <div class="related-news-list">
+                    <ul class="p_T10 p_B10">
+                      <li><a class="text-hidden" href=""><i>&bull;</i>新技术、新玩法不断涌现 2018年零售行业商机何在？<span>[04/26]</span></a></li>
+                      <li><a class="text-hidden" href=""><i>&bull;</i>新技术、新玩法不断涌现 2018年零售行业商机何在？<span>[04/26]</span></a></li>
+                      <li><a class="text-hidden" href=""><i>&bull;</i>新技术、新玩法不断涌现 2018年零售行业商机何在？<span>[04/26]</span></a></li>
+                      <li><a class="text-hidden" href=""><i>&bull;</i>新技术、新玩法不断涌现 2018年零售行业商机何在？<span>[04/26]</span></a></li>
+                      <li><a class="text-hidden" href=""><i>&bull;</i>新技术、新玩法不断涌现 2018年零售行业商机何在？<span>[04/26]</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="pinglun m_T10">
+                  <div class="related-tit">
+                    网友评论<span>&nbsp;&nbsp;&nbsp;&nbsp;文明上网理性发言，请遵守新闻评论服务协议</span>
+                  </div>
+                  <div class="pinglun-form m_T10 clearfix">
+                    <form action="">
+                      <div class="form-item m_T10">
+                        <label for="name">姓名：</label>
+                        <input type="text" name="name" id="name" value="" autocomplete="off">
+                      </div>
+                      <div class="form-item m_T10">
+                        <label for="name">评分：</label>
+                        <div class="radio"><input type="radio" name="rank" id="radio1" value="1"><label for="radio1"><span></span>1分</label></div>
+                        <div class="radio"><input type="radio" name="rank" id="radio2" value="2"><label for="radio2"><span></span>2分</label></div>
+                        <div class="radio"><input type="radio" name="rank" id="radio3" value="3"><label for="radio3"><span></span>3分</label></div>
+                        <div class="radio"><input type="radio" name="rank" id="radio4" value="4"><label for="radio4"><span></span>4分</label></div>
+                        <div class="radio"><input type="radio" name="rank" id="radio5" checked value="5"><label for="radio5"><span></span>5分</label></div>
+                      </div>
+                      <div class="form-item m_T10">
+                        <label for="name">评论：</label>
+                        <textarea name="name" autocomplete="off"></textarea>
+                      </div>
+                      <div class="form-item m_T10">
+                        <label for="name"></label>
+                        <button type="button" name="button">发表评论</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="news-right fr">
+            <div class="tousu">
+              <img src="img/tousu_pic.jpg" class="tit m_T10" alt="">
+              <div class="tousu-info">
+                <a class="btn" href=""></a>
+                <div class="inner">
+                  <div class="btn-list">
+                    <a href=""><img src="img/tsgb.png" alt="">投诉公布</a>
+                    <a href=""><img src="img/lst.png" alt="">律师团</a>
+                    <a href=""><img src="img/txysq.png" alt="">通讯员申请</a>
+                  </div>
+                  <div class="tel-list">
+                    <img class="flag" src="img/flag.png" alt="">
+                    <div class="item">
+                      <table>
+                        <tr>
+                          <td width="37" align="center" valign="middle"><img src="img/tel.png" alt=""></td>
+                          <td width="80">投诉电话：</td>
+                          <td>0451-82607315 </td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>0451-82619315 </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="item">
+                      <table>
+                        <tr>
+                          <td width="37" align="center" valign="middle"><img src="img/qq.png" alt=""></td>
+                          <td width="80">维权Q群：</td>
+                          <td>182186950</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>投诉QQ：</td>
+                          <td>1462969852</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tousu-list clearfix">
+              <div class="tit m_T10">
+                <a href="">投诉爆料</a>
+                <a class="more" href=""></a>
+              </div>
+              <ul class="m_T10">
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+                <li><a class="text-hidden" href=""><span></span>袁先生投诉国美（黑天鹅）店销售捆绑销售附袁先生投诉国美</a></li>
+              </ul>
+            </div>
+
+            <div class="name-list clearfix m_T10">
+              <div class="tit">
+                <div class="inner">
+                  <a class="on" href="javascript:void(0)" data-nopjax="no">红名单</a>
+                  <a href="javascript:void(0)" data-nopjax="no">黑名单</a>
+                  <a class="more" href=""></a>
+                </div>
+              </div>
+
+              <ul class="on m_T10">
+                <li><a class="text-hidden" href=""><span class="c-1">1</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-2">2</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-3">3</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-4">4</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-5">5</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-6">6</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-7">7</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-8">8</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+              </ul>
+
+              <ul class=" m_T10">
+                <li><a class="text-hidden" href=""><span class="c-1">1</span>哈市开展“净网”行动保障网络餐饮食品安全1</a></li>
+                <li><a class="text-hidden" href=""><span class="c-2">2</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-3">3</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-4">4</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-5">5</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-6">6</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-7">7</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+                <li><a class="text-hidden" href=""><span class="c-8">8</span>哈市开展“净网”行动保障网络餐饮食品安全</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          window._bd_share_config = {
+            "common": {
+              "bdText": '这是分享的标题',
+              "bdComment": '我是通用分享设置,会出现在发送给QQ好友里的描述',
+              "bdPic": "http://test.miniwangdai.com/public/images/invite/wechat.png", //分享的图像地址
+              "bdStyle": "1", //按钮样式
+              "bdSize": "16", //按钮大小
+              "bdUrl": 'https://www.baidu.com', //分享的地址
+              "bdDesc": '给你的好友留一句话吧',
+            },
+            "share": {},
+          };
+          with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+        });
+      </script>
+    </article>
+  </main>
+
+  <footer class="p_T30">
+    <div class="footer-about text-center p_B20 container"><a href="">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="">关于记者站</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="">关于中消报</a></div>
+    <div class="link  p_B10">
+      <div class="container">
+        <div class="item p_T20 p_B10">
+          <div class="tit">权威链接:</div>
+          <div class="inner">
+            <a href="">国家工商总局</a><span class="p_L20 p_R20">|</span>
+            <a href="">中国消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">全国打假网</a><span class="p_L20 p_R20">|</span>
+            <a href="">国家统计局</a><span class="p_L20 p_R20">|</span>
+            <a href="">国家发展改革委员会</a><span class="p_L20 p_R20">|</span>
+            <a href="">国家质检总局</a><span class="p_L20 p_R20">|</span>
+            <a href="">国家旅游局</a><span class="p_L20 p_R20">|</span>
+            <a href="">国家安全部</a>
+
+            <a href="">黑龙江省工商局</a><span class="p_L20 p_R20">|</span>
+            <a href="">黑龙江省卫生厅</a><span class="p_L20 p_R20">|</span>
+            <a href="">省食品药品监督管理局</a><span class="p_L20 p_R20">|</span>
+            <a href="">黑龙江省统计局</a><span class="p_L20 p_R20">|</span>
+            <a href="">黑龙江省物价局</a><span class="p_L20 p_R20">|</span>
+            <a href="">省质量技术监督局</a><span class="p_L20 p_R20">|</span>
+            <a href="">国家卫生部</a>
+
+            <a href="">黑龙江省旅游局</a><span class="p_L20 p_R20">|</span>
+            <a href="">哈尔滨市公安局</a><span class="p_L20 p_R20">|</span>
+            <a href="">哈尔滨市物价局</a><span class="p_L20 p_R20">|</span>
+            <a href="">哈尔滨市统计局</a><span class="p_L20 p_R20">|</span>
+            <a href="">市政府法制信息网</a><span class="p_L20 p_R20">|</span>
+            <a href="">市食品药品监督管理局</a><span class="p_L20 p_R20">|</span>
+            <a href="">哈尔滨卫生局</a>
+
+          </div>
+        </div>
+        <div class="item p_T20 p_B10">
+          <div class="tit">合作网站：</div>
+          <div class="inner">
+            <a href="">上海市消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">浙江省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">山东省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">海南省消费者委员会</a><span class="p_L20 p_R20">|</span>
+            <a href="">吉林省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">安徽省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">云南省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">辽宁省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">成都市消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">河北省消费者歇会</a><span class="p_L20 p_R20">|</span>
+            <a href="">贵州省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">甘肃省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">黑龙江省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">江西省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">重庆省消费者协会</a><span class="p_L20 p_R20">|</span>
+            <a href="">北京市消费者协会</a>
+          </div>
+        </div>
+        <div class="item p_T20 p_B10">
+          <div class="tit">友情链接：</div>
+          <div class="inner">
+            <a href="">人民网</a><span class="p_L20 p_R20">|</span>
+            <a href="">央视网</a><span class="p_L20 p_R20">|</span>
+            <a href="">重庆消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">新华网</a><span class="p_L20 p_R20">|</span>
+            <a href="">新浪网</a><span class="p_L20 p_R20">|</span>
+            <a href="">中国市场秩序网</a><span class="p_L20 p_R20">|</span>
+            <a href="">河南消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">中国质检网</a><span class="p_L20 p_R20">|</span>
+            <a href="">哈尔滨新闻网</a><span class="p_L20 p_R20">|</span>
+
+            <a href="">黑龙江消协</a><span class="p_L20 p_R20">|</span>
+            <a href="">江西消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">中国消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">江苏消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">中国新闻网</a><span class="p_L20 p_R20">|</span>
+            <a href="">安徽消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">四川消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">广东消费网</a><span class="p_L20 p_R20">|</span>
+            <a href="">东北网</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-info text-center p_T10 p_B10">
+      <div class="container">
+        <p>新闻热线：0451-82619315 &nbsp;&nbsp;&nbsp;&nbsp; 投诉热线：0451-82607315 </p>
+        <p>联系邮箱：hljxiaofeiwang@163.com &nbsp;&nbsp;&nbsp;&nbsp; 服务QQ：1462969852</p>
+        <p>地址：黑龙江省哈尔滨市南岗区七政街79号 &nbsp;&nbsp;&nbsp;&nbsp; 邮编：150080</p>
+        <p>Copyright © 2001 - 2018 黑龙江消费网 版权所有</p>
+        <p>互联网新闻信息服务许可证：1012006031 &nbsp;&nbsp;&nbsp;&nbsp; 黑ICP备16004269</p>
+        <p>&nbsp;</p>
+        <img src="img/footer_ico.png" alt="">
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/cooljs.js"></script>
+
+</body>
+
+</html>

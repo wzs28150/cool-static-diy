@@ -1,0 +1,23 @@
+<div class="grid-stack-item-content tousu-list">
+  <div class="grid-stack-item-inner ">
+    <div class="tit m_T10">
+      <a href="">投诉爆料</a>
+      <a class="more" href=""></a>
+    </div>
+    {{for res}}
+      {{if #index<1}}
+        <ul class="m_T10">
+          {{for list}}
+          <li><a class="text-hidden" href=""><span></span>{{:title}}</a></li>
+          {{/for}}
+        </ul>
+      {{/if}}
+    {{/for}}
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+
+  });
+</script>

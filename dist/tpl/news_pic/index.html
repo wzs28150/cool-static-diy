@@ -1,0 +1,43 @@
+<div class="grid-stack-item-content news_pic">
+  <div class="grid-stack-item-inner ">
+    <div class="swiper-container m_T10">
+      <div class="swiper-wrapper">
+        {{for res}}
+          {{if #index<1}}
+            {{for list}}
+              {{if #index<5}}
+                <div class="swiper-slide" style="background-image:url({{:thumb}})">
+                  <a href="/{{:catdir}}Info_{{:id}}_{{:catid}}.html">
+                    <span class="title text-hidden">{{:title}}</span>
+                  </a>
+                </div>
+              {{/if}}
+            {{/for}}
+          {{/if}}
+        {{/for}}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="news_pic_left" style="background-image:url({{:tplpath}}/news_pic/img/left.png)" ></div>
+    <div class="news_pic_right" style="background-image:url({{:tplpath}}/news_pic/img/right.png)" ></div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    function load() {
+      // $('.news_pic .swiper-container').width($('.news_pic').width())
+      var news_pic_swiper = new Swiper('.news_pic .swiper-container', {
+        speed: 2000,
+        slidesPerView: 1,
+        // autoplay: 2000,
+        loop: true,
+        pagination: '.news_pic .swiper-pagination',
+        paginationClickable: true,
+        prevButton:'.news_pic .news_pic_left',
+        nextButton:'.news_pic .news_pic_right'
+      });
+    }
+    setTimeout(load, 500);
+
+  });
+</script>

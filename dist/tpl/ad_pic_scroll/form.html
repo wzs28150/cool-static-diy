@@ -13,22 +13,22 @@
   </select>
 </div>
 <div class="form-item">
+  <label for="num">
+    显示个数:
+  </label>
+  <input type="number" id="num" name="num[]" value="7">
+</div>
+<div class="form-item">
   <label for="height">
     高度
   </label>
-  <input type="number" id="height" name="height" value="{{:height?height:140}}">
+  <input type="number" id="height" name="height" value="100">
 </div>
 <div class="form-item">
   <label for="width">
     宽度
   </label>
-  <input type="number" id="width" name="width" value="{{:width?width:4}}">
-</div>
-<div class="form-item">
-  <label for="num">
-    显示个数:
-  </label>
-  <input type="number" id="num" name="num[]" value="1" readonly>
+  <input type="number" id="width" name="width" value="{{:width?width:8}}">
 </div>
 <div class="row">
   <div class="form-item">
@@ -47,20 +47,15 @@
   </div>
 </div>
 <div class="form-item">
-  <input type="hidden" name="modulname" value="ad">
-  <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}">
-  <input type="hidden" name="aidpre" id="aidpre" value="{{:id}}">
-  {{if catid}}
-  <button type="button" class="submit" name="button">修&nbsp;改</button>
-  {{else}}
+  <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}" >
+  <input type="hidden" name="modulname" value="scroll_ad">
   <button type="button" class="submit" name="button">添&nbsp;加</button>
-  {{/if}}
 </div>
 <script type="text/javascript">
   $.get(promiseHost + "/get_ad_type", function(res) {
     if (res.code == 200) {
       var data = res.data;
-      var string = '<option value="">请选择广告位</option>';
+      var string = '<option value="" selected>请选择广告位</option>';
       var catidpre = $('#catidpre').val();
       $.each(data, function(i, field) {
         if (catidpre) {
@@ -77,7 +72,7 @@
     var v = $(this).val();
     $.get(promiseHost + "/get_ad?type=" + v, function(res) {
       var data = res.data;
-      var string = '<option value="">请选择广告</option>';
+      var string = '';
       var aidpre = $('#aidpre').val();
       $.each(data, function(i, field) {
         if (aidpre) {

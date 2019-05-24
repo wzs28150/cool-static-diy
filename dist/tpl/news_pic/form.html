@@ -1,0 +1,64 @@
+<div class="form-item">
+  <label for="">
+    栏目
+  </label>
+  <select class="beautify_input" id="catid" name="catid[]">
+  </select>
+</div>
+<div class="form-item">
+  <label for="height">
+    高度
+  </label>
+  <input type="number" id="height" name="height" value="240">
+</div>
+<div class="form-item">
+  <label for="width">
+    宽度
+  </label>
+  <input type="number" id="width" name="width" value="{{:width?width:4}}">
+</div>
+<div class="form-item">
+  <label for="num">
+    显示个数:
+  </label>
+  <input type="number" id="num" name="num[]" value="7">
+</div>
+
+<div class="row">
+  <div class="form-item">
+    <input type="checkbox" name="dragable" value="1" id="dragable">
+    <label class="radio" for="dragable">
+      是否拖拽:
+      <span></span>
+    </label>
+  </div>
+  <div class="form-item">
+    <input type="checkbox" name="resizeable" value="1" id="resizeable">
+    <label class="radio" for="resizeable">
+      是否拉伸:
+      <span></span>
+    </label>
+  </div>
+</div>
+<div class="form-item">
+  <input type="hidden" name="catidpre" id="catidpre" value="{{:node.content[0].catid}}" >
+  <input type="hidden" name="modulname" value="content">
+  <button type="button" class="submit" name="button">添&nbsp;加</button>
+</div>
+<script type="text/javascript">
+  $.get(promiseHost + "/get_catid", function (res) {
+    if(res.code == 200){
+      var data = res.data;
+      var str = '';
+      $.each(data, function (i, field) {
+        if(catidpre == field.id){
+          str += '<option value="'+field.id+'" selected>'+field.catname+'</option>';
+        }else{
+          str += '<option value="'+field.id+'">'+field.catname+'</option>';
+        }
+      })
+      $('.beautify_input').html(str);
+      $('.beautify_input').cssSelect();
+    }
+  });
+</script>

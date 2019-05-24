@@ -1,0 +1,32 @@
+<div class="grid-stack-item-content name-list m_T10">
+  <div class="grid-stack-item-inner ">
+    <div class="tit">
+      <div class="inner">
+        <a class="on" href="javascript:void(0)" data-nopjax="no">红名单</a>
+        <a href="javascript:void(0)" data-nopjax="no">黑名单</a>
+        <a class="more" href=""></a>
+      </div>
+    </div>
+    {{for res}}
+    <ul class="{{if #index == 0}}on{{/if}} m_T10">
+      {{for list}}
+      {{if #index < ~root.node.content[0].num}}
+        <li><a class="text-hidden" href=""><span class="c-{{:#getIndex() + 1}}">{{:#getIndex() + 1}}</span>{{:title}}</a></li>
+      {{/if}}
+      {{/for}}
+    </ul>
+    {{/for}}
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').off('click','.name-list .tit .inner a:not(.more)').on('click','.name-list .tit .inner a:not(.more)',function () {
+      var i = $(this).index();
+      $('.name-list .tit .inner a:not(.more)').removeClass('on');
+      $(this).addClass('on');
+      $('.name-list ul').removeClass('on');
+      $('.name-list ul').eq(i).addClass('on');
+    })
+
+  });
+</script>
