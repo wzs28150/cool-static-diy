@@ -18,7 +18,29 @@
     <button type="button" class="add_catid"><i class="fa fa-plus"></i>添加栏目</button>
   </label>
 </div>
-<div class="content {{if node && node.style.isSwitch == 1  }}list{{/if}}">
+
+{{if node && node.content}}
+<div class="content {{if node && node.style.isSwitch == 1 }}list{{/if}}">
+  {{for node.content}}
+  <div class="item">
+    <div class="form-item">
+      <label for="">
+        栏目
+      </label>
+      <select class="beautify_input" id="catid{{: #index}}" data-value="{{:catid}}" name="catid[]">
+      </select>
+    </div>
+    <div class="form-item">
+      <label for="num">
+        显示个数:
+      </label>
+      <input type="number" id="num" name="num[]" value="{{:num}}">
+    </div>
+  </div>
+  {{/for}}
+</div>
+{{else}}
+<div class="content {{if node && node.style.isSwitch == 1 }}list{{/if}}">
   <div class="item">
     <div class="form-item">
       <label for="">
@@ -35,32 +57,33 @@
     </div>
   </div>
 </div>
+{{/if}}
 <div class="radio-group">
   <label class="radio" for="">
     题头样式:
   </label>
   <div class="list">
     <div class="form-item {{if node && node.style.isSwitch == 1  }}isSwitch{{/if}}">
-      <input type="radio" id="tittType1" name="tittType" checked value="1">
+      <input type="radio" id="tittType1" name="tittType" {{if node && node.style.tittType == 1  }}checked{{else !node}}checked{{/if}} value="1">
       <label class="radio" for="tittType1">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type1.jpg" height="40" alt="">
       </label>
     </div>
     <div class="form-item {{if node && node.style.isSwitch == 1  }}isSwitch{{/if}}">
-      <input type="radio" id="tittType2" name="tittType" value="2">
+      <input type="radio" id="tittType2" name="tittType" {{if node && node.style.tittType == 2  }}checked{{/if}} value="2">
       <label class="radio" for="tittType2">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type2.jpg" height="40" alt="">
       </label>
     </div>
     <!-- isSwitch -->
     <div class="form-item {{if node && node.style.isSwitch == 1  }}{{else}}isSwitch{{/if}}">
-      <input type="radio" id="tittType3" name="tittType" value="3">
+      <input type="radio" id="tittType3" name="tittType" {{if node && node.style.tittType == 3  }}checked{{/if}} value="3">
       <label class="radio" for="tittType3">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type3.jpg" height="40" alt="">
       </label>
     </div>
     <div class="form-item {{if node && node.style.isSwitch == 1  }}{{else}}isSwitch{{/if}}">
-      <input type="radio" id="tittType4" name="tittType" value="4">
+      <input type="radio" id="tittType4" name="tittType" {{if node && node.style.tittType == 4 }}checked{{/if}} value="4">
       <label class="radio" for="tittType4">
         <span class="fl m_T10 m_R10 mLn"></span><img src="{{:tplpath}}/news/img/news_tit_type4.jpg" height="40" alt="">
       </label>
@@ -119,22 +142,34 @@
     $('.add-widget-form .inner').getNiceScroll(0).resize();
     load_catid()
   })
-  load_catid()
+
+  $(document).ready(function() {
+    // $('.add-widget-form .inner').getNiceScroll(0).resize();
+    load_catid()
+  });
+
+
 
   function load_catid() {
     $.get(promiseHost + "/get_catid", function(res) {
       if (res.code == 200) {
         var data = res.data;
         var str = '';
-        $.each(data, function(i, field) {
-          if (catidpre) {
-            str += '<option value="' + field.id + '" selected>' + field.catname + '</option>';
-          } else {
-            str += '<option value="' + field.id + '">' + field.catname + '</option>';
-          }
-        })
-        $('.beautify_input').html(str);
-        $('.beautify_input').cssSelect();
+
+        $('.beautify_input').each(function(index) {
+          var val = $(this).data('value');
+          var str = '';
+          $.each(data, function(i, field) {
+            if (val == field.id) {
+              str += '<option value="' + field.id + '" selected>' + field.catname + '</option>';
+            } else {
+              str += '<option value="' + field.id + '">' + field.catname + '</option>';
+            }
+          })
+          $(this).html(str);
+          $(this).cssSelect();
+        });
+
       }
     });
   }

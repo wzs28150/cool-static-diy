@@ -11,15 +11,22 @@
   </div>
 </div>
 <script type="text/javascript">
-  var ad_pic_scrollswiper{{:res.catid}} = new Swiper('#ad_pic_scroll{{:res.catid}} .swiper-container', {
-    speed: 2000,
-    autoplay: 2000,
-    loop: true,
-    pagination: '.ad_pic_scroll .swiper-pagination',
-    paginationClickable: true,
-    paginationBulletRender: function(swiper, index, className) {
-      return '<span class="' + className + '">' + (index + 1) + '</span>';
-    }
-  });
 
+  $(document).ready(function() {
+    function ad_pic_scroll_load() {
+      // $('.news_pic .swiper-container').width($('.news_pic').width())
+      var ad_pic_scrollswiper{{:res.catid}} = new Swiper('#ad_pic_scroll{{:res.catid}} .swiper-container', {
+        speed: 2000,
+        autoplay: 2000,
+        loop: true,
+        pagination: '.ad_pic_scroll .swiper-pagination',
+        paginationClickable: true,
+        paginationBulletRender: function(swiper, index, className) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>';
+        }
+      });
+    }
+    setTimeout(ad_pic_scroll_load, 500);
+
+  });
 </script>

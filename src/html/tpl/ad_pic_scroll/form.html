@@ -55,7 +55,7 @@
   $.get(promiseHost + "/get_ad_type", function(res) {
     if (res.code == 200) {
       var data = res.data;
-      var string = '';
+      var string = '<option value="" selected>请选择广告位</option>';
       var catidpre = $('#catidpre').val();
       $.each(data, function(i, field) {
         if (catidpre) {

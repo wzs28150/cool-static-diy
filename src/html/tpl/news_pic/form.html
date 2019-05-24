@@ -1,8 +1,9 @@
 <div class="form-item">
-  <label for="num">
-    显示个数:
+  <label for="">
+    栏目
   </label>
-  <input type="number" id="num" name="num" value="7">
+  <select class="beautify_input" id="catid" name="catid[]">
+  </select>
 </div>
 <div class="form-item">
   <label for="height">
@@ -16,6 +17,13 @@
   </label>
   <input type="number" id="width" name="width" value="{{:width?width:4}}">
 </div>
+<div class="form-item">
+  <label for="num">
+    显示个数:
+  </label>
+  <input type="number" id="num" name="num[]" value="7">
+</div>
+
 <div class="row">
   <div class="form-item">
     <input type="checkbox" name="dragable" value="1" id="dragable">
@@ -33,8 +41,8 @@
   </div>
 </div>
 <div class="form-item">
-  <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}" >
-  <input type="hidden" name="modulname" value="news">
+  <input type="hidden" name="catidpre" id="catidpre" value="{{:node.content[0].catid}}" >
+  <input type="hidden" name="modulname" value="content">
   <button type="button" class="submit" name="button">添&nbsp;加</button>
 </div>
 <script type="text/javascript">
@@ -43,7 +51,7 @@
       var data = res.data;
       var str = '';
       $.each(data, function (i, field) {
-        if(catidpre){
+        if(catidpre == field.id){
           str += '<option value="'+field.id+'" selected>'+field.catname+'</option>';
         }else{
           str += '<option value="'+field.id+'">'+field.catname+'</option>';

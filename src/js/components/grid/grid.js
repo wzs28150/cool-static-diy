@@ -120,7 +120,7 @@ export default class Grid {
       let str = '';
       $.get(tplpath + "/" + node.template + "/index.html", function (e) {
         let t = $.templates(e);
-        console.log(node);
+        // console.log(node);
         if (node.modulname) {
           if (node.content) {
             $.post(promiseHost + "/get_widget_datalist?modulname=" + node.modulname, {
@@ -266,14 +266,14 @@ export default class Grid {
     $('body').off('click', '.add-widget-form .form-item button.submit').on('click', '.add-widget-form .form-item button.submit', function () {
       let data = $('.add-widget-form form').serializeJson();
       let node = data;
-      // console.log(data);
+      console.log(data);
       // {template: "news1", catid: "1", num: "7", dragable: "1"}
       data.style = {}, data.content = [];
       let arr = [],
         obj = {};
       if (data.isSwitch) {
         obj.isSwitch = data.isSwitch;
-      }else{
+      } else {
         obj.isSwitch = 0;
       }
 
@@ -291,7 +291,14 @@ export default class Grid {
           })
         });
       }
+
+
+
       data.content = arr;
+      if (data.id) {
+        console.log(data.content[0]);
+        data.content[0].aid = data.id;
+      }
       node = data;
       //node.content = JSON.stringify(arr);
       console.log(node);
@@ -378,19 +385,54 @@ export default class Grid {
           str += '  <div class="inner"><form ><input type="hidden" name="template" value="' + template + '"><input type="hidden" name="template_id" value="' + template_id + '">' + t.render(data1) + '</form></div>';
           str += '</div>';
           $('body').append(str);
+          $('.add-widget-form .inner').niceScroll({
+            horizrailenabled: false,
+            cursorcolor: '#1479d7',
+            zindex: 10
+          });
         }
       })
 
       $('body').off('click', '.add-widget-form .form-item button.submit').on('click', '.add-widget-form .form-item button.submit', function () {
         let data = $('.add-widget-form form').serializeJson();
-        parent.data('gs-catid', data.catid);
+
+        let arr = [],
+          obj = {};
+        if (data.isSwitch) {
+          obj.isSwitch = data.isSwitch;
+        } else {
+          obj.isSwitch = 0;
+        }
+
+        if (data.tittType) {
+          obj.tittType = data.tittType;
+        }
+
+        data.style = obj;
+        if ($('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]')) {
+          $('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]').each(function (i) {
+            arr.push({
+              catid: $('.add-widget-form form select[name="catid[]"],.add-widget-form form input[name="catid[]"]').eq(i).val(),
+              num: $('.add-widget-form form input[name="num[]"]').eq(i).val()
+            })
+          });
+        }
+
+        data.content = arr;
+        if (data.id) {
+          console.log(data.content[0]);
+          data.content[0].aid = data.id;
+        }
+        console.log(data);
+        parent.data('gs-content', data.content);
         parent.data('gs-modulname', data.modulname);
         parent.data('gs-height', data.height);
-        parent.data('gs-num', data.num);
+        parent.data('gs-width', data.width);
+        parent.data('gs-style', data.style);
         that.grid._updateElement(parent, function () {
 
         })
-        that.save_grid();
+        // that.save_grid();
         that.add_form_close();
       });
     })

@@ -1,10 +1,4 @@
 <div class="form-item">
-  <label for="num">
-    显示个数:
-  </label>
-  <input type="number" id="num" name="num" value="1">
-</div>
-<div class="form-item">
   <label for="height">
     高度
   </label>
@@ -33,6 +27,8 @@
   </div>
 </div>
 <div class="form-item">
+  <input type="hidden" id="num" name="catid[]" readonly value="headlines">
+  <input type="hidden" id="num" name="num[]" readonly value="5">
   <input type="hidden" name="catidpre" id="catidpre" value="{{:catid}}" >
   <input type="hidden" name="modulname" value="content">
   <button type="button" class="submit" name="button">添&nbsp;加</button>
