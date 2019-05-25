@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
 /*!
- * News 新闻模块  v0.0.1
+ * Index 首页模块  v0.0.1
  *
  * Copyright wzs
  * Released under the MIT license
@@ -10,12 +10,13 @@
 
 import debug from '../components/debug/debug'; // 控制台调试
 
-export default class News {
+export default class Name_list {
   constructor(setNavActive, setData) {
     // 设置导航第几个选中
     setNavActive(0);
     // 控制台输出信息 方便调试页面是否加载
-    debug('news controller is load');
+    debug('Name_list controller is load');
+    let that = this;
   }
 
   index() {

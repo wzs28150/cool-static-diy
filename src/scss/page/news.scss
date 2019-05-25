@@ -170,7 +170,7 @@
                     height        : 16px;
                     border        : 1px solid #ccc;
                     border-radius : 100%;
-                    margin-right  : 0.5em;
+                    margin-right  : .5em;
                     margin-top    : 10px;
                     vertical-align: middle;
                     position      : relative;
@@ -229,13 +229,17 @@
           border-bottom: 2px solid #1479d7;
 
           .tit {
-            height          : 44px;
-            line-height     : 44px;
-            width           : 106px;
-            text-align      : center;
-            background-color: #1479d7;
-            color           : #fff;
-            font-size       : 16px;
+            height     : 44px;
+            line-height: 44px;
+            width      : 106px;
+            text-align : center;
+            color      : #333;
+            font-size  : 16px;
+
+            &.on {
+              background-color: #1479d7;
+              color           : #fff;
+            }
           }
 
           .breadcrumbs {

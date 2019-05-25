@@ -3,7 +3,7 @@
 }; %>
 <%= _.template(require('../includes/header.html'))(data) %>
 <main class="main page-animate">
-  <article class="news" data-controller="news">
+  <article class="news" data-controller="name_list">
     <div class="container  m_B20">
       <div class="news-inner">
         <div class="news-left fl">
@@ -23,28 +23,26 @@
           </div>
           <div class="news-list">
             <div class="news-list-tit m_T10">
-              <div class="tit fl on">案例分析</div>
+              <a class="tit fl on" href="">企业红榜</a>
+              <a class="tit fl" href="">黑名单</a>
               <div class="breadcrumbs  fr">
-                当前位置：<a href="">黑龙江消费网</a> &gt; <a href="">新闻中心</a> &gt; <a href="">新闻详细</a>
+                当前位置：<a href="">首页</a> &gt; <a href="">企业红榜 </a>
               </div>
             </div>
-            <ul class="list">
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-              <li><a class="text-hidden" href="/newsInfo_1_1.html">哈尔滨开展“净网”行动保障网络餐饮食品安全 <span class="author">杨保学</span> <span class="time">2019/3/15 15:39:22</span></a></li>
-            </ul>
+            <table class="name_list_left">
+              <tr>
+                <td>公司名称</td>
+                <td>统一社会信用代码</td>
+                <td>类别</td>
+                <td>操作</td>
+              </tr>
+              <tr>
+                <td>重庆公路运输（集团）有限公司 </td>
+                <td>915000002028007432</td>
+                <td>优</td>
+                <td><a href="">查看&gt;</a></td>
+              </tr>
+            </table>
             <div class="pagination m_T55 m_B60">
               <ul>
                 <a href="">上一页</a>
