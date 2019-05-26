@@ -1,1 +1,58 @@
+<% var data = {
+  title: "cool web"
+}; %>
+<%= _.template(require('../includes/header.html'))(data) %>
+<main class="main page-animate">
+  <article class="news" data-controller="news">
+    <div class="container  m_B20">
+      <div class="news-inner">
+        <div class="news-left fl">
+          <div class="ad_pic_scroll">
+            <div class="swiper-container m_T10">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="name-info">
+            <div class="breadcrumbs m_T10">
+              当前位置：<a href="">黑龙江消费网</a> &gt; <a href="">新闻中心</a> &gt; <a href="">新闻详细</a>
+            </div>
+            <div class="inner p_20">
+              <div class="title text-center m_T10 p_B30">重庆公路运输（集团）有限公司</div>
 
+              <div class="content m_T25">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重庆公路运输（集团）有限公司简介：重庆公路运输（集团）有限公司是重庆市交运集团下属国有大型物流骨干企业，交通部重点联系道路运输单位。公司拥有AAAAA(5A)物流企业资质，货运一级资质，大件运输四级资质（最高级别），客运二级资质，并通过了ISO9001：2008国际质量体系认证。公司实施以“百亿航母”和“百年老店”为核心的“双百”战略发展方针。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司经过半个多世纪的发展，沉淀出了“开拓、求实、拼搏、奉献”的企业精神，全体员工秉承企业精神，使公司得以成长壮大，也得到了社会的认可。公司分别荣获全国食品冷链物流重点联系企业、重庆市“十佳”物流诚信企业、重庆市物流实习基地、重庆春运工作先进集体、5.12抗震救灾先进集体、纳税信用A级纳税人等荣誉。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“十二五”期间，依托集团强有力的公路货运能力、城市配送能力；依托集团逐步完善的仓储设施仓储经营和信息化管理体系；依托集团特有的货物集、疏、散能力和正在加速建设的物流基地，建设公、铁、水、空综合交通网上的现代物流运作体系和公铁、公水、公空的立体多式联运体系。到2015年，在继续稳定经营城市客运和延伸拓展商贸经营产业链的基础上，把集团打造成为集公路干线运输、城市物流配送、港口物资集散、国际国内货代为一体的物流全程经营人；打造大件吊运、公空联运、化危品运输、冷链物流的专业、特色、精细的物流旗舰企业；打造成为具有核心竞争力的现代第三方物流企业和西部公路物流业的“百亿航母”。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司作为重庆“老字号”交通运输企业，通过数十年经营管理经验的总结与硬件设施建设的积累具备了打造城市物流配送体系、助力重庆经济发展的优势。城市配送业务的开展和城市配送体系的建立是公司在随着重庆城区面积的扩展、重庆工业企业“退二进三”完成建设后，立足于服务主城消费的一种商业模式。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长期从事物流货运及其相关产业的经营使公司打下了城市配送的坚实基础，与时俱进的经营理念遍布主城各区的经营网点、机动灵活的配送车辆、经验丰富的配送人员、标准规范的配送服务、规模化经营后形成的价格优势、全程化的物流经营及先进的信息技术支持是公司从事城市物流配送的优势充分发挥现有优势。</p>
+              </div>
+              <div class="next text-center">
+                <a href="">
+                广州白云国际机场空港快线运输有限公司<br/>2018年第1期道路客运企业公共信用综合评价 优-
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= _.template(require('../includes/right.html'))(data) %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+
+      });
+    </script>
+  </article>
+</main>
+
+<%= _.template(require('../includes/footer.html'))(data) %>

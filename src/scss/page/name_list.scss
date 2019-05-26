@@ -11,4 +11,36 @@
       color: #3fa0f9;
     }
   }
+
+  tr {
+    line-height: 50px;
+
+    td {
+      padding: 0 15px;
+    }
+
+    &:first-child {
+      line-height: 38px;
+    }
+  }
+}
+
+.name-info {
+  .inner {
+    border: 1px solid #e5e5e5;
+
+    .title {
+      font-size    : 18px;
+      color        : #333333;
+      font-weight  : bold;
+      line-height  : 1em;
+      border-bottom: 1px solid #eee;
+    }
+
+    .content {
+      font-size  : 14px;
+      line-height: 30px;
+      color      : #333;
+    }
+  }
 }
