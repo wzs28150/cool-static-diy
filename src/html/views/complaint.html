@@ -3,7 +3,7 @@
 }; %>
 <%= _.template(require('../includes/header.html'))(data) %>
 <main class="main page-animate">
-  <article class="news" data-controller="news">
+  <article class="news" data-controller="complaint">
     <div class="container  m_B20">
       <div class="news-inner">
         <div class="news-left fl">
@@ -21,34 +21,117 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="news-list">
+          <div class="news-list tousu-info">
             <div class="news-list-tit m_T10">
-              <a class="tit fl on" href="">调查问卷</a>
+              <a class="tit fl on" href="">投诉中心</a>
               <div class="breadcrumbs  fr">
-                当前位置：<a href="">首页</a> &gt; <a href="">调查问卷 </a>
+                当前位置：<a href="">首页</a> &gt; <a href="">投诉中心 </a>
               </div>
             </div>
-            <table class="name_list_left m_T10">
-              <tr>
-                <td>调查问卷列表</td>
-                <td width="150" class="text-center">调查时间</td>
-              </tr>
-              <% for(var i = 0;i<20;i++){ %>
-              <tr>
-                <td><a class="c-3" href="complaint_info.html">关于“双十一”电商促销行为对消费者的影响</a> </td>
-                <td class="text-center"><span class="time">2019/3/15 15:39:22</span></td>
-              </tr>
-              <%}%>
-            </table>
-            <div class="pagination m_T55 m_B60">
-              <ul>
-                <a href="">上一页</a>
-                <a class="on" href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">下一页</a>
-              </ul>
+            <div class="must-read m_T20 p_L30 p_R30 p_T20 p_B20">
+              <div class="tit">
+                投诉必读:
+              </div>
+              <div class="content m_T10">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎广大消费者投诉举报，本站会在第一时间将您反映的问题提交有关部门进行跟踪处理，请耐心等候处理结果。根据《中华人民共和国消费者权益保护法》有关规定，本频道提醒您投诉时注意如下事宜：</p>
+                <p style="color:#f93d3e;">为便于及时受理您的投诉，请您务必填写以下内容：</p>
+                <p>1、被投诉方准确的联系地址、邮编及联系电话；</p>
+                <p>2、有明确的投诉理由和要求，且确保陈述情况真实；</p>
+                <p>3、提供购买商品和接受服务的凭据复印件或其他有关证明材料；</p>
+                <p>4、投诉者的地址及电话。</p>
+                <p style="color:#f93d3e;">如果您反映的问题属于以下情况之一，很抱歉，本频道将不予受理：</p>
+                <p>1、 经营者之间购、销活动方面的纠纷；</p>
+                <p>2、企业之间的债务纠纷等非消费类纠纷；</p>
+                <p>3、消费者个人私下交易纠纷；</p>
+                <p>4、对政府部门或工作人员失职、渎职或腐败行为的举报；</p>
+                <p>5、没有明确投诉对象或投诉对象无法查找、联络的纠纷；</p>
+                <p>6、法院、有关行政部门、仲裁机构已处理结案的消费纠纷；</p>
+                <p>7、争议双方曾达成和解协议并已执行，而且没有新情况、新理由的纠纷；</p>
+                <p>8、不符合国家法律、法规有关规定的纠纷等。</p>
+              </div>
+            </div>
+            <div class="inner p_20">
+              <div class="tousu-tit m_T10 m_B20 text-center">
+                投诉中心
+              </div>
+              <form action="">
+                <table>
+                  <tr>
+                    <th>姓名：</th>
+                    <td><input type="text" name="" value="" placeholder="请输入您的姓名"></td>
+                  </tr>
+                  <tr>
+                    <th>性别：</th>
+                    <td><label class="m_R20" for="sex1"><input type="radio" id="sex1" name="sex" value="1">男</label><label for="sex2"><input type="radio" id="sex2" name="sex" value="2">女</label></td>
+                  </tr>
+                  <tr>
+                    <th>电话号码：</th>
+                    <td><input type="text" name="" value="" placeholder="请输入您的电话号码"></td>
+                  </tr>
+                  <tr>
+                    <th>联系地址：</th>
+                    <td>
+                      <div class="group">
+                        <select class="beautify_input" name="province">
+                          <option value="">请选择省份</option>
+                        </select>
+                        <select class="beautify_input" name="city">
+                          <option value="">请选择市</option>
+                        </select>
+                        <select class="beautify_input" name="district">
+                          <option value="">请选择区</option>
+                        </select>
+                      </div>
+                      <div class="clearfix"></div>
+                      <textarea name="name" class="m_T20" rows="4" cols="80" placeholder="请输入详细地址"></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>投诉单位：</th>
+                    <td><input type="text" name="" value="" placeholder="请输入您要投诉的单位名称"></td>
+                  </tr>
+                  <tr>
+                    <th>投诉方负责人：</th>
+                    <td><input type="text" name="" value="" placeholder="请输入投诉方负责人姓名"></td>
+                  </tr>
+                  <tr>
+                    <th>投诉方负责人联系方式：</th>
+                    <td><input type="text" name="" value="" placeholder="请输入投诉方负责人联系方式"></td>
+                  </tr>
+                  <tr>
+                    <th>投诉主题：</th>
+                    <td><input type="text" name="" value="" placeholder="请输入您要投诉的主题内容"></td>
+                  </tr>
+                  <tr>
+                    <th>投诉类别：</th>
+                    <td>
+                      <select class="beautify_input" name="type">
+                        <option value="">不指定类别</option>
+                      </select>
+                      <div class="clearfix"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>投诉内容：</th>
+                    <td>
+                      <textarea name="name" class="" rows="8" cols="80" placeholder="请输入详细地址"></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>是否隐藏：</th>
+                    <td><label class="m_R20" for="isHidden1"><input type="radio" id="isHidden1" name="isHidden" value="1">是</label><label for="isHidden2"><input type="radio" id="isHidden2" name="isHidden" value="2" checked>否</label></td>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <td>
+                      <div class="m_T20">
+                        <button type="submit" class="m_R20" name="button">发表</button>
+                        <button type="reset" name="button">重置</button>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </form>
             </div>
           </div>
         </div>

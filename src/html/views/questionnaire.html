@@ -1,1 +1,161 @@
 
+<% var data = {
+  title: "cool web"
+}; %>
+<%= _.template(require('../includes/header.html'))(data) %>
+<main class="main page-animate">
+  <article class="news" data-controller="news">
+    <div class="container  m_B20">
+      <div class="news-inner">
+        <div class="news-left fl">
+          <div class="ad_pic_scroll">
+            <div class="swiper-container m_T10">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="news-list complaint-info">
+            <div class="news-list-tit m_T10">
+              <a class="tit fl on" href="">调查问卷</a>
+              <div class="breadcrumbs  fr">
+                当前位置：<a href="">首页</a> &gt; <a href="">调查问卷 </a>
+              </div>
+            </div>
+            <div class="inner p_20">
+              <div class="title text-center m_T30 p_B20">关于用户对黑龙消费网满意度的调查问卷</div>
+              <div class="time text-center">时间：2019年4月27日</div>
+              <div class="content m_T25">
+                <p><strong>尊敬的用户:</strong></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好！为了给您提供更好的服务，我们希望收集您对黑龙江消费网的看法或建议,以便我们能对产品、服务做出更好的调整。调查可能需要几分钟的时间，谢谢你的配合！</p>
+              </div>
+              <div class="form m_T20">
+                <form action="">
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>1、</span>您对目前黑龙江消费网的整体满意度如何？
+                    </div>
+                    <div class="option-list felx-box">
+                      <label class="felx-item" for="myd5"><input type="radio" name="myd" id="myd5" value="5" checked>非常满意</label>
+                      <label class="felx-item" for="myd4"><input type="radio" name="myd" id="myd4" value="4">满意</label>
+                      <label class="felx-item" for="myd3"><input type="radio" name="myd" id="myd3" value="3">一般</label>
+                      <label class="felx-item" for="myd2"><input type="radio" name="myd" id="myd2" value="2">不满意</label>
+                      <label class="felx-item" for="myd1"><input type="radio" name="myd" id="myd1" alue="1">非常不满意</label>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>2、</span>您的性别是?
+                    </div>
+                    <div class="option-list">
+                      <label class="felx-item m_R40" for="sex1"><input type="radio" name="sex" id="sex1" value="1" checked>男</label>
+                      <label class="felx-item m_R40" for="sex2"><input type="radio" name="sex" id="sex2" value="2">女</label>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>3、</span>您的教育程度是?
+                    </div>
+                    <div class="option-list felx-box">
+                      <label class="felx-item" for="edu1"><input type="radio" name="edu" id="edu1" value="1" checked>大专</label>
+                      <label class="felx-item" for="edu2"><input type="radio" name="edu" id="edu2" value="2">本科</label>
+                      <label class="felx-item" for="edu3"><input type="radio" name="edu" id="edu3" value="3">研究生</label>
+                      <label class="felx-item" for="edu4"><input type="radio" name="edu" id="edu4" value="4">博士生</label>
+                      <label class="felx-item" for="edu5"><input type="radio" name="edu" id="edu5" value="5">博士生以上</label>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>4、</span>您可以方便的查看到您想要查看的新闻信息吗?
+                    </div>
+                    <div class="option-list felx-box">
+                      <label class="felx-item" for="isfb1"><input type="radio" name="isfb" id="isfb1" value="1" checked>非常方便</label>
+                      <label class="felx-item" for="isfb2"><input type="radio" name="isfb" id="isfb2" value="2">满意</label>
+                      <label class="felx-item" for="isfb3"><input type="radio" name="isfb" id="isfb3" value="3">一般</label>
+                      <label class="felx-item" for="isfb4"><input type="radio" name="isfb" id="isfb4" value="4">不方便</label>
+                      <label class="felx-item" for="isfb5"><input type="radio" name="isfb" id="isfb5" value="5">非常不方便</label>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>5、</span>您每天会花费多长时间在互联网上?
+                    </div>
+                    <div class="option-list felx-box">
+                      <label class="felx-item" for="spend1"><input type="radio" name="spend" id="spend1" value="1" checked>2个小时以下</label>
+                      <label class="felx-item felx-item" for="spend2"><input type="radio" name="spend" id="spend2" value="2">2个小时~4个小时</label>
+                      <label class="felx-item" for="spend3"><input type="radio" name="spend" id="spend3" value="3">4个小时-6个小时</label>
+                      <label class="felx-item" for="spend4"><input type="radio" name="spend" id="spend4" value="4">6个小时以上</label>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>6、</span>您平时关注的内容都有哪些?<i>（可多选）</i>
+                    </div>
+                    <div class="option-list checkbox col-7">
+                      <label class="felx-item" for="follow1"><input type="checkbox" name="follow" id="follow1" value="1">新闻</label>
+                      <label class="felx-item" for="follow2"><input type="checkbox" name="follow" id="follow2" value="2">财经</label>
+                      <label class="felx-item" for="follow3"><input type="checkbox" name="follow" id="follow3" value="3">体育</label>
+                      <label class="felx-item" for="follow4"><input type="checkbox" name="follow" id="follow4" value="4">文娱</label>
+                      <label class="felx-item" for="follow5"><input type="checkbox" name="follow" id="follow5" value="5">金融</label>
+                      <label class="felx-item" for="follow6"><input type="checkbox" name="follow" id="follow6" value="6">旅游</label>
+                      <label class="felx-item" for="follow7"><input type="checkbox" name="follow" id="follow7" value="7">家居</label>
+                      <label class="felx-item" for="follow8"><input type="checkbox" name="follow" id="follow8" value="8">教育</label>
+                      <label class="felx-item" for="follow9"><input type="checkbox" name="follow" id="follow9" value="9">培训</label>
+                      <label class="felx-item" for="follow10"><input type="checkbox" name="follow" id="follow10" value="10">IT</label>
+                      <label class="felx-item" for="follow11"><input type="checkbox" name="follow" id="follow11" value="11">保险</label>
+                    </div>
+
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>7、</span>您认为目前还存在的主要问题是?<i>（可多选）</i>
+                    </div>
+                    <div class="option-list checkbox col-2">
+                      <label class="felx-item" for="follow1"><input type="checkbox" name="follow" id="follow1" value="1">已经很满意，没什么问题了</label>
+                      <label class="felx-item" for="follow2"><input type="checkbox" name="follow" id="follow2" value="2">找不到想要的产品或者分类</label>
+                      <label class="felx-item" for="follow3"><input type="checkbox" name="follow" id="follow3" value="3">打开速度过慢</label>
+                      <label class="felx-item" for="follow4"><input type="checkbox" name="follow" id="follow4" value="4">促销信息不好找</label>
+                      <label class="felx-item" for="follow5"><input type="checkbox" name="follow" id="follow5" value="5">已经很满意，没什么问题了</label>
+                      <label class="felx-item" for="follow6"><input type="checkbox" name="follow" id="follow6" value="6">找不到想要的产品或者分类</label>
+                      <label class="felx-item" for="follow7"><input type="checkbox" name="follow" id="follow7" value="7">打开速度过慢</label>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15">
+                    <div class="option-tit m_B10">
+                      <span>8、</span>您对黑龙江消费网还有哪些其他的意见或者建议，请告诉我们，谢谢您的支持?
+                    </div>
+                    <div class="option-list">
+                      <textarea name="name" class="p_10" rows="8" cols="80"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-item p_T15 p_B15 bTn">
+                    <div class="option-list">
+                      <button type="submit" class="m_R40" name="button">提交</button>
+                      <button type="reset" name="button">重置</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= _.template(require('../includes/right.html'))(data) %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+
+      });
+    </script>
+  </article>
+</main>
+
+<%= _.template(require('../includes/footer.html'))(data) %>

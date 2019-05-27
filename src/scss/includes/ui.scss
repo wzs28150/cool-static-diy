@@ -80,6 +80,14 @@ table {
   display              : flex;
   flex-flow            : row nowrap;
   align-items          : left;
+
+  &.wrap {
+    flex-flow: row wrap;
+  }
+
+  &.nojustify {
+    -webkit-box-pack: left;
+  }
 }
 /*分组子级*/
 .felx-item {

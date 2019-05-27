@@ -1,0 +1,67 @@
+<% var data = {
+  title: "cool web"
+}; %>
+<%= _.template(require('../includes/header.html'))(data) %>
+<main class="main page-animate">
+  <article class="news" data-controller="news">
+    <div class="container  m_B20">
+      <div class="news-inner">
+        <div class="news-left fl">
+          <div class="ad_pic_scroll">
+            <div class="swiper-container m_T10">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="news-list">
+            <div class="news-list-tit m_T10">
+              <a class="tit fl on" href="">调查问卷</a>
+              <div class="breadcrumbs  fr">
+                当前位置：<a href="">首页</a> &gt; <a href="">调查问卷 </a>
+              </div>
+            </div>
+            <table class="name_list_left m_T10">
+              <tr>
+                <td>调查问卷列表</td>
+                <td width="150" class="text-center">调查时间</td>
+              </tr>
+              <% for(var i = 0;i<20;i++){ %>
+              <tr>
+                <td><a class="c-333" href="complaint_info.html">关于“双十一”电商促销行为对消费者的影响</a> </td>
+                <td class="text-center"><span class="time">2019/3/15 15:39:22</span></td>
+              </tr>
+              <%}%>
+            </table>
+            <div class="pagination m_T55 m_B60">
+              <ul>
+                <a href="">上一页</a>
+                <a class="on" href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">下一页</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <%= _.template(require('../includes/right.html'))(data) %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+
+      });
+    </script>
+  </article>
+</main>
+
+<%= _.template(require('../includes/footer.html'))(data) %>
