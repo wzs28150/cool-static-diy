@@ -81,11 +81,28 @@
                       <label for="name">评论：</label>
                       <textarea name="name" autocomplete="off"></textarea>
                     </div>
-                    <div class="form-item m_T10">
+                    <div class="form-item ">
                       <label for="name"></label>
-                      <button type="button" name="button">发表评论</button>
+                      <div class="inner clearfix p_T10 p_B10">
+                        <button type="button" class="fr" name="button">发表评论</button>
+                      </div>
                     </div>
                   </form>
+                </div>
+                <div class="related-tit">
+                  热门评论
+                </div>
+                <div class="pinglun-list">
+                  <% for(var i=0;i<5;i++){%>
+                  <div class="item p_T10 p_B10">
+                    <div class="pinglun-info clearfix p_B10 p_T10">
+                      <span>网友：<i>小狮子</i></span>  <span>评价：<i>3分</i></span> <span>2019年6月3日</span>
+                    </div>
+                    <div class="pinglun-content">
+                      重视思想政治建设，是我们党的特有优势和重要法宝。抓住了思想政治建设，就抓住了党的建设的魂和根。在“不忘初心、牢记使命”主题教育工作会议上，习主席深刻阐述了“思想政治受洗礼” 的重要性，并对党员干部提出了具体要求。认真学习贯彻习主席重要讲话，就要在主题教育中加强党员干部思想政治建设，筑牢信仰之基、补足精神之钙、把稳思想之舵。
+                    </div>
+                  </div>
+                  <%}%>
                 </div>
               </div>
             </div>
@@ -110,6 +127,7 @@
         };
         with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
       });
+
     </script>
   </article>
 </main>
