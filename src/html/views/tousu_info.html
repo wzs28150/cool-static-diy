@@ -1,0 +1,90 @@
+<% var data = {
+  title: "cool web"
+}; %>
+<%= _.template(require('../includes/header.html'))(data) %>
+<main class="main page-animate">
+  <article class="news" data-controller="news">
+    <div class="container  m_B20">
+      <div class="news-inner">
+        <div class="news-left fl">
+          <div class="ad_pic_scroll">
+            <div class="swiper-container m_T10">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="tousu-info">
+            <div class="breadcrumbs m_T10">
+              当前位置：<a href="">黑龙江消费网</a> &gt; <a href="">新闻中心</a> &gt; <a href="">新闻详细</a>
+            </div>
+            <div class="inner p_20">
+              <div class="title text-center m_T10 p_B20">赵女士投诉中国联通非法过户其手机号</div>
+              <div class="time text-center p_B20">投诉时间：2019/01/20 10:15:12</div>
+              <div class="related-tit m_T10">
+                投诉对象情况：
+              </div>
+              <div class="content">
+                <table>
+                  <tr>
+                    <th>被投诉单位：</th>
+                    <td>赵女士投诉中国联通非法过户其手机号</td>
+                  </tr>
+                  <tr>
+                    <th>投诉主题：</th>
+                    <td>赵女士投诉中国联通非法过户其手机号</td>
+                  </tr>
+                  <tr>
+                    <th>投诉类别：</th>
+                    <td>不指定类别</td>
+                  </tr>
+                  <tr>
+                    <th>投诉内容：</th>
+                    <td>
+                      <p>2017年11月11日16.50分左右，我的联通手机号码（132****0000）突然无信号，显示无效SIM卡状态，本人多次尝试更换手机、更换位置均无信号，遂到中国联通中山路营业厅查询情况。</p>
+                      <p>经查询核实，我本人实名注册的号码在我不知情没有到现场的情况下被非法过户到:"中国联合通信有限公司哈尔滨分公司"，组织机构代码证：727698817，工作人员解释说：我的号码是营业员非法违规私自操作过户转卖的12个吉祥号码之一，于2017.11.7日17点41分在原机主没到达现场、没有任何手续下非法过户，于2017.11.11日16点42分进行补卡，故导致我的手机卡无法使用。</p>
+                      <p>本人与联通公司签订过付费使用合同，获得了手机卡的使用权并在手机号无任何欠费的正常使用状态下，未经我同意，联通公司无权对手机卡进行收回、转售处理我本人手机卡中存有话费，手机号码在其不知情的情况下被过户到他人名下，联通公司对此有过错且应负全部责任，其员工的行为理应由公司承担法律责任，公司承担责任后可以向员工追索。依据《合同法》第一百二十二条“因当事人一方的违约行为，侵害对方人身、财产权益的，受损害方有权选择依照本法要求其承担违约责任或者依照其他法律要求其承担侵权责任”之规定，这种过错属于违约与侵权的行为。</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="related-tit m_T10">
+                投诉者情况：
+              </div>
+              <div class="content">
+                <table>
+                  <tr>
+                    <th>投诉者姓名：</th>
+                    <td>赵女士</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="related-tit m_T10">
+                投诉反馈：
+              </div>
+              <div class="content">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3月12日上午，黑龙江消费网电话联系了拼多多相关负责人，拼多多给出长时间不处理不退款并把订单设置为订单异常的原因为消费者涉嫌刷单。经黑龙江消费网投诉中心与拼多多联系沟通，下午，拼多多全额退还了消费者的购货款（3081元）</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= _.template(require('../includes/right.html'))(data) %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+
+      });
+    </script>
+  </article>
+</main>
+
+<%= _.template(require('../includes/footer.html'))(data) %>

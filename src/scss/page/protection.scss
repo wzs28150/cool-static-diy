@@ -1,0 +1,162 @@
+.protection-list {
+  .protection-list-tit {
+    height       : 44px;
+    border-bottom: 2px solid #1479d7;
+
+    .tit {
+      height     : 44px;
+      line-height: 44px;
+      width      : 106px;
+      text-align : center;
+      color      : #333;
+      font-size  : 16px;
+
+      &.on {
+        background-color: #1479d7;
+        color           : #fff;
+      }
+    }
+
+    .breadcrumbs {
+      line-height: 44px;
+    }
+  }
+
+  ul {
+    li {
+      padding      : 15px 0;
+      border-bottom: 1px solid #eee;
+
+      a {
+        span {
+          display: block;
+
+          &.pic {
+            width              : 140px;
+            height             : 122px;
+            background-size    : cover;
+            background-position: center;
+          }
+
+          &.inner {
+            width       : 502px;
+            padding-left: 20px;
+          }
+
+          &.title {
+            font-size  : 18px;
+            color      : #333;
+            line-height: 38px;
+          }
+
+          &.des {
+            font-size         : 14px;
+            line-height       : 24px;
+            color             : #666;
+            height            : 48px;
+            overflow          : hidden;
+            text-overflow     : ellipsis;
+            display           : -webkit-box;
+            -webkit-line-clamp: 2; //行数
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+          }
+
+          &.time {
+            font-size  : 14px;
+            line-height: 24px;
+            color      : #999;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tousu-info {
+  .inner {
+    border: 1px solid #e5e5e5;
+
+    .headlinetit {
+      font-size  : 16px;
+      color      : #333333;
+      line-height: 1em;
+    }
+
+    .title {
+      font-size  : 20px;
+      color      : #333;
+      font-weight: bold;
+      line-height: 1em;
+    }
+
+    .time {
+      font-size    : 14px;
+      color        : #666;
+      line-height  : 1em;
+      border-bottom: 1px solid #eee;
+    }
+
+    .content {
+      font-size  : 14px;
+      line-height: 30px;
+      color      : #333;
+    }
+
+    table {
+      border: 0;
+
+      tr {
+        border: 0;
+
+        &:first-child {
+          background: none;
+        }
+
+        th {
+          width         : 7em;
+          text-align    : right;
+          vertical-align: top;
+          font-size     : 14px;
+          line-height   : 30px;
+          color         : #666;
+          font-weight   : normal;
+        }
+
+        td {
+          font-size  : 14px;
+          line-height: 30px;
+          padding    : 0;
+          border     : 0;
+          color      : #333;
+        }
+      }
+    }
+
+    .related-tit {
+      padding    : 13px 0 13px 12px;
+      font-size  : 18px;
+      color      : #2a2a2a;
+      line-height: 1em;
+      position   : relative;
+
+      &::before {
+        position        : absolute;
+        content         : "";
+        display         : block;
+        width           : 3px;
+        height          : 18px;
+        background-color: #1479d7;
+        left            : 0;
+        top             : 50%;
+        transform       : translateY(-50%);
+      }
+
+      span {
+        font-size: 14px;
+        color    : #999;
+      }
+    }
+  }
+}
