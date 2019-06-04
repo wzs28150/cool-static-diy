@@ -1,0 +1,67 @@
+<% var data = {
+  title: "cool web"
+}; %>
+<%= _.template(require('../includes/header.html'))(data) %>
+<main class="main page-animate">
+  <article class="news" data-controller="news">
+    <div class="container  m_B20">
+      <div class="news-inner">
+        <div class="news-left fl">
+          <div class="ad_pic_scroll">
+            <div class="swiper-container m_T10">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="img/scroll_ad.jpg" alt=""></a></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="lawyer-list">
+            <div class="lawyer-list-tit m_T10">
+              <div class="tit fl on">律师团</div>
+              <div class="breadcrumbs  fr">
+                当前位置：<a href="">黑龙江消费网</a> &gt; <a href="">律师团</a>
+              </div>
+            </div>
+            <ul class="list p_T30">
+              <% for(var i = 0;i<9;i++){ %>
+              <li class="fl">
+                <a class="text-hidden" href="/lawyer_info.html">
+                  <span class="pic" style="background-image:url(img/lawyer.png)"></span>
+                  <span class="inner p_10">
+                    <span class="name">刘学军律师</span>
+                    <span class="des">黑龙江鼎铎律师事务所主任</span>
+                  </span>
+                </a>
+              </li>
+              <%}%>
+            </ul>
+            <div class="pagination m_T55 m_B60">
+              <ul>
+                <a href="">上一页</a>
+                <a class="on" href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">下一页</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <%= _.template(require('../includes/right.html'))(data) %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+      });
+    </script>
+  </article>
+</main>
+
+<%= _.template(require('../includes/footer.html'))(data) %>
